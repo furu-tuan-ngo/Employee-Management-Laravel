@@ -41,7 +41,7 @@ class AuthenticationController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        $token = $user->createToken('Dashboard Auth')->accessToken;
+        $token = $user->createToken('Dashboard Auth');
 
         return response()->json(['token' => $token], 200);
     }
