@@ -24,20 +24,20 @@ License: You must have a valid license purchased only from themeforest(the above
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>        <!--end::Fonts-->
 
                     <!--begin::Page Vendors Styles(used by this page)-->
-                            <link href="{{asset("assets/plugins/custom/fullcalendar/fullcalendar.bundle.css")}}" rel="stylesheet" type="text/css"/>
+                            <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/>
                         <!--end::Page Vendors Styles-->
 
 
         <!--begin::Global Theme Styles(used by all pages)-->
-                    <link href="{{asset("assets/plugins/global/plugins.bundle.css")}}" rel="stylesheet" type="text/css"/>
-                    <link href="{{asset("assets/plugins/custom/prismjs/prismjs.bundle.css")}}" rel="stylesheet" type="text/css"/>
-                    <link href="{{asset("assets/css/style.bundle.css")}}" rel="stylesheet" type="text/css"/>
+                    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
+                    <link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css"/>
+                    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
                 <!--end::Global Theme Styles-->
 
         <!--begin::Layout Themes(used by all pages)-->
                 <!--end::Layout Themes-->
 
-        <link rel="shortcut icon" href="{{asset("assets/media/logos/favicon.ico")}}"/>
+        <link rel="shortcut icon" href="assets/media/logos/favicon.ico"/>
 
             </head>
     <!--end::Head-->
@@ -4301,18 +4301,19 @@ License: You must have a valid license purchased only from themeforest(the above
         <!--end::Global Config-->
 
     	<!--begin::Global Theme Bundle(used by all pages)-->
-    	    	   <script src="{{asset("assets/plugins/global/plugins.bundle.js")}}"></script>
-		    	   <script src="{{asset("assets/plugins/custom/prismjs/prismjs.bundle.js")}}"></script>
-		    	   <script src="{{asset("assets/js/scripts.bundle.js")}}"></script>
+    	    	   <script src="assets/plugins/global/plugins.bundle.js"></script>
+		    	   <script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+		    	   <script src="assets/js/scripts.bundle.js"></script>
 				<!--end::Global Theme Bundle-->
 
                     <!--begin::Page Vendors(used by this page)-->
-                            <script src="{{asset("assets/plugins/custom/fullcalendar/fullcalendar.bundle.js")}}"></script>
+                            <script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
                         <!--end::Page Vendors-->
 
                     <!--begin::Page Scripts(used by this page)-->
-                            <script src="{{asset("assets/js/pages/widgets.js")}}"></script>
+                            <script src="assets/js/pages/widgets.js"></script>
                         <!--end::Page Scripts-->
             </body>
     <!--end::Body-->
 </html>
+
