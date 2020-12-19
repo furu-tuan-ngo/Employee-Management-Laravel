@@ -9,6 +9,9 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        return Auth::user();
+        return response()->json([
+            "success" => true,
+            "data" => Auth::user(),
+        ]);
     }
 }
