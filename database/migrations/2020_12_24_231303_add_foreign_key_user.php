@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeyThaiSan extends Migration
+class AddForeignKeyUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignKeyThaiSan extends Migration
      */
     public function up()
     {
-        Schema::table('thai_san', function (Blueprint $table) {
-            $table->foreignId('ma_nhan_vien')->constrained('nhan_vien')->onDelete('cascade');
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('ma_phan_quyen')->constrained('phan_quyen')->onDelete('cascade');
         });
     }
 
@@ -25,6 +25,5 @@ class AddForeignKeyThaiSan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thai_san');
     }
 }
