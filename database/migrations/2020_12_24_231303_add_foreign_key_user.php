@@ -14,7 +14,7 @@ class AddForeignKeyUser extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('ma_phan_quyen')->constrained('phan_quyen')->onDelete('cascade');
+            // $table->foreignId('ma_phan_quyen')->constrained('phan_quyen')->onDelete('cascade');
             $table->foreignId('ma_nhan_vien')->constrained('nhan_vien')->onDelete('cascade');
         });
     }
