@@ -26,10 +26,6 @@ class NhanVien extends Migration
             $table->string("so_bhyt");
             $table->dateTime("ngay_vao_lam");
             $table->string("so_the_atm");
-            $table->foreign('ton_giao_id')->references('id')->on('ton_giao')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('dan_toc_id')->references('id')->on('dan_toc')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('phong_ban_id')->references('id')->on('phong_ban')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('chuc_vu_id')->references('id')->on('chuc_vu')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
