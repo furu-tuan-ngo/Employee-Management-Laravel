@@ -13,7 +13,7 @@ class NhanVien extends Migration
      */
     public function up()
     {
-        Schema::create('tham_so', function (Blueprint $table) {
+        Schema::create('nhan_vien', function (Blueprint $table) {
             $table->id();
             $table->string('ho_ten');
             $table->string('gioi_tinh');
@@ -40,6 +40,6 @@ class NhanVien extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('nhan_vien');
     }
 }
