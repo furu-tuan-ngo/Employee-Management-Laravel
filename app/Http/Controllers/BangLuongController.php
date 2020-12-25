@@ -16,18 +16,17 @@ class BangLuongController extends Controller
 
     public function index()
     {
-        return "demo";
-        // try {
-        //     $bangLuongs = $this->bangLuongService->getBangLuongs();
-        //     return response()->json([
-        //         'success' => true,
-        //         'data' => $bangLuongs
-        //     ]);
-        // } catch (\Exception $e) {
-        //     return response()->json([
-        //         'success' => false,
-        //         'message' => $e->getMessage()
-        //     ]);
-        // }
+        try {
+            $bangLuongs = $this->bangLuongService->getBangLuongs();
+            return response()->json([
+                'success' => true,
+                'data' => $bangLuongs
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
     }
 }
