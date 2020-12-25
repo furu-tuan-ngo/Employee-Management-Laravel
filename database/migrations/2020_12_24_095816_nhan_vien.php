@@ -26,6 +26,7 @@ class NhanVien extends Migration
             $table->string("so_bhyt");
             $table->dateTime("ngay_vao_lam");
             $table->string("so_the_atm");
+            $table->timestamps();
         });
     }
 

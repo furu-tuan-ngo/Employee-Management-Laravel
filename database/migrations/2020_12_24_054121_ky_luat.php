@@ -16,6 +16,7 @@ class KyLuat extends Migration
         Schema::create('ky_luat', function (Blueprint $table) {
             $table->id();
             $table->longText('name');
+            $table->timestamps();
         });
     }
 

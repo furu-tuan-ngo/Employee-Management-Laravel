@@ -19,6 +19,7 @@ class ThamSo extends Migration
             $table->string('kieu_du_lieu');
             $table->dateTime("gia_tri");
             $table->dateTime("ghi_chu");
+            $table->timestamps();
         });
     }
 

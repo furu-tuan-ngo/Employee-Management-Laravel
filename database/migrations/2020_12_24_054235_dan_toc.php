@@ -16,6 +16,7 @@ class DanToc extends Migration
         Schema::create('dan_toc', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
     }
 

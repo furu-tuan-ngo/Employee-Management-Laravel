@@ -16,6 +16,7 @@ class KhenThuong extends Migration
         Schema::create('khen_thuong', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
     }
 

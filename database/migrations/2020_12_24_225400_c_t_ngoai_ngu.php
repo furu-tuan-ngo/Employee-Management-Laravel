@@ -18,6 +18,7 @@ class CTNgoaiNgu extends Migration
             $table->dateTime("ngay_cap");
             $table->string("noi_cap");
             $table->string("trinh_do");
+            $table->timestamps();
         });
     }
 

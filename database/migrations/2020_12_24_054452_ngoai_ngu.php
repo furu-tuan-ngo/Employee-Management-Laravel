@@ -16,6 +16,7 @@ class NgoaiNgu extends Migration
         Schema::create('ngoai_ngu', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
     }
 

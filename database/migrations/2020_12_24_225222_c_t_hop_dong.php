@@ -18,6 +18,7 @@ class CTHopDong extends Migration
             $table->dateTime("ngay_bat_dau");
             $table->dateTime("ngay_ket_thuc");
             $table->bigInteger("luong_cb");
+            $table->timestamps();
         });
     }
 

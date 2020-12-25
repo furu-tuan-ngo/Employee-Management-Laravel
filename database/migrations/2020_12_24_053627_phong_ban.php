@@ -18,6 +18,7 @@ class PhongBan extends Migration
             $table->string('name');
             $table->integer('dien_thoai');
             $table->integer('fax');
+            $table->timestamps();
         });
     }
 

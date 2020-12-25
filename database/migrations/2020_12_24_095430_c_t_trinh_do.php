@@ -18,6 +18,7 @@ class CTTrinhDo extends Migration
             $table->string('chuyen_mon');
             $table->dateTime("ngay_cap");
             $table->string("truong");
+            $table->timestamps();
         });
     }
 

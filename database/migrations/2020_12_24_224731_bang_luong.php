@@ -22,6 +22,7 @@ class BangLuong extends Migration
             $table->bigInteger("luong_tang_ca");
             $table->bigInteger("tien_bao_hiem");
             $table->bigInteger("thuc_lanh");
+            $table->timestamps();
         });
     }
 

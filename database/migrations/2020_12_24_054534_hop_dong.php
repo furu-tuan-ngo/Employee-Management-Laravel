@@ -16,6 +16,7 @@ class HopDong extends Migration
         Schema::create('hop_dong', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
     }
 

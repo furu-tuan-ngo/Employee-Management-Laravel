@@ -16,6 +16,7 @@ class ChuyenCongTac extends Migration
         Schema::create('chuyen_cong_tac', function (Blueprint $table) {
             $table->id();
             $table->dateTime("ngay_chuyen");
+            $table->timestamps();
         });
     }
 

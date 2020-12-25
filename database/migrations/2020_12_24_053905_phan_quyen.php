@@ -16,6 +16,7 @@ class PhanQuyen extends Migration
         Schema::create('phan_quyen', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
     }
 

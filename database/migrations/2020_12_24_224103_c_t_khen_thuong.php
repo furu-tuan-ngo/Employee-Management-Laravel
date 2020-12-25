@@ -18,6 +18,7 @@ class CTKhenThuong extends Migration
             $table->dateTime("ngay_qd");
             $table->string("noi_dung");
             $table->string("hinh_thuc");
+            $table->timestamps();
         });
     }
 

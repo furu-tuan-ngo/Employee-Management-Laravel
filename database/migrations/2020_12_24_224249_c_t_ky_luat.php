@@ -18,6 +18,7 @@ class CTKyLuat extends Migration
             $table->dateTime("ngay_kl");
             $table->string("nguyen_nhan");
             $table->string("hinh_thuc");
+            $table->timestamps();
         });
     }
 

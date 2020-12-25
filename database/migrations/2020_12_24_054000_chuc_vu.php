@@ -17,6 +17,7 @@ class ChucVu extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('luong_co_ban');
+            $table->timestamps();
         });
     }
 

@@ -18,6 +18,7 @@ class ThaiSan extends Migration
             $table->dateTime("ngay_nghi_sinh");
             $table->dateTime("ngay_tro_lai");
             $table->bigInteger("tro_cap_cong_ty");
+            $table->timestamps();
         });
     }
 

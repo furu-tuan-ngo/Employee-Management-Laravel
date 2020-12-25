@@ -16,6 +16,7 @@ class TrinhDo extends Migration
         Schema::create('trinh_do', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
     }
 
