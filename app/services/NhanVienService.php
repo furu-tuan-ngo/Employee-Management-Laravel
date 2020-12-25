@@ -1,14 +1,14 @@
 <?php
 namespace App\Services;
 
-use App\models\NhanVien;
+use App\Repositories\NhanVienRepository;
 
 class NhanVienService {
     protected $nhanVienRepository;
 
-    function __construct(NhanVien $nhanVien)
+    function __construct(NhanVienRepository $nhanVienRepository)
     {
-        $this->nhanVienRepository = $nhanVien;
+        $this->nhanVienRepository = $nhanVienRepository;
     }
 
     public function getNhanViens ()
