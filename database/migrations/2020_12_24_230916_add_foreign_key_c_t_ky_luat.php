@@ -26,6 +26,5 @@ class AddForeignKeyCTKyLuat extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('c_t_ky_luat');
     }
 }

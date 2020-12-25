@@ -26,6 +26,5 @@ class AddForeignKeyBangLuong extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('c_t_khen_thuong');
     }
 }

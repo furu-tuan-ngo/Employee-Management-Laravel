@@ -29,6 +29,5 @@ class AddForeignKeyChuyenCongTac extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chuyen_cong_tac');
     }
 }
