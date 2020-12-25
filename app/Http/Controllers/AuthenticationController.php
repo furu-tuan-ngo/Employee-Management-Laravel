@@ -33,12 +33,13 @@ class AuthenticationController extends Controller
             'name' => 'required|min:4',
             'email' => 'required|email',
             'password' => 'required|min:8',
+            'ma_phan_quyen' => 'required'
         ]);
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'ma_phan_quyen' => $request->ma_phan_quyen,
         ]);
 
         $token = $user->createToken('Dashboard Auth');
