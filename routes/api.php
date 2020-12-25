@@ -20,4 +20,9 @@ Route::post("register", "AuthenticationController@register");
 
 Route::middleware('auth:api')->group(function () {
     Route::get("profile", "UserController@index");
+    // Nhan Vien Api
+    Route::get("nhanviens", "NhanVienController@index");
+
+    // Bang Luong Api
+    Route::get('bangluongs',"BangLuongController@index");
 });
