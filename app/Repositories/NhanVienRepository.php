@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\models\NhanVien;
+use App\Models\NhanVien;
 
 class NhanVienRepository extends BaseRepository
 {

@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\models\BangLuong;
+use App\Models\BangLuong;
 
 class BangLuongRepository extends BaseRepository
 {
