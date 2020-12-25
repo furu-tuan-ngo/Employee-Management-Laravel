@@ -16,6 +16,7 @@ class BangLuongController extends Controller
 
     public function index()
     {
+        return "demo";
         try {
             $bangLuongs = $this->bangLuongService->getBangLuongs();
             return response()->json([
