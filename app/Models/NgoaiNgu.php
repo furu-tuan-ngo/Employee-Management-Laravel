@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class NgoaiNgu extends Model
 {
-    //
+    protected $table = 'ngoai_ngu';
 }

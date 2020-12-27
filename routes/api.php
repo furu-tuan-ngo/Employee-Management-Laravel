@@ -22,7 +22,8 @@ Route::middleware('auth:api')->group(function () {
     Route::get("profile", "UserController@index");
     // Nhan Vien Api
     Route::get("nhanviens", "NhanVienController@index");
-
+    Route::get("nhanvien/{id}", "NhanVienController@detail");
+    Route::post("nhanvien/add", "NhanVienController@save");
     // Bang Luong Api
-    Route::get('bangluongs',"BangLuongController@index");
+    Route::get('bangluongs', "BangLuongController@index");
 });

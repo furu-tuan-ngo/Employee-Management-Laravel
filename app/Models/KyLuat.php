@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class KyLuat extends Model
 {
-    //
+    protected $table = 'ky_luat';
 }

@@ -14,7 +14,7 @@ class AddForeignKeyCTHopDong extends Migration
     public function up()
     {
         Schema::table('c_t_hop_dong', function (Blueprint $table) {
-            $table->foreignId('ma_hop_dong')->constrained('phan_quyen')->onDelete('cascade');
+            $table->foreignId('ma_hop_dong')->constrained('hop_dong')->onDelete('cascade');
             $table->foreignId('ma_nhan_vien')->constrained('nhan_vien')->onDelete('cascade');
             $table->foreignId('ma_chuc_vu')->constrained('chuc_vu')->onDelete('cascade');
         });

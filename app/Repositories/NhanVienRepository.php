@@ -11,4 +11,14 @@ class NhanVienRepository extends BaseRepository
     {
         $this->model = $nhanVien;
     }
+
+    public function getNhanViens()
+    {
+        return $this->model->with("phong_ban", "bang_luong", "chuc_vu", "dan_toc", "ton_giao")->latest()->get();
+    }
+
+    public function getNhanVien($id)
+    {
+        return $this->model->with("phong_ban", "bang_luong", "chuc_vu", "dan_toc", "ton_giao")->find($id);
+    }
 }

@@ -15,6 +15,6 @@ class BangLuong extends Model
 
     public function phong_ban()
     {
-        return $this->belongsTo('App\Models\PhongBan');
+        return $this->belongsTo('App\Models\PhongBan','ma_phong_ban','id');
     }
 }
