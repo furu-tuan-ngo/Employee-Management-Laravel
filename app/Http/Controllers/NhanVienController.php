@@ -62,4 +62,10 @@ class NhanVienController extends Controller
         }
         return $this->_authorize();
     }
+
+    public function demo(Request $request)
+    {
+        $request->session()->put('user', "tuan");
+        return $request->session()->get('user');
+    }
 }

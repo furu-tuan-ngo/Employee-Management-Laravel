@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login', 'AuthenticationController@login');
+
 Route::post('logout/{tokenId}', 'AuthenticationController@logout');
+Route::post('login', 'AuthenticationController@login');
 Route::post("register", "AuthenticationController@register");
 
 Route::middleware('auth:api')->group(function () {
