@@ -20556,7 +20556,7 @@ var render = function() {
                       },
                       [
                         _c(
-                          "btn",
+                          "button",
                           {
                             staticClass:
                               "btn btn-light-danger font-weight-bold",
@@ -20569,8 +20569,7 @@ var render = function() {
                             )
                           ]
                         )
-                      ],
-                      1
+                      ]
                     )
                   ])
                 ]

@@ -143,13 +143,13 @@
                                 data-toggle="dropdown"
                                 data-offset="10px,0px"
                             >
-                                <btn
+                                <button
                                     v-on:click="handleLogout"
                                     class="btn btn-light-danger font-weight-bold"
                                 >
                                     <i class="fas fa-sign-out-alt"></i>
                                     Đăng Xuất
-                                </btn>
+                                </button>
                             </div>
                         </div>
                         <!--end::Left-->
