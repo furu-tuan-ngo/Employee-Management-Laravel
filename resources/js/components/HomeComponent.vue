@@ -5,7 +5,7 @@
             <a href="#">
                 <img
                     alt="Logo"
-                    src="/assets/media/logos/logo-letter-1.png"
+                    src="/assets/media/logos/logo-letter-2.png"
                     class="logo-default max-h-30px"
                 />
             </a>

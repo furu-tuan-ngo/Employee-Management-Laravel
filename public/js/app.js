@@ -20747,7 +20747,7 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "#" } }, [
       _c("img", {
         staticClass: "logo-default max-h-30px",
-        attrs: { alt: "Logo", src: "/assets/media/logos/logo-letter-1.png" }
+        attrs: { alt: "Logo", src: "/assets/media/logos/logo-letter-2.png" }
       })
     ])
   },
