@@ -3,7 +3,7 @@ import axios from "axios";
 class CrudModel {
     constructor(modelName) {
         this.modelName = modelName;
-        this.baseUrl = "http://localhost:8000/api/";
+        this.baseUrl = "http://employee-management-v4.herokuapp.com/api/";
         this.accessToken = localStorage.getItem("access-token");
     }
 
