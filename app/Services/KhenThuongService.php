@@ -12,4 +12,8 @@ class khenThuongService
     {
         $this->khenThuongRepository = $khenThuongRepository;
     }
+    public function getAll()
+    {
+        return $this->khenThuongRepository->all();
+    }
 }

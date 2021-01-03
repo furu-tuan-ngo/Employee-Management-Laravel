@@ -52,7 +52,7 @@ class NhanVienController extends Controller
         if ($this->userService->hasRole($request->user()->id, 'admin')) {
             try {
                 // Ignore validate request
-                return $this->nhanVienService->saveNhanVien(collect($request)); // Return Id of new
+                return $this->_getDataResponse($this->nhanVienService->saveNhanVien(collect($request))); // Return Id of new
             } catch (\Exception $e) {
                 return response()->json([
                     "success" => false,
@@ -63,9 +63,20 @@ class NhanVienController extends Controller
         return $this->_authorize();
     }
 
-    public function demo(Request $request)
+    public function lookupValue(Request $request)
     {
-        $request->session()->put('user', "tuan");
-        return $request->session()->get('user');
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                $result = $this->nhanVienService->getLookupValue(); // Return Id of new
+                return $this->_getDataResponse($result);
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
     }
 }

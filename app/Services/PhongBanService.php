@@ -12,4 +12,17 @@ class PhongBanService
     {
         $this->phongBanRepository = $phongBanRepository;
     }
+
+    public function getAll (){
+        return $this->phongBanRepository->all();
+    }
+
+    public function saveOne($record)
+    {
+        $id = $this->phongBanRepository->insert($record);
+        if ($id == null) {
+            throw new \Exception("Fail to insert record");
+        }
+        return $record->put('id', $id);
+    }
 }

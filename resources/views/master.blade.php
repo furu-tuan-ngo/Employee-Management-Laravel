@@ -25,6 +25,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
+
+    <iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame"
+        src="https://vars.hotjar.com/box-469cf41adb11dc78be68c1ae7f9457a4.html"
+        style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe>
 </head>
 
 <body id="kt_body"
@@ -109,8 +113,10 @@
 
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/widgets.js"></script>
-    <script src="assets/js/pages/crud/ktdatatable/advanced/record-selection.js"></script>
 
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
+    <!--end::Page Scripts-->
 </body>
 
 

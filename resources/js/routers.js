@@ -29,6 +29,16 @@ const routes = [
         path: "/ton-giao",
         name: "tongiao",
         component: () => import("./components/views/TonGiao.vue")
+    },
+    {
+        path: "/dan-toc/them",
+        name: "them_dantoc",
+        component: () => import("./components/views/DanToc_Add_Form.vue")
+    },
+    {
+        path: "/nhan-vien/them",
+        name: "them_dantoc",
+        component: () => import("./components/views/NhanVien_Add_Form.vue")
     }
 ];
 

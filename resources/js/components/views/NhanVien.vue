@@ -1,112 +1,28 @@
 <template>
-    <div class="card card-custom container">
+    <div class="card card-custom container p-0">
         <div class="card-header flex-wrap border-0 pt-6 pb-0">
             <div class="card-title">
                 <h3 class="card-label">
-                    Ajax Record Selection
-                    <span class="d-block text-muted pt-2 font-size-sm"
-                        >ajax row selection and group actions</span
-                    >
+                    Danh Sách Nhân Viên
+                    <span class="d-block text-muted pt-2 font-size-sm"></span>
                 </h3>
             </div>
             <div class="card-toolbar">
                 <!--begin::Button-->
-                <a href="#" class="btn btn-primary font-weight-bolder">
-                    <span class="svg-icon svg-icon-md">
-                        <!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Design/Flatten.svg-->
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            width="24px"
-                            height="24px"
-                            viewBox="0 0 24 24"
-                            version="1.1"
-                        >
-                            <g
-                                stroke="none"
-                                stroke-width="1"
-                                fill="none"
-                                fill-rule="evenodd"
-                            >
-                                <rect x="0" y="0" width="24" height="24"></rect>
-                                <circle
-                                    fill="#000000"
-                                    cx="9"
-                                    cy="15"
-                                    r="6"
-                                ></circle>
-                                <path
-                                    d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
-                                    fill="#000000"
-                                    opacity="0.3"
-                                ></path>
-                            </g>
-                        </svg>
-                        <!--end::Svg Icon--> </span
-                    >New Record</a
+                <router-link
+                    to="/nhan-vien/them"
+                    class="btn btn-primary font-weight-bolder"
+                >
+                    Thêm Nhân Viên</router-link
                 >
                 <!--end::Button-->
             </div>
         </div>
+
         <div class="card-body">
-            <!--begin: Selected Rows Group Action Form-->
-            <div
-                class="mt-10 mb-5 collapse"
-                id="kt_datatable_group_action_form_2"
-            >
-                <div class="d-flex align-items-center">
-                    <div class="font-weight-bold text-danger mr-3">
-                        Selected
-                        <span id="kt_datatable_selected_records_2">0</span
-                        >records:
-                    </div>
-                    <div class="dropdown mr-2">
-                        <button
-                            type="button"
-                            class="btn btn-primary btn-sm dropdown-toggle"
-                            data-toggle="dropdown"
-                        >
-                            Update status
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-sm">
-                            <ul class="nav nav-hover flex-column">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <span class="nav-text">Pending</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <span class="nav-text">Delivered</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <span class="nav-text">Canceled</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <button
-                        class="btn btn-sm btn-danger mr-2"
-                        type="button"
-                        id="kt_datatable_delete_all_2"
-                    >
-                        Delete All
-                    </button>
-                    <button
-                        class="btn btn-sm btn-success"
-                        type="button"
-                        data-toggle="modal"
-                        data-target="#kt_datatable_fetch_modal_2"
-                    >
-                        Fetch Selected Records
-                    </button>
-                </div>
-            </div>
             <!--end: Selected Rows Group Action Form-->
             <!--begin: Datatable-->
+
             <div
                 class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
                 id="kt_datatable_2"
@@ -115,7 +31,7 @@
                 <table class="datatable-table" style="display: block;">
                     <thead class="datatable-head">
                         <tr class="datatable-row" style="left: 0px;">
-                            <th
+                            <!-- <th
                                 data-field="RecordID"
                                 class="datatable-cell-center datatable-cell datatable-cell-check"
                             >
@@ -125,43 +41,43 @@
                                         ><input type="checkbox"/>&nbsp;<span
                                         ></span></label
                                 ></span>
-                            </th>
+                            </th> -->
                             <th
                                 data-field="OrderID"
                                 class="datatable-cell datatable-cell-sort"
                             >
-                                <span style="width: 137px;">Order ID</span>
+                                <span style="width: 137px;">Họ Tên</span>
                             </th>
                             <th
                                 data-field="Country"
                                 class="datatable-cell datatable-cell-sort"
                             >
-                                <span style="width: 137px;">Country</span>
+                                <span style="width: 137px;">Ngày Sinh</span>
                             </th>
                             <th
                                 data-field="ShipAddress"
                                 class="datatable-cell datatable-cell-sort"
                             >
-                                <span style="width: 137px;">Ship Address</span>
+                                <span style="width: 137px;">Nơi Sinh</span>
                             </th>
                             <th
                                 data-field="ShipDate"
                                 class="datatable-cell datatable-cell-sort"
                             >
-                                <span style="width: 137px;">Ship Date</span>
+                                <span style="width: 137px;">Số Điện Thoại</span>
                             </th>
                             <th
                                 data-field="Status"
                                 class="datatable-cell datatable-cell-sort"
                             >
-                                <span style="width: 137px;">Status</span>
+                                <span style="width: 137px;">Phòng Ban</span>
                             </th>
                             <th
                                 data-field="Type"
                                 data-autohide-disabled="false"
                                 class="datatable-cell datatable-cell-sort"
                             >
-                                <span style="width: 137px;">Type</span>
+                                <span style="width: 137px;">Chức Vụ</span>
                             </th>
                             <th
                                 data-field="Actions"
@@ -173,12 +89,18 @@
                         </tr>
                     </thead>
                     <tbody class="datatable-body" style="">
+                        <div class="loading-container" v-if="this.loading">
+                            <loading-component />
+                        </div>
+
                         <tr
+                            v-for="item in this.data"
+                            :key="item.id"
                             data-row="9"
                             class="datatable-row datatable-row-even"
                             style="left: 0px;"
                         >
-                            <td
+                            <!-- <td
                                 class="datatable-cell-center datatable-cell datatable-cell-check"
                                 data-field="RecordID"
                                 aria-label="10"
@@ -190,50 +112,51 @@
                                             value="10"/>&nbsp;<span
                                         ></span></label
                                 ></span>
-                            </td>
+                            </td> -->
                             <td
                                 data-field="OrderID"
                                 aria-label="68788-9890"
                                 class="datatable-cell"
                             >
-                                <span style="width: 137px;">68788-9890</span>
+                                <span style="width: 137px;">{{
+                                    item.ho_ten
+                                }}</span>
                             </td>
                             <td
                                 data-field="Country"
                                 aria-label="Dominican Republic"
                                 class="datatable-cell"
                             >
-                                <span style="width: 137px;"
-                                    >Dominican Republic DO</span
-                                >
+                                <span style="width: 137px;">{{
+                                    item.ngay_sinh.split(" ")[0]
+                                }}</span>
                             </td>
                             <td
                                 data-field="ShipAddress"
                                 aria-label="854 Dapin Terrace"
                                 class="datatable-cell"
                             >
-                                <span style="width: 137px;"
-                                    >854 Dapin Terrace</span
-                                >
+                                <span style="width: 137px;">{{
+                                    item.noi_sinh
+                                }}</span>
                             </td>
                             <td
                                 data-field="ShipDate"
                                 aria-label="8/10/2016"
                                 class="datatable-cell"
                             >
-                                <span style="width: 137px;">8/10/2016</span>
+                                <span style="width: 137px;">{{
+                                    item.dien_thoai
+                                }}</span>
                             </td>
                             <td
                                 data-field="Status"
                                 aria-label="1"
                                 class="datatable-cell"
                             >
-                                <span style="width: 137px;"
-                                    ><span
-                                        class="label label-lg font-weight-boldlabel-light-primary label-inline"
-                                        >Pending</span
-                                    ></span
-                                >
+                                <span style="width: 137px;">{{
+                                    item.phong_ban.name
+                                }}</span>
                             </td>
                             <td
                                 data-field="Type"
@@ -241,14 +164,9 @@
                                 aria-label="2"
                                 class="datatable-cell"
                             >
-                                <span style="width: 137px;"
-                                    ><span
-                                        class="label label-primary label-dot mr-2"
-                                    ></span
-                                    ><span class="font-weight-bold text-primary"
-                                        >Retail</span
-                                    ></span
-                                >
+                                <span style="width: 137px;">{{
+                                    item.chuc_vu.name
+                                }}</span>
                             </td>
                             <td
                                 class="datatable-cell-left datatable-cell"
@@ -398,7 +316,37 @@
 </template>
 
 <script>
-export default {};
+import LoadingComponent from "../LoadingComponent.vue";
+import CrudModel from "../models/crud-model";
+
+export default {
+    components: { LoadingComponent },
+    data: function() {
+        return {
+            data: [],
+            loading: true
+        };
+    },
+    created() {
+        console.log("created");
+        const nhanvienModel = new CrudModel("nhanvien");
+
+        nhanvienModel
+            .getAll()
+            .then(res => {
+                if (res.success) {
+                    this.data = res.data;
+                    this.loading = false;
+                } else {
+                    console.log(res);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    },
+    mounted() {}
+};
 </script>
 
 <style></style>

@@ -137,6 +137,21 @@
                             </a>
                             <!--end::Logo-->
                         </div>
+                        <div class="topbar">
+                            <div
+                                class="topbar-item"
+                                data-toggle="dropdown"
+                                data-offset="10px,0px"
+                            >
+                                <btn
+                                    v-on:click="handleLogout"
+                                    class="btn btn-light-danger font-weight-bold"
+                                >
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Đăng Xuất
+                                </btn>
+                            </div>
+                        </div>
                         <!--end::Left-->
                     </div>
                     <!--end::Container-->
@@ -203,6 +218,10 @@ export default {
                 .getElementsByTagName("BODY")[0]
                 .removeAttribute("data-offcanvas-aside");
             router.push({ name: item.name });
+        },
+        handleLogout() {
+            localStorage.removeItem("access-token");
+            location.reload();
         }
     }
 };

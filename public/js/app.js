@@ -2247,6 +2247,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2292,6 +2307,10 @@ __webpack_require__.r(__webpack_exports__);
       _routers__WEBPACK_IMPORTED_MODULE_3__["default"].push({
         name: item.name
       });
+    },
+    handleLogout: function handleLogout() {
+      localStorage.removeItem("access-token");
+      location.reload();
     }
   }
 });
@@ -20523,7 +20542,37 @@ var render = function() {
                       _vm._v(" "),
                       _vm._m(0)
                     ]
-                  )
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "topbar" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "topbar-item",
+                        attrs: {
+                          "data-toggle": "dropdown",
+                          "data-offset": "10px,0px"
+                        }
+                      },
+                      [
+                        _c(
+                          "btn",
+                          {
+                            staticClass:
+                              "btn btn-light-danger font-weight-bold",
+                            on: { click: _vm.handleLogout }
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-sign-out-alt" }),
+                            _vm._v(
+                              "\n                                Đăng Xuất\n                            "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
                 ]
               )
             ]
@@ -36392,15 +36441,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************!*\
   !*** ./resources/js/components/HomeComponent.vue ***!
   \***************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _HomeComponent_vue_vue_type_template_id_782dcf83___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HomeComponent.vue?vue&type=template&id=782dcf83& */ "./resources/js/components/HomeComponent.vue?vue&type=template&id=782dcf83&");
 /* harmony import */ var _HomeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomeComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/HomeComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _HomeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _HomeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -36430,7 +36478,7 @@ component.options.__file = "resources/js/components/HomeComponent.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/components/HomeComponent.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36753,13 +36801,13 @@ var routes = [{
   path: "/nhan-vien",
   name: "nhanvien",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
+    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
   }
 }, {
   path: "/chuc-vu",
   name: "chucvu",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/views/ChucVu.vue */ "./resources/js/components/views/ChucVu.vue"));
+    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/views/ChucVu.vue */ "./resources/js/components/views/ChucVu.vue"));
   }
 }, {
   path: "/phong-ban",
@@ -36771,13 +36819,25 @@ var routes = [{
   path: "/dan-toc",
   name: "dantoc",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/views/DanToc.vue */ "./resources/js/components/views/DanToc.vue"));
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/views/DanToc.vue */ "./resources/js/components/views/DanToc.vue"));
   }
 }, {
   path: "/ton-giao",
   name: "tongiao",
   component: function component() {
     return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/views/TonGiao.vue */ "./resources/js/components/views/TonGiao.vue"));
+  }
+}, {
+  path: "/dan-toc/them",
+  name: "them_dantoc",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/views/DanToc_Add_Form.vue */ "./resources/js/components/views/DanToc_Add_Form.vue"));
+  }
+}, {
+  path: "/nhan-vien/them",
+  name: "them_dantoc",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Add_Form.vue */ "./resources/js/components/views/NhanVien_Add_Form.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
