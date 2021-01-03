@@ -2310,6 +2310,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     handleLogout: function handleLogout() {
       localStorage.removeItem("access-token");
+      _routers__WEBPACK_IMPORTED_MODULE_3__["default"].push("/");
       location.reload();
     }
   }

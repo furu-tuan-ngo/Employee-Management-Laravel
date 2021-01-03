@@ -221,6 +221,7 @@ export default {
         },
         handleLogout() {
             localStorage.removeItem("access-token");
+            router.push("/");
             location.reload();
         }
     }
