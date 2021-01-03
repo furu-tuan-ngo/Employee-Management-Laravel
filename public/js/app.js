@@ -2262,6 +2262,68 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -20341,258 +20403,367 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "d-flex flex-column flex-root" }, [
-    _c("div", { staticClass: "d-flex flex-row flex-column-fluid page" }, [
-      _c(
-        "div",
-        {
-          staticClass: "aside aside-left d-flex flex-column flex-row-auto",
-          attrs: { id: "kt_aside" }
-        },
-        [
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "header-mobile header-mobile-fixed",
+        attrs: { id: "kt_header_mobile" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "d-flex align-items-center" }, [
+          _vm._m(1),
+          _vm._v(" "),
           _c(
-            "div",
+            "button",
             {
-              staticClass:
-                "aside-menu-wrapper flex-column-fluid scroll ps ps--active-y",
-              staticStyle: { height: "226px", overflow: "hidden" },
-              attrs: { id: "kt_aside_menu_wrapper" }
+              staticClass: "btn btn-hover-text-primary p-0 ml-3",
+              attrs: { id: "kt_header_mobile_topbar_toggle" }
             },
             [
-              _c(
-                "div",
-                {
-                  staticClass: "aside-menu min-h-lg-800px",
-                  attrs: {
-                    id: "kt_aside_menu",
-                    "data-menu-vertical": "1",
-                    "data-menu-scroll": "1",
-                    "data-menu-dropdown-timeout": "500"
-                  }
-                },
-                [
-                  _c(
-                    "ul",
-                    { staticClass: "menu-nav" },
-                    [
-                      _c("li", { staticClass: "menu-item" }, [
-                        _c("a", { staticClass: "menu-link" }, [
-                          _c(
-                            "span",
-                            { staticClass: "svg-icon menu-icon" },
-                            [_c("dash-board-icon")],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "menu-text" }, [
-                            _vm._v("Trang Chủ")
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.pages, function(item) {
-                        return _c(
-                          "li",
-                          { key: item.href, staticClass: "menu-item" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "menu-link",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.changeView(item)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "span",
-                                  { staticClass: "svg-icon menu-icon" },
-                                  [_c("page-icon")],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "menu-text" }, [
-                                  _vm._v(_vm._s(item.title))
-                                ])
-                              ]
-                            )
-                          ]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              )
+              _c("span", { staticClass: "svg-icon svg-icon-xl" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                      width: "24px",
+                      height: "24px",
+                      viewBox: "0 0 24 24",
+                      version: "1.1"
+                    }
+                  },
+                  [
+                    _c(
+                      "g",
+                      {
+                        attrs: {
+                          stroke: "none",
+                          "stroke-width": "1",
+                          fill: "none",
+                          "fill-rule": "evenodd"
+                        }
+                      },
+                      [
+                        _c("polygon", {
+                          attrs: { points: "0 0 24 0 24 24 0 24" }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z",
+                            fill: "#000000",
+                            "fill-rule": "nonzero",
+                            opacity: "0.3"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z",
+                            fill: "#000000",
+                            "fill-rule": "nonzero"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ]
           )
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "d-flex flex-column flex-row-fluid wrapper",
-          attrs: { id: "kt_wrapper" }
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "header header-fixed", attrs: { id: "kt_header" } },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "container d-flex align-items-stretch justify-content-between"
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "d-none d-lg-flex align-items-center mr-3" },
-                    [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-icon aside-toggle ml-n3 mr-10",
-                          attrs: { id: "kt_aside_desktop_toggle" }
-                        },
-                        [
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "svg-icon svg-icon-xxl svg-icon-dark-75"
-                            },
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex flex-column flex-root" }, [
+      _c("div", { staticClass: "d-flex flex-row flex-column-fluid page" }, [
+        _c(
+          "div",
+          {
+            staticClass: "aside aside-left d-flex flex-column flex-row-auto",
+            attrs: { id: "kt_aside" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "aside-menu-wrapper flex-column-fluid scroll ps ps--active-y",
+                staticStyle: { height: "226px", overflow: "hidden" },
+                attrs: { id: "kt_aside_menu_wrapper" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "aside-menu min-h-lg-800px",
+                    attrs: {
+                      id: "kt_aside_menu",
+                      "data-menu-vertical": "1",
+                      "data-menu-scroll": "1",
+                      "data-menu-dropdown-timeout": "500"
+                    }
+                  },
+                  [
+                    _c(
+                      "ul",
+                      { staticClass: "menu-nav" },
+                      [
+                        _c("li", { staticClass: "menu-item" }, [
+                          _c("a", { staticClass: "menu-link" }, [
+                            _c(
+                              "span",
+                              { staticClass: "svg-icon menu-icon" },
+                              [_c("dash-board-icon")],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "menu-text" }, [
+                              _vm._v("Trang Chủ")
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.pages, function(item) {
+                          return _c(
+                            "li",
+                            { key: item.href, staticClass: "menu-item" },
                             [
                               _c(
-                                "svg",
+                                "a",
                                 {
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    "xmlns:xlink":
-                                      "http://www.w3.org/1999/xlink",
-                                    width: "24px",
-                                    height: "24px",
-                                    viewBox: "0 0 24 24",
-                                    version: "1.1"
+                                  staticClass: "menu-link",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.changeView(item)
+                                    }
                                   }
                                 },
                                 [
                                   _c(
-                                    "g",
-                                    {
-                                      attrs: {
-                                        stroke: "none",
-                                        "stroke-width": "1",
-                                        fill: "none",
-                                        "fill-rule": "evenodd"
-                                      }
-                                    },
-                                    [
-                                      _c("rect", {
-                                        attrs: {
-                                          x: "0",
-                                          y: "0",
-                                          width: "24",
-                                          height: "24"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("rect", {
-                                        attrs: {
-                                          fill: "#000000",
-                                          opacity: "0.3",
-                                          x: "4",
-                                          y: "5",
-                                          width: "16",
-                                          height: "2",
-                                          rx: "1"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("rect", {
-                                        attrs: {
-                                          fill: "#000000",
-                                          opacity: "0.3",
-                                          x: "4",
-                                          y: "13",
-                                          width: "16",
-                                          height: "2",
-                                          rx: "1"
-                                        }
-                                      }),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M5,9 L13,9 C13.5522847,9 14,9.44771525 14,10 C14,10.5522847 13.5522847,11 13,11 L5,11 C4.44771525,11 4,10.5522847 4,10 C4,9.44771525 4.44771525,9 5,9 Z M5,17 L13,17 C13.5522847,17 14,17.4477153 14,18 C14,18.5522847 13.5522847,19 13,19 L5,19 C4.44771525,19 4,18.5522847 4,18 C4,17.4477153 4.44771525,17 5,17 Z",
-                                          fill: "#000000"
-                                        }
-                                      })
-                                    ]
-                                  )
+                                    "span",
+                                    { staticClass: "svg-icon menu-icon" },
+                                    [_c("page-icon")],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "menu-text" }, [
+                                    _vm._v(_vm._s(item.title))
+                                  ])
                                 ]
                               )
                             ]
                           )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(0)
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "topbar" }, [
+                        })
+                      ],
+                      2
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "d-flex flex-column flex-row-fluid wrapper",
+            attrs: { id: "kt_wrapper" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "header header-fixed",
+                attrs: { id: "kt_header" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "container d-flex align-items-stretch justify-content-between"
+                  },
+                  [
                     _c(
                       "div",
                       {
-                        staticClass: "topbar-item",
-                        attrs: {
-                          "data-toggle": "dropdown",
-                          "data-offset": "10px,0px"
-                        }
+                        staticClass: "d-none d-lg-flex align-items-center mr-3"
                       },
                       [
                         _c(
                           "button",
                           {
                             staticClass:
-                              "btn btn-light-danger font-weight-bold",
-                            on: { click: _vm.handleLogout }
+                              "btn btn-icon aside-toggle ml-n3 mr-10",
+                            attrs: { id: "kt_aside_desktop_toggle" }
                           },
                           [
-                            _c("i", { staticClass: "fas fa-sign-out-alt" }),
-                            _vm._v(
-                              "\n                                Đăng Xuất\n                            "
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "svg-icon svg-icon-xxl svg-icon-dark-75"
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      "xmlns:xlink":
+                                        "http://www.w3.org/1999/xlink",
+                                      width: "24px",
+                                      height: "24px",
+                                      viewBox: "0 0 24 24",
+                                      version: "1.1"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          stroke: "none",
+                                          "stroke-width": "1",
+                                          fill: "none",
+                                          "fill-rule": "evenodd"
+                                        }
+                                      },
+                                      [
+                                        _c("rect", {
+                                          attrs: {
+                                            x: "0",
+                                            y: "0",
+                                            width: "24",
+                                            height: "24"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("rect", {
+                                          attrs: {
+                                            fill: "#000000",
+                                            opacity: "0.3",
+                                            x: "4",
+                                            y: "5",
+                                            width: "16",
+                                            height: "2",
+                                            rx: "1"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("rect", {
+                                          attrs: {
+                                            fill: "#000000",
+                                            opacity: "0.3",
+                                            x: "4",
+                                            y: "13",
+                                            width: "16",
+                                            height: "2",
+                                            rx: "1"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M5,9 L13,9 C13.5522847,9 14,9.44771525 14,10 C14,10.5522847 13.5522847,11 13,11 L5,11 C4.44771525,11 4,10.5522847 4,10 C4,9.44771525 4.44771525,9 5,9 Z M5,17 L13,17 C13.5522847,17 14,17.4477153 14,18 C14,18.5522847 13.5522847,19 13,19 L5,19 C4.44771525,19 4,18.5522847 4,18 C4,17.4477153 4.44771525,17 5,17 Z",
+                                            fill: "#000000"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
                             )
                           ]
-                        )
+                        ),
+                        _vm._v(" "),
+                        _vm._m(2)
                       ]
-                    )
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "content d-flex flex-column flex-column-fluid",
-              attrs: { id: "kt_content" }
-            },
-            [_c("router-view")],
-            1
-          )
-        ]
-      )
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "topbar" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "topbar-item",
+                          attrs: {
+                            "data-toggle": "dropdown",
+                            "data-offset": "10px,0px"
+                          }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-light-danger font-weight-bold",
+                              on: { click: _vm.handleLogout }
+                            },
+                            [
+                              _c("i", { staticClass: "fas fa-sign-out-alt" }),
+                              _vm._v(
+                                "\n                                    Đăng Xuất\n                                "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "content d-flex flex-column flex-column-fluid",
+                attrs: { id: "kt_content" }
+              },
+              [_c("router-view")],
+              1
+            )
+          ]
+        )
+      ])
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        staticClass: "logo-default max-h-30px",
+        attrs: { alt: "Logo", src: "/assets/media/logos/logo-letter-1.png" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn p-0 burger-icon rounded-0 burger-icon-left",
+        attrs: { id: "kt_aside_tablet_and_mobile_toggle" }
+      },
+      [_c("span")]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -36801,7 +36972,7 @@ var routes = [{
   path: "/nhan-vien",
   name: "nhanvien",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
   }
 }, {
   path: "/chuc-vu",
@@ -36813,7 +36984,7 @@ var routes = [{
   path: "/phong-ban",
   name: "phongban",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/views/PhongBan.vue */ "./resources/js/components/views/PhongBan.vue"));
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/views/PhongBan.vue */ "./resources/js/components/views/PhongBan.vue"));
   }
 }, {
   path: "/dan-toc",
@@ -36825,19 +36996,19 @@ var routes = [{
   path: "/ton-giao",
   name: "tongiao",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/views/TonGiao.vue */ "./resources/js/components/views/TonGiao.vue"));
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/views/TonGiao.vue */ "./resources/js/components/views/TonGiao.vue"));
   }
 }, {
   path: "/dan-toc/them",
   name: "them_dantoc",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/views/DanToc_Add_Form.vue */ "./resources/js/components/views/DanToc_Add_Form.vue"));
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/views/DanToc_Add_Form.vue */ "./resources/js/components/views/DanToc_Add_Form.vue"));
   }
 }, {
   path: "/nhan-vien/them",
   name: "them_dantoc",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Add_Form.vue */ "./resources/js/components/views/NhanVien_Add_Form.vue"));
+    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Add_Form.vue */ "./resources/js/components/views/NhanVien_Add_Form.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
