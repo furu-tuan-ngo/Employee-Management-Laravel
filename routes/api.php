@@ -42,4 +42,10 @@ Route::middleware('auth:api')->group(function () {
     //Dan toc
     Route::get('dantocs', "DanTocController@index");
     Route::post('dantocs', "DanTocController@save");
+
+    /**
+     *  Hop Dong api
+     */
+    Route::get('hopdongs', 'HopDongController@index');
+    Route::post('hopdongs', 'HopDongController@save');
 });
