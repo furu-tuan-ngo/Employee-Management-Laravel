@@ -15,26 +15,46 @@ class NhanVien extends Model
 
     public function bang_luong()
     {
-        return $this->hasOne('App\Models\BangLuong','ma_nhan_vien','id');
+        return $this->hasOne('App\Models\BangLuong', 'ma_nhan_vien', 'id');
     }
 
     public function dan_toc()
     {
-        return $this->belongsTo('App\Models\DanToc','ma_dan_toc','id');
+        return $this->belongsTo('App\Models\DanToc', 'ma_dan_toc', 'id');
     }
 
     public function ton_giao()
     {
-        return $this->belongsTo('App\Models\TonGiao','ma_ton_giao','id');
+        return $this->belongsTo('App\Models\TonGiao', 'ma_ton_giao', 'id');
     }
 
     public function phong_ban()
     {
-        return $this->belongsTo('App\Models\PhongBan','ma_phong_ban','id');
+        return $this->belongsTo('App\Models\PhongBan', 'ma_phong_ban', 'id');
     }
 
     public function chuc_vu()
     {
-        return $this->belongsTo('App\Models\ChucVu','ma_chuc_vu','id');
+        return $this->belongsTo('App\Models\ChucVu', 'ma_chuc_vu', 'id');
+    }
+
+    public function trinh_do()
+    {
+        return $this->belongsToMany('App\Models\TrinhDo', 'c_t_trinh_do', 'ma_nhan_vien', 'ma_trinh_do');
+    }
+
+    public function ngoai_ngu()
+    {
+        return $this->belongsToMany('App\Models\NgoaiNgu', 'c_t_ngoai_ngu');
+    }
+
+    public function khen_thuong()
+    {
+        return $this->belongsToMany('App\Models\KhenThuong', 'c_t_khen_thuong');
+    }
+
+    public function ky_luat()
+    {
+        return $this->belongsToMany('App\Models\KyLuat', 'c_t_ky_luat');
     }
 }
