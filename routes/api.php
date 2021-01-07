@@ -26,6 +26,10 @@ Route::middleware('auth:api')->group(function () {
     Route::get("lookup-value-nhan-vien", "NhanVienController@lookupValue");
     Route::get("nhanvien/{id}", "NhanVienController@detail");
     Route::post("nhanvien/add", "NhanVienController@save");
+    Route::post('nhanvien/kyluat', "NhanVienController@setKyLuat");
+    Route::post('nhanvien/khenthuong', "NhanVienController@setKhenThuong");
+    Route::post('nhanvien/ngoaingu', 'NhanVienController@setNgoaiNgu');
+    Route::post('nhanvien/trinhdo', 'NhanVienController@setTrinhDo');
 
     // Bang Luong Api
     Route::get('bangluongs', "BangLuongController@index");
