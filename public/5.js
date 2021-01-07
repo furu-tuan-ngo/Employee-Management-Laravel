@@ -680,7 +680,7 @@ var CrudModel = /*#__PURE__*/function () {
     _classCallCheck(this, CrudModel);
 
     this.modelName = modelName;
-    this.baseUrl = "http://employee-management-v4.herokuapp.com/api/";
+    this.baseUrl = "http://localhost:8000/api/";
     this.accessToken = localStorage.getItem("access-token");
   }
 
@@ -700,6 +700,42 @@ var CrudModel = /*#__PURE__*/function () {
     key: "insert",
     value: function insert(param) {
       return this.api.post("".concat(this.modelName, "s"), param).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
+  }, {
+    key: "delete",
+    value: function _delete(id) {
+      return this.api["delete"]("".concat(this.modelName, "/remove/").concat(id)).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
+  }, {
+    key: "get",
+    value: function get(id) {
+      return this.api.get("".concat(this.modelName, "/").concat(id)).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
+  }, {
+    key: "update",
+    value: function update(record) {
+      return this.api.post("".concat(this.modelName, "/update"), record).then(function (res) {
         return res.data;
       })["catch"](function (err) {
         return {

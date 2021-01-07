@@ -1,17 +1,15 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_nhanvien__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/nhanvien */ "./resources/js/components/models/nhanvien.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -433,23 +431,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-var defaultRecord = {
-  ho_ten: "",
-  gioi_tinh: "",
-  so_cmnd: "",
-  ngay_sinh: "",
-  noi_sinh: "",
-  dien_thoai: "",
-  ho_khau: "",
-  cho_o_hien_nay: "",
-  so_bhyt: "",
-  ngay_vao_lam: "",
-  so_the_atm: "",
-  ma_ton_giao: "",
-  ma_phong_ban: "",
-  ma_chuc_vu: "",
-  ma_dan_toc: ""
-};
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -464,15 +445,26 @@ var defaultRecord = {
       alert: {
         isError: false,
         className: "alert alert-custom alert-light-primary fade show mb-5",
-        message: "Fail to insert new record ."
+        message: "Fail to update new record ."
       }
     };
   },
   created: function created() {
     var _this = this;
 
-    this.record = _objectSpread({}, defaultRecord);
     var nhanVien = new _models_nhanvien__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    nhanVien.get(this.$route.params.id).then(function (res) {
+      if (res.success) {
+        delete res.data.ton_giao;
+        delete res.data.bang_luong;
+        delete res.data.phong_ban;
+        delete res.data.dan_toc;
+        delete res.data.chuc_vu;
+        res.data.ngay_sinh = res.data.ngay_sinh.split(" ")[0].split("-").reverse().join("/");
+        res.data.ngay_vao_lam = res.data.ngay_vao_lam.split("T")[0].split("-").reverse().join("/");
+        _this.record = res.data;
+      }
+    });
     nhanVien.getLookupValue().then(function (res) {
       if (res.success) {
         _this.data = res.data;
@@ -482,7 +474,7 @@ var defaultRecord = {
     });
   },
   methods: {
-    insertRecord: function insertRecord() {
+    updateRecord: function updateRecord() {
       var _this2 = this;
 
       this.submitClass += "  spinner spinner-white spinner-right";
@@ -497,15 +489,13 @@ var defaultRecord = {
 
       fields.ngay_sinh = this.handleDateTime(this.record.ngay_sinh);
       fields.ngay_vao_lam = this.handleDateTime(this.record.ngay_vao_lam);
-      console.log(_typeof(fields.ngay_sinh));
       var nhanvienModel = new _models_nhanvien__WEBPACK_IMPORTED_MODULE_0__["default"]();
-      nhanvienModel.insertRecord(fields).then(function (res) {
+      nhanvienModel.update(fields).then(function (res) {
         _this2.submitClass = "btn btn-success";
 
         if (res.success) {
-          _this2.record = _objectSpread({}, defaultRecord);
           _this2.alert.isError = true;
-          _this2.alert.message = "Insert new record successfully.";
+          _this2.alert.message = "Update new record successfully.";
           _this2.alert.className = "alert alert-custom alert-light-success fade show mb-5";
         } else {
           _this2.alert.isError = true;
@@ -548,10 +538,10 @@ var defaultRecord = {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=template&id=2fae0382&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=template&id=2fae0382& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=template&id=9130de2e&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=template&id=9130de2e& ***!
+  \***************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -673,11 +663,11 @@ var render = function() {
                         _vm._v("Chọn giới tính")
                       ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "nam" } }, [
+                      _c("option", { attrs: { value: "Nam" } }, [
                         _vm._v("Nam")
                       ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "nữ" } }, [_vm._v("Nữ")])
+                      _c("option", { attrs: { value: "Nu" } }, [_vm._v("Nữ")])
                     ]
                   ),
                   _vm._v(" "),
@@ -1461,11 +1451,11 @@ var render = function() {
                   {
                     class: _vm.submitClass,
                     attrs: { type: "button" },
-                    on: { click: _vm.insertRecord }
+                    on: { click: _vm.updateRecord }
                   },
                   [
                     _vm._v(
-                      "\n                            Thêm\n                        "
+                      "\n                            sửa\n                        "
                     )
                   ]
                 )
@@ -1504,7 +1494,7 @@ var staticRenderFns = [
                 },
                 [
                   _vm._v(
-                    "\n                    Thêm Mới Nhân Viên\n                "
+                    "\n                    Sửa Thông Tin Nhân Viên\n                "
                   )
                 ]
               )
@@ -1716,17 +1706,17 @@ var NhanVien = /*#__PURE__*/function (_CrudModel) {
 
 /***/ }),
 
-/***/ "./resources/js/components/views/NhanVien_Add_Form.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/views/NhanVien_Add_Form.vue ***!
-  \*************************************************************/
+/***/ "./resources/js/components/views/NhanVien_Edit_Form.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/views/NhanVien_Edit_Form.vue ***!
+  \**************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NhanVien_Add_Form_vue_vue_type_template_id_2fae0382___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NhanVien_Add_Form.vue?vue&type=template&id=2fae0382& */ "./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=template&id=2fae0382&");
-/* harmony import */ var _NhanVien_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NhanVien_Add_Form.vue?vue&type=script&lang=js& */ "./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=script&lang=js&");
+/* harmony import */ var _NhanVien_Edit_Form_vue_vue_type_template_id_9130de2e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NhanVien_Edit_Form.vue?vue&type=template&id=9130de2e& */ "./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=template&id=9130de2e&");
+/* harmony import */ var _NhanVien_Edit_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NhanVien_Edit_Form.vue?vue&type=script&lang=js& */ "./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1736,9 +1726,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _NhanVien_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _NhanVien_Add_Form_vue_vue_type_template_id_2fae0382___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _NhanVien_Add_Form_vue_vue_type_template_id_2fae0382___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _NhanVien_Edit_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NhanVien_Edit_Form_vue_vue_type_template_id_9130de2e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NhanVien_Edit_Form_vue_vue_type_template_id_9130de2e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1748,38 +1738,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/views/NhanVien_Add_Form.vue"
+component.options.__file = "resources/js/components/views/NhanVien_Edit_Form.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./NhanVien_Add_Form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Edit_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./NhanVien_Edit_Form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Edit_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=template&id=2fae0382&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=template&id=2fae0382& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=template&id=9130de2e&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=template&id=9130de2e& ***!
+  \*********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Add_Form_vue_vue_type_template_id_2fae0382___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./NhanVien_Add_Form.vue?vue&type=template&id=2fae0382& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/NhanVien_Add_Form.vue?vue&type=template&id=2fae0382&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Add_Form_vue_vue_type_template_id_2fae0382___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Edit_Form_vue_vue_type_template_id_9130de2e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./NhanVien_Edit_Form.vue?vue&type=template&id=9130de2e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/NhanVien_Edit_Form.vue?vue&type=template&id=9130de2e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Edit_Form_vue_vue_type_template_id_9130de2e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Add_Form_vue_vue_type_template_id_2fae0382___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NhanVien_Edit_Form_vue_vue_type_template_id_9130de2e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

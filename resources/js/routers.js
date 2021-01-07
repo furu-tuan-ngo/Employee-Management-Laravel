@@ -37,8 +37,13 @@ const routes = [
     },
     {
         path: "/nhan-vien/them",
-        name: "them_dantoc",
+        name: "them_nhanvien",
         component: () => import("./components/views/NhanVien_Add_Form.vue")
+    },
+    {
+        path: "/nhan-vien/sua/:id",
+        name: "sua_nhanvien",
+        component: () => import("./components/views/NhanVien_Edit_Form.vue")
     }
 ];
 

@@ -3,7 +3,7 @@ import axios from "axios";
 class CrudModel {
     constructor(modelName) {
         this.modelName = modelName;
-        this.baseUrl = "http://employee-management-v4.herokuapp.com/api/";
+        this.baseUrl = "http://localhost:8000/api/";
         this.accessToken = localStorage.getItem("access-token");
     }
 
@@ -26,6 +26,26 @@ class CrudModel {
     insert(param) {
         return this.api
             .post(`${this.modelName}s`, param)
+            .then(res => res.data)
+            .catch(err => ({ success: false, message: err }));
+    }
+
+    delete(id) {
+        return this.api
+            .delete(`${this.modelName}/remove/${id}`)
+            .then(res => res.data)
+            .catch(err => ({ success: false, message: err }));
+    }
+    get(id) {
+        return this.api
+            .get(`${this.modelName}/${id}`)
+            .then(res => res.data)
+            .catch(err => ({ success: false, message: err }));
+    }
+
+    update(record) {
+        return this.api
+            .post(`${this.modelName}/update`, record)
             .then(res => res.data)
             .catch(err => ({ success: false, message: err }));
     }

@@ -36972,7 +36972,7 @@ var routes = [{
   path: "/nhan-vien",
   name: "nhanvien",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
   }
 }, {
   path: "/chuc-vu",
@@ -37006,9 +37006,15 @@ var routes = [{
   }
 }, {
   path: "/nhan-vien/them",
-  name: "them_dantoc",
+  name: "them_nhanvien",
   component: function component() {
     return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Add_Form.vue */ "./resources/js/components/views/NhanVien_Add_Form.vue"));
+  }
+}, {
+  path: "/nhan-vien/sua/:id",
+  name: "sua_nhanvien",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Edit_Form.vue */ "./resources/js/components/views/NhanVien_Edit_Form.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

@@ -79,4 +79,36 @@ class NhanVienController extends Controller
         }
         return $this->_authorize();
     }
+
+    public function delete(Request $request, $id)
+    {
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                $result = $this->nhanVienService->deleteNhanVien($id); // Return Id of new
+                return $this->_getDataResponse($result);
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
+    }
+
+    public function update(Request $request)
+    {
+        // return $request;
+        try {
+            // Ignore validate request
+            $result = $this->nhanVienService->updateNhanVien(collect($request)); // Return Id of new
+            return $this->_getDataResponse($result);
+        } catch (\Exception $e) {
+            return response()->json([
+                "success" => false,
+                "message" => $e->getMessage()
+            ]);
+        }
+    }
 }
