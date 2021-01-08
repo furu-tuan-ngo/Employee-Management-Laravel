@@ -36984,7 +36984,7 @@ var routes = [{
   path: "/nhan-vien",
   name: "nhanvien",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(10), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(11), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
   }
 }, {
   path: "/chuc-vu",
@@ -37038,7 +37038,7 @@ var routes = [{
   path: "/ky-luat",
   name: "kyluat",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./components/views/Ky_Luat.vue */ "./resources/js/components/views/Ky_Luat.vue"));
+    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./components/views/Ky_Luat.vue */ "./resources/js/components/views/Ky_Luat.vue"));
   }
 }, {
   path: "/bang-luong",
