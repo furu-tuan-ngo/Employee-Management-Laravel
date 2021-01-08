@@ -680,7 +680,7 @@ var CrudModel = /*#__PURE__*/function () {
     _classCallCheck(this, CrudModel);
 
     this.modelName = modelName;
-    this.baseUrl = "http://employee-management-v4.herokuapp.com/";
+    this.baseUrl = "http://employee-management-v4.herokuapp.com/api/";
     this.accessToken = localStorage.getItem("access-token");
   }
 
