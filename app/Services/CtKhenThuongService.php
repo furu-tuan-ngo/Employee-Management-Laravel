@@ -21,4 +21,9 @@ class CtKhenThuongService
         }
         return $record->put('id', $id);
     }
+
+    public function getAll()
+    {
+        return $this->ctKhenThuongRepository->all();
+    }
 }
