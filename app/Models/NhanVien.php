@@ -45,16 +45,16 @@ class NhanVien extends Model
 
     public function ngoai_ngu()
     {
-        return $this->belongsToMany('App\Models\NgoaiNgu', 'c_t_ngoai_ngu');
+        return $this->belongsToMany('App\Models\NgoaiNgu', 'c_t_ngoai_ngu', "ma_ngoai_ngu", "id");
     }
 
     public function khen_thuong()
     {
-        return $this->belongsToMany('App\Models\KhenThuong', 'c_t_khen_thuong');
+        return $this->belongsToMany('App\Models\KhenThuong', 'c_t_khen_thuong', "ma_khen_thuong", "id");
     }
 
     public function ky_luat()
     {
-        return $this->belongsToMany('App\Models\KyLuat', 'c_t_ky_luat');
+        return $this->belongsToMany('App\Models\KyLuat', 'c_t_ky_luat', "ma_ky_luat", "id");
     }
 }
