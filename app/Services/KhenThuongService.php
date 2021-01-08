@@ -4,8 +4,9 @@ namespace App\Services;
 
 use App\Repositories\KhenThuongRepository;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
-class khenThuongService
+class KhenThuongService
 {
     protected $khenThuongRepository;
 
@@ -38,6 +39,10 @@ class khenThuongService
 
     public function saveKhenThuong($record)
     {
-        return $this->khenThuongRepository->insert($record);
+        $record->put('created_at', date('Y-m-d h:i:s'));
+        $record->put('updated_at', date('Y-m-d h:i:s'));
+        return DB::table('khen_thuong')->insertGetId(
+            $record->all()
+        );
     }
 }

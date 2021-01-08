@@ -16,7 +16,7 @@ class KhenThuongController extends Controller
 
     function __construct(KhenThuongService $khenThuongService, CtKhenThuongService $ctKhenThuongService, UserService $userService)
     {
-        $this->khenThuongSevice = $khenThuongService;
+        $this->khenThuongService = $khenThuongService;
         $this->ctKhenThuongSevice = $ctKhenThuongService;
         $this->userService = $userService;
     }
@@ -24,7 +24,7 @@ class KhenThuongController extends Controller
     public function index()
     {
         try {
-            return $this->_getDataResponse($this->khenThuongSevice->getAll());
+            return $this->_getDataResponse($this->khenThuongService->getAll());
         } catch (\Exception $e) {
             return $this->_getMessageResponse($e->getMessage());
         }
@@ -34,7 +34,7 @@ class KhenThuongController extends Controller
     {
         if ($this->userService->hasRole($request->user()->id, 'admin')) {
             try {
-                $khenthuong = $this->khenThuongSevice->getKhenThuong($id);
+                $khenthuong = $this->khenThuongService->getKhenThuong($id);
                 return $this->_getDataResponse($khenthuong);
             } catch (\Exception $e) {
                 return $this->_getMessageResponse($e->getMessage());
@@ -48,7 +48,7 @@ class KhenThuongController extends Controller
         if ($this->userService->hasRole($request->user()->id, 'admin')) {
             try {
                 // Ignore validate request
-                $result = $this->khenThuongSevice->deleteKhenThuong($id); // Return Id of new
+                $result = $this->khenThuongService->deleteKhenThuong($id); // Return Id of new
                 return $this->_getDataResponse($result);
             } catch (\Exception $e) {
                 return response()->json([
