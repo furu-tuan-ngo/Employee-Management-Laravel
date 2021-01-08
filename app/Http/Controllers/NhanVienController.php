@@ -2,21 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CtKhenThuong;
+use App\Models\CtKyLuat;
+use App\Models\CtNgoaiNgu;
+use App\Models\CtTrinhDo;
 use App\Services\NhanVienService;
 use App\Services\UserService;
+use App\Services\CtKhenThuongService;
+use App\Services\CtKyLuatService;
+use App\Services\CtNgoaiNguService;
+use App\Services\CtTrinhDoService;
 use Illuminate\Http\Request;
 
 class NhanVienController extends Controller
 {
     protected $nhanVienService;
     protected $userService;
+    protected $ctKhenThuongService;
+    protected $ctKyLuatService;
+    protected $ctNgoaiNguService;
+    protected $ctTrinhDoService;
 
     function __construct(
         NhanVienService $nhanVienService,
-        UserService $userService
+        UserService $userService,
+        CtKhenThuongService $ctKhenThuongService,
+        CtKyLuatService $ctKyLuatService,
+        CtNgoaiNguService $ctNgoaiNguService,
+        CtTrinhDoService $ctTrinhDoService
     ) {
         $this->nhanVienService = $nhanVienService;
         $this->userService = $userService;
+        $this->ctKhenThuongService = $ctKhenThuongService;
+        $this->ctKyLuatService = $ctKyLuatService;
+        $this->ctNgoaiNguService = $ctNgoaiNguService;
+        $this->ctTrinhDoService = $ctTrinhDoService;
     }
 
     public function index(Request $request)
@@ -80,6 +100,22 @@ class NhanVienController extends Controller
         return $this->_authorize();
     }
 
+
+    public function update(Request $request)
+    {
+        // return $request;
+        try {
+            // Ignore validate request
+            $result = $this->nhanVienService->updateNhanVien(collect($request)); // Return Id of new
+            return $this->_getDataResponse($result);
+        } catch (\Exception $e) {
+            return response()->json([
+                "success" => false,
+                "message" => $e->getMessage()
+            ]);
+        }
+    }
+
     public function delete(Request $request, $id)
     {
         if ($this->userService->hasRole($request->user()->id, 'admin')) {
@@ -97,18 +133,52 @@ class NhanVienController extends Controller
         return $this->_authorize();
     }
 
-    public function update(Request $request)
+
+    public function setKyLuat(Request $request)
     {
-        // return $request;
-        try {
-            // Ignore validate request
-            $result = $this->nhanVienService->updateNhanVien(collect($request)); // Return Id of new
-            return $this->_getDataResponse($result);
-        } catch (\Exception $e) {
-            return response()->json([
-                "success" => false,
-                "message" => $e->getMessage()
-            ]);
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                return $this->_getDataResponse($this->ctKyLuatService->save(collect($request))); // Return Id of new
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
         }
+        return $this->_authorize();
+    }
+
+    public function setNgoaiNgu(Request $request)
+    {
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                return $this->_getDataResponse($this->ctNgoaiNguService->save(collect($request))); // Return Id of new
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
+    }
+
+    public function setTrinhDo(Request $request)
+    {
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                return $this->_getDataResponse($this->ctTrinhDoService->save(collect($request))); // Return Id of new
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
     }
 }
