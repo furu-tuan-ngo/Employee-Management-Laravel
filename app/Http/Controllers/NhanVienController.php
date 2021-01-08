@@ -100,12 +100,27 @@ class NhanVienController extends Controller
         return $this->_authorize();
     }
 
-    public function setKhenThuong(Request $request)
+
+    public function update(Request $request)
+    {
+        // return $request;
+        try {
+            // Ignore validate request
+            $result = $this->nhanVienService->updateNhanVien(collect($request)); // Return Id of new
+            return $this->_getDataResponse($result);
+        } catch (\Exception $e) {
+            return response()->json([
+                "success" => false,
+                "message" => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function delete(Request $request, $id)
     {
         if ($this->userService->hasRole($request->user()->id, 'admin')) {
             try {
                 // Ignore validate request
-                return $this->_getDataResponse($this->ctKhenThuongService->save(collect($request))); // Return Id of new
                 $result = $this->nhanVienService->deleteNhanVien($id); // Return Id of new
                 return $this->_getDataResponse($result);
             } catch (\Exception $e) {
@@ -165,18 +180,20 @@ class NhanVienController extends Controller
         }
         return $this->_authorize();
     }
-    public function update(Request $request)
+
+    public function setKhenThuong(Request $request)
     {
-        // return $request;
-        try {
-            // Ignore validate request
-            $result = $this->nhanVienService->updateNhanVien(collect($request)); // Return Id of new
-            return $this->_getDataResponse($result);
-        } catch (\Exception $e) {
-            return response()->json([
-                "success" => false,
-                "message" => $e->getMessage()
-            ]);
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                return $this->_getDataResponse($this->ctKhenThuongService->save(collect($request))); // Return Id of new
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
         }
+        return $this->_authorize();
     }
 }

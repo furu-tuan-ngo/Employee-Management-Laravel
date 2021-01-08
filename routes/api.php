@@ -23,15 +23,16 @@ Route::middleware('auth:api')->group(function () {
     Route::get("profile", "UserController@index");
     // Nhan Vien Api
     Route::get("nhanviens", "NhanVienController@index");
-    Route::get("lookup-value-nhan-vien", "NhanVienController@lookupValue");
-    Route::post("nhanvien/add", "NhanVienController@save");
     Route::post('nhanvien/kyluat', "NhanVienController@setKyLuat");
     Route::post('nhanvien/khenthuong', "NhanVienController@setKhenThuong");
     Route::post('nhanvien/ngoaingu', 'NhanVienController@setNgoaiNgu');
     Route::post('nhanvien/trinhdo', 'NhanVienController@setTrinhDo');
+    Route::get("lookup-value-nhan-vien", "NhanVienController@lookupValue");
+    Route::post("nhanvien/add", "NhanVienController@save");
     Route::post("nhanvien/update", "NhanVienController@update");
     Route::delete("nhanvien/remove/{id}", 'NhanVienController@delete');
     Route::get("nhanvien/{id}", "NhanVienController@detail");
+
 
     // Bang Luong Api
     Route::get('bangluongs', "BangLuongController@index");
