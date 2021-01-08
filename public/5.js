@@ -284,6 +284,42 @@ var CrudModel = /*#__PURE__*/function () {
       });
     }
   }, {
+    key: "delete",
+    value: function _delete(id) {
+      return this.api["delete"]("".concat(this.modelName, "/remove/").concat(id)).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
+  }, {
+    key: "get",
+    value: function get(id) {
+      return this.api.get("".concat(this.modelName, "/").concat(id)).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
+  }, {
+    key: "update",
+    value: function update(record) {
+      return this.api.post("".concat(this.modelName, "/update"), record).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
+  }, {
     key: "api",
     get: function get() {
       return axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({

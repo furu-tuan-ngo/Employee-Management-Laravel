@@ -84,7 +84,7 @@
                                 data-autohide-disabled="false"
                                 class="datatable-cell-left datatable-cell datatable-cell-sort"
                             >
-                                <span style="width: 125px;">Actions</span>
+                                <span style="width: 125px;"></span>
                             </th>
                         </tr>
                     </thead>
@@ -177,7 +177,11 @@
                                 <span
                                     style="overflow: visible; position: relative; width: 125px;"
                                 >
-                                    <a
+                                    <router-link
+                                        :to="{
+                                            name: 'sua_nhanvien',
+                                            params: { id: item.id }
+                                        }"
                                         href="javascript:;"
                                         class="btn btn-sm btn-clean btn-icon mr-2"
                                         title="Edit details"
@@ -221,11 +225,12 @@
                                                 </g>
                                             </svg>
                                         </span>
-                                    </a>
+                                    </router-link>
                                     <a
                                         href="javascript:;"
                                         class="btn btn-sm btn-clean btn-icon"
                                         title="Delete"
+                                        v-on:click="handleRemove(item)"
                                     >
                                         <span class="svg-icon svg-icon-md">
                                             <svg
@@ -318,6 +323,8 @@
 <script>
 import LoadingComponent from "../LoadingComponent.vue";
 import CrudModel from "../models/crud-model";
+import Swal from "sweetalert2";
+import NhanVien from "../models/nhanvien";
 
 export default {
     components: { LoadingComponent },
@@ -328,7 +335,6 @@ export default {
         };
     },
     created() {
-        console.log("created");
         const nhanvienModel = new CrudModel("nhanvien");
 
         nhanvienModel
@@ -345,7 +351,38 @@ export default {
                 console.log(err);
             });
     },
-    mounted() {}
+    mounted() {},
+    methods: {
+        handleRemove(item) {
+            Swal.fire({
+                title: `Xác nhận xóa nhân viên : ${item.ho_ten}`,
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Xóa",
+                cancelButtonText: "Hủy",
+                showLoaderOnConfirm: true,
+                allowOutsideClick: false,
+                preConfirm: () => {
+                    const nhanvienModel = new CrudModel("nhanvien");
+                    return nhanvienModel.delete(item.id).then(res => res);
+                }
+            }).then(result => {
+                if (result.value) {
+                    if (result.value.success) {
+                        this.data = this.data.filter(rec => rec.id != item.id);
+                        Swal.fire(
+                            "XÓA THÀNH CÔNG",
+                            `Nhân viên ${item.ho_ten} đã được xóa.`,
+                            "success"
+                        );
+                    } else {
+                        Swal.fire("Đã có lỗi khi gửi", "", "error");
+                    }
+                }
+            });
+        }
+    }
 };
 </script>
 

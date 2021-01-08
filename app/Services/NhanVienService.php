@@ -59,4 +59,18 @@ class NhanVienService
 
         return $lookupValue;
     }
+
+    public function deleteNhanVien($id)
+    {
+        return $this->nhanVienRepository->delete($id);
+    }
+
+    public function updateNhanVien($record)
+    {
+        $record['ngay_sinh'] = Carbon::parse($record['ngay_sinh'])->format('Y-m-d h:i:s');
+        $record['ngay_vao_lam'] = Carbon::parse($record['ngay_vao_lam'])->format('Y-m-d h:i:s');
+        $record['created_at'] = Carbon::parse($record['ngay_sinh'])->format('Y-m-d h:i:s');
+        $record['updated_at'] = Carbon::now();
+        return $this->nhanVienRepository->update($record, $record['id']);
+    }
 }
