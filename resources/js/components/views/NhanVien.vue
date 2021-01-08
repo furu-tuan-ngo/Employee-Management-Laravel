@@ -118,9 +118,17 @@
                                 aria-label="68788-9890"
                                 class="datatable-cell"
                             >
-                                <span style="width: 137px;">{{
-                                    item.ho_ten
-                                }}</span>
+                                <router-link
+                                    :to="{
+                                        name: 'nhanvien_chitiet',
+                                        params: { id: item.id }
+                                    }"
+                                    class="d-flex align-items-center text-dark text-hover-primary font-weight-bold mr-3"
+                                >
+                                    <span style="width: 137px;">{{
+                                        item.ho_ten
+                                    }}</span>
+                                </router-link>
                             </td>
                             <td
                                 data-field="Country"
@@ -226,7 +234,7 @@
                                             </svg>
                                         </span>
                                     </router-link>
-                                    <a
+                                    <button
                                         href="javascript:;"
                                         class="btn btn-sm btn-clean btn-icon"
                                         title="Delete"
@@ -266,7 +274,20 @@
                                                 </g>
                                             </svg>
                                         </span>
-                                    </a>
+                                    </button>
+                                    <button
+                                        v-on:click="handleModelKhenThuong(item)"
+                                        class="btn btn-sm btn-clean btn-icon"
+                                        title="Khen Thuong"
+                                        data-toggle="modal"
+                                        data-target="#exampleModalScrollable"
+                                    >
+                                        <span class="svg-icon svg-icon-md">
+                                            <i
+                                                class="flaticon2-gift text-success"
+                                            ></i>
+                                        </span>
+                                    </button>
                                 </span>
                             </td>
                         </tr>
@@ -317,6 +338,169 @@
             </div>
             <!--end: Datatable-->
         </div>
+        <!-- Modal-->
+        <div
+            class="modal fade"
+            id="exampleModalScrollable"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="staticBackdrop"
+            aria-hidden="true"
+        >
+            <div
+                class="modal-dialog modal-dialog-centered modal-lg"
+                role="document"
+            >
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h5
+                            class="modal-title text-center"
+                            id="exampleModalLabel"
+                        >
+                            Khen Thưởng Nhân Viên :
+                            {{ this.selectedStaff.ho_ten }}
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="min-height: 150px;">
+                        <h5>
+                            Danh sách khen thưởng :
+                            {{ this.selectedStaff.ct_khen_thuong.length }} khen
+                            thưởng
+                        </h5>
+                        <div
+                            v-if="this.selectedStaff.ct_khen_thuong.length == 0"
+                            class="font-weight-mormal font-size-lg timeline-content text-muted pl-3"
+                        >
+                            Chưa có khen thưởng nào
+                        </div>
+                        <div
+                            v-if="this.selectedStaff.ct_khen_thuong.length > 0"
+                            class="timeline timeline-justified timeline-4"
+                        >
+                            <div class="timeline-bar"></div>
+                            <div
+                                v-for="kt in this.selectedStaff.ct_khen_thuong"
+                                :key="kt.id"
+                                class="timeline-items"
+                            >
+                                <div class="timeline-item">
+                                    <div class="timeline-badge">
+                                        <div class="bg-danger"></div>
+                                    </div>
+                                    <div class="timeline-label">
+                                        <span
+                                            class="text-primary font-weight-bold"
+                                            >{{ kt.ngay_qd }}</span
+                                        >
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div
+                                            class="d-flex align-items-center justify-content-between"
+                                        >
+                                            <div class="mr-2">
+                                                <a
+                                                    class="text-dark-75 text-hover-primary font-weight-bold"
+                                                    >{{
+                                                        kt.khen_thuong.name
+                                                    }}</a
+                                                >
+                                            </div>
+                                            <div
+                                                class="dropdown ml-2"
+                                                data-toggle="tooltip"
+                                                title=""
+                                                data-placement="left"
+                                                data-original-title="Quick actions"
+                                            >
+                                                <a
+                                                    href="#"
+                                                    class="btn btn-hover-light-primary btn-sm btn-icon"
+                                                    data-toggle="dropdown"
+                                                    aria-haspopup="true"
+                                                    aria-expanded="false"
+                                                >
+                                                    <i
+                                                        class="ki ki-more-hor text-primary"
+                                                    ></i>
+                                                </a>
+                                                <div
+                                                    class="dropdown-menu p-0 m-0 dropdown-menu-right"
+                                                >
+                                                    <!--begin::Navigation-->
+                                                    <ul class="navi navi-hover">
+                                                        <li class="navi-item">
+                                                            <a
+                                                                href="#"
+                                                                class="navi-link"
+                                                            >
+                                                                <span
+                                                                    class="navi-text"
+                                                                >
+                                                                    <span
+                                                                        class="label label-xl label-inline label-light-success"
+                                                                        >Xóa</span
+                                                                    >
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <!--end::Navigation-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mx-5">
+                                            <div class="">
+                                                <span
+                                                    class="font-weight-bolder text-dark-75 mr-3"
+                                                    >Nội Dung :
+                                                </span>
+                                                {{ kt.noi_dung }}
+                                            </div>
+                                            <div class="mt-3">
+                                                <span
+                                                    class="font-weight-bolder text-dark-75 mr-2"
+                                                    >Hình Thức :
+                                                </span>
+                                                {{ kt.hinh_thuc }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <div class="form-group">
+                            <label>Chọn Loại Khen Khen Thưởng</label>
+                            <select class="form-control form-control-solid">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-light-primary font-weight-bold"
+                            data-dismiss="modal"
+                        >
+                            Đóng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -331,7 +515,10 @@ export default {
     data: function() {
         return {
             data: [],
-            loading: true
+            loading: true,
+            selectedStaff: {
+                ct_khen_thuong: []
+            }
         };
     },
     created() {
@@ -381,6 +568,10 @@ export default {
                     }
                 }
             });
+        },
+        handleModelKhenThuong(item) {
+            console.log(item);
+            this.selectedStaff = item;
         }
     }
 };

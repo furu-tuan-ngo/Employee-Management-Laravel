@@ -11,6 +11,11 @@ const routes = [
         component: () => import("./components/views/NhanVien.vue")
     },
     {
+        path: "/nhan-vien/:id",
+        name: "nhanvien_chitiet",
+        component: () => import("./components/views/Chi_Tiet_Nhan_Vien.vue")
+    },
+    {
         path: "/chuc-vu",
         name: "chucvu",
         component: () => import("./components/views/ChucVu.vue")

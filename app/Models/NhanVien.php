@@ -57,4 +57,9 @@ class NhanVien extends Model
     {
         return $this->belongsToMany('App\Models\KyLuat', 'c_t_ky_luat', "ma_ky_luat", "id");
     }
+
+    public function ct_khen_thuong()
+    {
+        return $this->hasMany('App\Models\CtKhenThuong', 'ma_nhan_vien', 'id');
+    }
 }
