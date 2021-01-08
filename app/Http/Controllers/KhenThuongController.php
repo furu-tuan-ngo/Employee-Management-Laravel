@@ -10,7 +10,7 @@ use App\Services\UserService;
 
 class KhenThuongController extends Controller
 {
-    protected $khenThuongSevice;
+    protected $khenThuongService;
     protected $ctKhenThuongSevice;
     protected $userService;
 
