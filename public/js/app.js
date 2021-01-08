@@ -2357,6 +2357,18 @@ __webpack_require__.r(__webpack_exports__);
         name: "chucvu",
         title: "Quản Lý Chức Vụ",
         icon: _icons_PageIcon_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+      }, {
+        name: "khenthuong",
+        title: "Quản Lý Khen Thưởng",
+        icon: _icons_PageIcon_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+      }, {
+        name: "kyluat",
+        title: "Quản Lý Kỷ Luật",
+        icon: _icons_PageIcon_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+      }, {
+        name: "bangluong",
+        title: "Quản Lý Bảng Lương",
+        icon: _icons_PageIcon_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
       }]
     };
   },
@@ -36972,49 +36984,67 @@ var routes = [{
   path: "/nhan-vien",
   name: "nhanvien",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(10), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
   }
 }, {
   path: "/chuc-vu",
   name: "chucvu",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/views/ChucVu.vue */ "./resources/js/components/views/ChucVu.vue"));
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/views/ChucVu.vue */ "./resources/js/components/views/ChucVu.vue"));
   }
 }, {
   path: "/phong-ban",
   name: "phongban",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/views/PhongBan.vue */ "./resources/js/components/views/PhongBan.vue"));
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/views/PhongBan.vue */ "./resources/js/components/views/PhongBan.vue"));
   }
 }, {
   path: "/dan-toc",
   name: "dantoc",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/views/DanToc.vue */ "./resources/js/components/views/DanToc.vue"));
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/views/DanToc.vue */ "./resources/js/components/views/DanToc.vue"));
   }
 }, {
   path: "/ton-giao",
   name: "tongiao",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/views/TonGiao.vue */ "./resources/js/components/views/TonGiao.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./components/views/TonGiao.vue */ "./resources/js/components/views/TonGiao.vue"));
   }
 }, {
   path: "/dan-toc/them",
   name: "them_dantoc",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/views/DanToc_Add_Form.vue */ "./resources/js/components/views/DanToc_Add_Form.vue"));
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/views/DanToc_Add_Form.vue */ "./resources/js/components/views/DanToc_Add_Form.vue"));
   }
 }, {
   path: "/nhan-vien/them",
   name: "them_nhanvien",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Add_Form.vue */ "./resources/js/components/views/NhanVien_Add_Form.vue"));
+    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Add_Form.vue */ "./resources/js/components/views/NhanVien_Add_Form.vue"));
   }
 }, {
   path: "/nhan-vien/sua/:id",
   name: "sua_nhanvien",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Edit_Form.vue */ "./resources/js/components/views/NhanVien_Edit_Form.vue"));
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Edit_Form.vue */ "./resources/js/components/views/NhanVien_Edit_Form.vue"));
+  }
+}, {
+  path: "/khen-thuong",
+  name: "khenthuong",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./components/views/Khen_Thuong.vue */ "./resources/js/components/views/Khen_Thuong.vue"));
+  }
+}, {
+  path: "/ky-luat",
+  name: "kyluat",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./components/views/Ky_Luat.vue */ "./resources/js/components/views/Ky_Luat.vue"));
+  }
+}, {
+  path: "/bang-luong",
+  name: "bangluong",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./components/views/Bang_Luong.vue */ "./resources/js/components/views/Bang_Luong.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

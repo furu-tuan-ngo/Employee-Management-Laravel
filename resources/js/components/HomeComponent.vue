@@ -267,6 +267,21 @@ export default {
                     name: "chucvu",
                     title: "Quản Lý Chức Vụ",
                     icon: PageIcon
+                },
+                {
+                    name: "khenthuong",
+                    title: "Quản Lý Khen Thưởng",
+                    icon: PageIcon
+                },
+                {
+                    name: "kyluat",
+                    title: "Quản Lý Kỷ Luật",
+                    icon: PageIcon
+                },
+                {
+                    name: "bangluong",
+                    title: "Quản Lý Bảng Lương",
+                    icon: PageIcon
                 }
             ]
         };

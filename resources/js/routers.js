@@ -44,6 +44,21 @@ const routes = [
         path: "/nhan-vien/sua/:id",
         name: "sua_nhanvien",
         component: () => import("./components/views/NhanVien_Edit_Form.vue")
+    },
+    {
+        path: "/khen-thuong",
+        name: "khenthuong",
+        component: () => import("./components/views/Khen_Thuong.vue")
+    },
+    {
+        path: "/ky-luat",
+        name: "kyluat",
+        component: () => import("./components/views/Ky_Luat.vue")
+    },
+    {
+        path: "/bang-luong",
+        name: "bangluong",
+        component: () => import("./components/views/Bang_Luong.vue")
     }
 ];
 
