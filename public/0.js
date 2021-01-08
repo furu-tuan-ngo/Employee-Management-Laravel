@@ -336,6 +336,190 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -347,7 +531,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       data: [],
-      loading: true
+      loading: true,
+      selectedStaff: {
+        ct_khen_thuong: []
+      }
     };
   },
   created: function created() {
@@ -397,6 +584,10 @@ __webpack_require__.r(__webpack_exports__);
           }
         }
       });
+    },
+    handleModelKhenThuong: function handleModelKhenThuong(item) {
+      console.log(item);
+      this.selectedStaff = item;
     }
   }
 });
@@ -490,10 +681,28 @@ var render = function() {
                             }
                           },
                           [
-                            _c("span", { staticStyle: { width: "137px" } }, [
-                              _vm._v(_vm._s(item.ho_ten))
-                            ])
-                          ]
+                            _c(
+                              "router-link",
+                              {
+                                staticClass:
+                                  "d-flex align-items-center text-dark text-hover-primary font-weight-bold mr-3",
+                                attrs: {
+                                  to: {
+                                    name: "nhanvien_chitiet",
+                                    params: { id: item.id }
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { staticStyle: { width: "137px" } },
+                                  [_vm._v(_vm._s(item.ho_ten))]
+                                )
+                              ]
+                            )
+                          ],
+                          1
                         ),
                         _vm._v(" "),
                         _c(
@@ -681,7 +890,7 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 _c(
-                                  "a",
+                                  "button",
                                   {
                                     staticClass:
                                       "btn btn-sm btn-clean btn-icon",
@@ -759,6 +968,25 @@ var render = function() {
                                       ]
                                     )
                                   ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-sm btn-clean btn-icon",
+                                    attrs: {
+                                      title: "Khen Thuong",
+                                      "data-toggle": "modal",
+                                      "data-target": "#exampleModalScrollable"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.handleModelKhenThuong(item)
+                                      }
+                                    }
+                                  },
+                                  [_vm._m(2, true)]
                                 )
                               ],
                               1
@@ -774,10 +1002,205 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(2)
+          _vm._m(3)
         ]
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModalScrollable",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "staticBackdrop",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered modal-lg",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header text-center" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title text-center",
+                    attrs: { id: "exampleModalLabel" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Khen Thưởng Nhân Viên :\n                        " +
+                        _vm._s(this.selectedStaff.ho_ten) +
+                        "\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(4)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "modal-body",
+                  staticStyle: { "min-height": "150px" }
+                },
+                [
+                  _c("h5", [
+                    _vm._v(
+                      "\n                        Danh sách khen thưởng :\n                        " +
+                        _vm._s(this.selectedStaff.ct_khen_thuong.length) +
+                        " khen\n                        thưởng\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  this.selectedStaff.ct_khen_thuong.length == 0
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "font-weight-mormal font-size-lg timeline-content text-muted pl-3"
+                        },
+                        [
+                          _vm._v(
+                            "\n                        Chưa có khen thưởng nào\n                    "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  this.selectedStaff.ct_khen_thuong.length > 0
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "timeline timeline-justified timeline-4"
+                        },
+                        [
+                          _c("div", { staticClass: "timeline-bar" }),
+                          _vm._v(" "),
+                          _vm._l(this.selectedStaff.ct_khen_thuong, function(
+                            kt
+                          ) {
+                            return _c(
+                              "div",
+                              { key: kt.id, staticClass: "timeline-items" },
+                              [
+                                _c("div", { staticClass: "timeline-item" }, [
+                                  _vm._m(5, true),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "timeline-label" }, [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass:
+                                          "text-primary font-weight-bold"
+                                      },
+                                      [_vm._v(_vm._s(kt.ngay_qd))]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "timeline-content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "d-flex align-items-center justify-content-between"
+                                        },
+                                        [
+                                          _c("div", { staticClass: "mr-2" }, [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass:
+                                                  "text-dark-75 text-hover-primary font-weight-bold"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(kt.khen_thuong.name)
+                                                )
+                                              ]
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _vm._m(6, true)
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "mx-5" }, [
+                                        _c("div", {}, [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "font-weight-bolder text-dark-75 mr-3"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "Nội Dung :\n                                            "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(
+                                            "\n                                            " +
+                                              _vm._s(kt.noi_dung) +
+                                              "\n                                        "
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "mt-3" }, [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "font-weight-bolder text-dark-75 mr-2"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "Hình Thức :\n                                            "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(
+                                            "\n                                            " +
+                                              _vm._s(kt.hinh_thuc) +
+                                              "\n                                        "
+                                          )
+                                        ])
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _vm._m(7)
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(8)
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -887,6 +1310,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "svg-icon svg-icon-md" }, [
+      _c("i", { staticClass: "flaticon2-gift text-success" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "div",
       { staticClass: "datatable-pager datatable-paging-loaded" },
@@ -945,6 +1376,126 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [
+        _c("i", {
+          staticClass: "ki ki-close",
+          attrs: { "aria-hidden": "true" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "timeline-badge" }, [
+      _c("div", { staticClass: "bg-danger" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "dropdown ml-2",
+        attrs: {
+          "data-toggle": "tooltip",
+          title: "",
+          "data-placement": "left",
+          "data-original-title": "Quick actions"
+        }
+      },
+      [
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-hover-light-primary btn-sm btn-icon",
+            attrs: {
+              href: "#",
+              "data-toggle": "dropdown",
+              "aria-haspopup": "true",
+              "aria-expanded": "false"
+            }
+          },
+          [_c("i", { staticClass: "ki ki-more-hor text-primary" })]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "dropdown-menu p-0 m-0 dropdown-menu-right" },
+          [
+            _c("ul", { staticClass: "navi navi-hover" }, [
+              _c("li", { staticClass: "navi-item" }, [
+                _c("a", { staticClass: "navi-link", attrs: { href: "#" } }, [
+                  _c("span", { staticClass: "navi-text" }, [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "label label-xl label-inline label-light-success"
+                      },
+                      [_vm._v("Xóa")]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Chọn Loại Khen Khen Thưởng")]),
+      _vm._v(" "),
+      _c("select", { staticClass: "form-control form-control-solid" }, [
+        _c("option", [_vm._v("1")]),
+        _vm._v(" "),
+        _c("option", [_vm._v("2")]),
+        _vm._v(" "),
+        _c("option", [_vm._v("3")]),
+        _vm._v(" "),
+        _c("option", [_vm._v("4")]),
+        _vm._v(" "),
+        _c("option", [_vm._v("5")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-light-primary font-weight-bold",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("\n                        Đóng\n                    ")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -977,7 +1528,7 @@ var CrudModel = /*#__PURE__*/function () {
     _classCallCheck(this, CrudModel);
 
     this.modelName = modelName;
-    this.baseUrl = "http://employee-management-v4.herokuapp.com/api/";
+    this.baseUrl = "http://localhost:8000/api/";
     this.accessToken = localStorage.getItem("access-token");
   }
 

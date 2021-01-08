@@ -36987,6 +36987,12 @@ var routes = [{
     return Promise.all(/*! import() */[__webpack_require__.e(11), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
   }
 }, {
+  path: "/nhan-vien/:id",
+  name: "nhanvien_chitiet",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./components/views/Chi_Tiet_Nhan_Vien.vue */ "./resources/js/components/views/Chi_Tiet_Nhan_Vien.vue"));
+  }
+}, {
   path: "/chuc-vu",
   name: "chucvu",
   component: function component() {
