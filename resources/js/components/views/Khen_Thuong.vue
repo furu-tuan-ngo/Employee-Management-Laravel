@@ -46,7 +46,10 @@
                             <tr v-for="item in data" :key="item.id">
                                 <td class="pr-0">
                                     <router-link
-                                        to="/khen-thuong/detail"
+                                        :to="{
+                                            name: 'detail_khenthuong',
+                                            params: { id: item.id }
+                                        }"
                                         class="font-weight-bolder"
                                     >
                                         {{ item.name }}</router-link

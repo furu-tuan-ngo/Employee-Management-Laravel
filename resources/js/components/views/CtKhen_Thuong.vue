@@ -38,27 +38,28 @@
                             <div class="loading-container" v-if="this.loading">
                                 <loading-component />
                             </div>
-                            <tr v-for="item in data" :key="item.id">
+                            <tr
+                                v-for="item in data.ct_khen_thuong"
+                                :key="item.id"
+                            >
                                 <td class="pr-0">
                                     <a
                                         href="#"
                                         class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg"
-                                        >{{
-                                            item.ct_khen_thuong.nhanvien.ho_ten
-                                        }}</a
+                                        >{{ item.nhanvien.ho_ten }}</a
                                     >
                                 </td>
 
                                 <td>
-                                    {{ item.ct_khen_thuong.noi_dung }}
+                                    {{ item.noi_dung }}
                                 </td>
                                 <td>
-                                    {{ item.ct_khen_thuong.hinh_thuc }}
+                                    {{ item.hinh_thuc }}
                                 </td>
                                 <td>
-                                    {{ item.ct_khen_thuong.ngay_qd }}
+                                    {{ item.ngay_qd }}
                                 </td>
-                                <td class="pl-40 text-right">
+                                <td class="pl-0 text-right">
                                     <a
                                         href="#"
                                         class="btn btn-icon btn-light btn-hover-primary btn-sm"
@@ -210,18 +211,20 @@ export default {
     data: function() {
         return {
             loading: true,
-            data: []
+            data: {
+                ct_khen_thuong: []
+            }
         };
     },
     created() {
         const khenThuongModel = new CrudModel("khenthuong");
 
         khenThuongModel
-            .get(1)
+            .get(this.$router.currentRoute.params.id)
             .then(res => {
                 if (res.success) {
-                    this.loading = false;
                     this.data = res.data;
+                    this.loading = false;
                 }
             })
             .catch(error => {
