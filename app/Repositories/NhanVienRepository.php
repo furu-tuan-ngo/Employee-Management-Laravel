@@ -14,11 +14,11 @@ class NhanVienRepository extends BaseRepository
 
     public function getNhanViens()
     {
-        return $this->model->with("phong_ban", "bang_luong", "chuc_vu", "dan_toc", "ton_giao", "trinh_do", "ngoai_ngu", "ky_luat", "khen_thuong","ct_khen_thuong.khen_thuong")->latest()->get();
+        return $this->model->with("phong_ban", "bang_luong", "chuc_vu", "dan_toc", "ton_giao", "trinh_do", "ngoai_ngu", "ky_luat", "khen_thuong", "ct_khen_thuong.khen_thuong", "ct_ky_luat.ky_luat")->latest()->get();
     }
 
     public function getNhanVien($id)
     {
-        return $this->model->with("phong_ban", "bang_luong", "chuc_vu", "dan_toc", "ton_giao","trinh_do", "ngoai_ngu", "ky_luat", "khen_thuong","ct_khen_thuong.khen_thuong")->find($id);
+        return $this->model->with("phong_ban", "bang_luong", "chuc_vu", "dan_toc", "ton_giao", "trinh_do", "ngoai_ngu", "ky_luat", "khen_thuong", "ct_khen_thuong.khen_thuong", "ct_ky_luat.ky_luat")->find($id);
     }
 }

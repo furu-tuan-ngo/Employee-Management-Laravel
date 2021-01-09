@@ -232,7 +232,7 @@
                                 <span
                                     class="text-dark-50 font-weight-bold"
                                 ></span
-                                >5 Fake</span
+                                >{{ this.data.ct_ky_luat.length }}</span
                             >
                         </div>
                     </div>
@@ -266,7 +266,6 @@
             <div class="card-body">
                 <h5>
                     Danh sách khen thưởng :
-                    {{ this.data.ct_khen_thuong.length }} khen thưởng
                 </h5>
                 <div
                     v-if="this.data.ct_khen_thuong.length == 0"
@@ -286,10 +285,10 @@
                     >
                         <div class="timeline-item">
                             <div class="timeline-badge">
-                                <div class="bg-danger"></div>
+                                <div class="bg-success"></div>
                             </div>
                             <div class="timeline-label">
-                                <span class="text-primary font-weight-bold">{{
+                                <span class="text-success font-weight-bold">{{
                                     kt.ngay_qd
                                 }}</span>
                             </div>
@@ -299,7 +298,7 @@
                                 >
                                     <div class="mr-2">
                                         <a
-                                            class="text-dark-75 text-hover-primary font-weight-bold"
+                                            class="text-dark-75 text-hover-success font-weight-bold"
                                             >{{ kt.khen_thuong.name }}</a
                                         >
                                     </div>
@@ -366,6 +365,110 @@
                 </div>
             </div>
         </div>
+
+        <div class="card card-custom gutter-b">
+            <div class="card-body">
+                <h5>
+                    Danh sách Kỷ Luật :
+                </h5>
+                <div
+                    v-if="this.data.ct_ky_luat.length == 0"
+                    class="font-weight-mormal font-size-lg timeline-content text-muted pl-3"
+                >
+                    Chưa có kỷ luật nào
+                </div>
+                <div
+                    v-if="this.data.ct_ky_luat.length > 0"
+                    class="timeline timeline-justified timeline-4"
+                >
+                    <div class="timeline-bar"></div>
+                    <div
+                        v-for="kl in this.data.ct_ky_luat"
+                        :key="kl.id"
+                        class="timeline-items"
+                    >
+                        <div class="timeline-item">
+                            <div class="timeline-badge">
+                                <div class="bg-danger"></div>
+                            </div>
+                            <div class="timeline-label">
+                                <span class="text-primary font-weight-bold">{{
+                                    kl.ngay_kl
+                                }}</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div
+                                    class="d-flex align-items-center justify-content-between"
+                                >
+                                    <div class="mr-2">
+                                        <a
+                                            class="text-dark-75 text-hover-primary font-weight-bold"
+                                            >{{ kl.ky_luat.name }}</a
+                                        >
+                                    </div>
+                                    <div
+                                        class="dropdown ml-2"
+                                        data-toggle="tooltip"
+                                        title=""
+                                        data-placement="left"
+                                        data-original-title="Quick actions"
+                                    >
+                                        <a
+                                            href="#"
+                                            class="btn btn-hover-light-primary btn-sm btn-icon"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false"
+                                        >
+                                            <i
+                                                class="ki ki-more-hor text-primary"
+                                            ></i>
+                                        </a>
+                                        <div
+                                            class="dropdown-menu p-0 m-0 dropdown-menu-right"
+                                        >
+                                            <!--begin::Navigation-->
+                                            <ul class="navi navi-hover">
+                                                <li class="navi-item">
+                                                    <a
+                                                        href="#"
+                                                        class="navi-link"
+                                                    >
+                                                        <span class="navi-text">
+                                                            <span
+                                                                class="label label-xl label-inline label-light-success"
+                                                                >Xóa</span
+                                                            >
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <!--end::Navigation-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-5">
+                                    <div class="">
+                                        <span
+                                            class="font-weight-bolder text-dark-75 mr-3"
+                                            >Nguyên Nhân :
+                                        </span>
+                                        {{ kl.nguyen_nhan }}
+                                    </div>
+                                    <div class="mt-3">
+                                        <span
+                                            class="font-weight-bolder text-dark-75 mr-2"
+                                            >Hình Thức :
+                                        </span>
+                                        {{ kl.hinh_thuc }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -376,6 +479,7 @@ export default {
         return {
             data: {
                 ct_khen_thuong: [],
+                ct_ky_luat: [],
                 chuc_vu: { name: "" },
                 phong_ban: { name: "" },
                 ky_luat: []
