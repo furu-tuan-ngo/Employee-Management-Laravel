@@ -59,6 +59,11 @@ const routes = [
         path: "/bang-luong",
         name: "bangluong",
         component: () => import("./components/views/Bang_Luong.vue")
+    },
+    {
+        path: "/khen-thuong/them",
+        name: "them_khenthuong",
+        component: () => import("./components/views/KhenThuong_Add_Form.vue")
     }
 ];
 
