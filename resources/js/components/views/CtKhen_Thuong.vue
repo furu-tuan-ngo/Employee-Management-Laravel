@@ -6,17 +6,9 @@
             <div class="card-header border-0 py-5 px-0">
                 <h3 class="card-title align-items-start flex-column">
                     <span class="card-label font-weight-bolder text-dark"
-                        >Danh Sách Hạn Mục Khen Thưởng</span
+                        >Chi tiết khen thưởng</span
                     >
                 </h3>
-                <div class="card-toolbar">
-                    <router-link
-                        to="/khen-thuong/them"
-                        class="btn btn-success font-weight-bolder font-size-sm"
-                    >
-                        Thêm Hạn Mục</router-link
-                    >
-                </div>
             </div>
             <!--end::Header-->
             <!--begin::Body-->
@@ -29,10 +21,13 @@
                     >
                         <thead>
                             <tr class="text-left">
-                                <th style="min-width: 200px">Tên Hạn Mục</th>
+                                <th style="min-width: 150px">Tên Nhân Viên</th>
 
-                                <th style="min-width: 150px">Ngày Tạo</th>
-                                <th style="min-width: 150px">Ngày Chỉnh Sửa</th>
+                                <th style="min-width: 150px">Nội dung</th>
+                                <th style="min-width: 150px">Hình thức</th>
+                                <th style="min-width: 150px">
+                                    Ngày quyết định
+                                </th>
                                 <th
                                     class="pr-0 text-right"
                                     style="min-width: 150px"
@@ -45,21 +40,25 @@
                             </div>
                             <tr v-for="item in data" :key="item.id">
                                 <td class="pr-0">
-                                    <router-link
-                                        to="/khen-thuong/detail"
-                                        class="font-weight-bolder"
-                                    >
-                                        {{ item.name }}</router-link
+                                    <a
+                                        href="#"
+                                        class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg"
+                                        >{{
+                                            item.ct_khen_thuong.nhanvien.ho_ten
+                                        }}</a
                                     >
                                 </td>
 
                                 <td>
-                                    {{ item.created_at }}
+                                    {{ item.ct_khen_thuong.noi_dung }}
                                 </td>
                                 <td>
-                                    {{ item.updated_at }}
+                                    {{ item.ct_khen_thuong.hinh_thuc }}
                                 </td>
-                                <td class="pr-0 text-right">
+                                <td>
+                                    {{ item.ct_khen_thuong.ngay_qd }}
+                                </td>
+                                <td class="pl-40 text-right">
                                     <a
                                         href="#"
                                         class="btn btn-icon btn-light btn-hover-primary btn-sm"
@@ -218,7 +217,7 @@ export default {
         const khenThuongModel = new CrudModel("khenthuong");
 
         khenThuongModel
-            .getAll()
+            .get(1)
             .then(res => {
                 if (res.success) {
                     this.loading = false;

@@ -64,6 +64,11 @@ const routes = [
         path: "/khen-thuong/them",
         name: "them_khenthuong",
         component: () => import("./components/views/KhenThuong_Add_Form.vue")
+    },
+    {
+        path: "/khen-thuong/detail",
+        name: "detail_khenthuong",
+        component: () => import("./components/views/CtKhen_Thuong.vue")
     }
 ];
 
