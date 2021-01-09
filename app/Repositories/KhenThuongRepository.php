@@ -13,6 +13,6 @@ class KhenThuongRepository extends BaseRepository
 
     public function getKhenThuong($id)
     {
-        return $this->model->with("ctKhenThuong")->find($id);
+        return $this->model->with("ctKhenThuong.nhanvien")->find($id);
     }
 }
