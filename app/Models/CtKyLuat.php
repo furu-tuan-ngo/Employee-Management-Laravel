@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class CtKyLuat extends Model
 {
     protected $table = 'c_t_ky_luat';
+
+    public function nhanvien()
+    {
+        return $this->belongsTo('App\Models\NhanVien', 'ma_nhan_vien', 'id');
+    }
 }
