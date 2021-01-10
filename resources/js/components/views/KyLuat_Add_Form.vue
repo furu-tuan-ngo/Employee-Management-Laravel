@@ -9,7 +9,7 @@
                     role="alert"
                 >
                     <div class="alert-icon">
-                        <i class="flaticon-warning"></i>
+                        <i v-bind:class="alert.icon_class_name"></i>
                     </div>
                     <div class="alert-text">
                         {{ this.alert.text }}
@@ -69,12 +69,19 @@ export default {
             alert: {
                 className: "",
                 isSuccess: false,
-                text: ""
+                text: "",
+                icon_class_name: ""
             }
         };
     },
     methods: {
         InsertRecord() {
+            this.alert.isSuccess = false;
+            if (this.data.name == "") {
+                this.handleError("Tên kỷ luật không được bỏ trống.");
+                return;
+            }
+
             const kyluatModel = new CrudModel("kyluat");
 
             kyluatModel
@@ -85,16 +92,23 @@ export default {
                     this.alert.className =
                         "alert alert-custom alert-light-success fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `${res.data.name} đã được thêm thành công vào bảng kỹ luật.`;
-                    this.data.name = "";
+                    this.alert.icon_class_name = "fas fa-check";
+                    this.alert.text = `${res.data.name} đã được thêm thành công.`;
+                    setTimeout(() => {
+                        this.$router.push("/ky-luat");
+                    }, 500);
                 })
                 .catch(err => {
                     console.log(err);
-                    this.alert.className =
-                        "alert alert-custom alert-light-danger fade show mb-5";
-                    this.alert.isSuccess = true;
-                    this.alert.text = `Thêm ${this.data.name} Thất bại `;
+                    this.handleError("Thêm kỷ luật thất bại");
                 });
+        },
+        handleError(message) {
+            this.alert.className =
+                "alert alert-custom alert-light-danger fade show mb-5";
+            this.alert.isSuccess = true;
+            this.alert.text = message;
+            this.alert.icon_class_name = "flaticon2-cross";
         }
     }
 };

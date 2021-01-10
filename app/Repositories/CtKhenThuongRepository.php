@@ -10,4 +10,9 @@ class CtKhenThuongRepository extends BaseRepository
     {
         $this->model = $ctKhenThuong;
     }
+
+    public function getOneWithKhenThuong($id)
+    {
+        return $this->model->with('khen_thuong')->find($id);
+    }
 }

@@ -10,7 +10,7 @@ class CtKyLuat extends Model
 
     public function ky_luat()
     {
-        return $this->belongsTo('App\Models\KhenThuong', 'ma_ky_luat', 'id');
+        return $this->belongsTo('App\Models\KyLuat', 'ma_ky_luat', 'id');
     }
     public function nhanvien()
     {

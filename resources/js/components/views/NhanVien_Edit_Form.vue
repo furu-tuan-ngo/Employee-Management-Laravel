@@ -24,7 +24,9 @@
         </div>
 
         <div v-if="alert.isError" v-bind:class="alert.className" role="alert">
-            <div class="alert-icon"><i class="flaticon-warning"></i></div>
+            <div class="alert-icon">
+                <i v-bind:class="alert.icon_class_name"></i>
+            </div>
             <div class="alert-text">{{ alert.message }}</div>
         </div>
         <div class="row">
@@ -430,7 +432,8 @@ export default {
                 isError: false,
                 className:
                     "alert alert-custom alert-light-primary fade show mb-5",
-                message: "Fail to update new record ."
+                message: "Fail to update new record .",
+                icon_class_name: ""
             },
 
             disableBtn: true
@@ -484,7 +487,7 @@ export default {
             this.submitClass += "  spinner spinner-white spinner-right";
             this.resetAlert();
             if (!this.validateNull()) {
-                this.handleError("All fields must be completed.");
+                this.handleError("Tất cả các ô không được để trống.");
                 return;
             }
 
@@ -499,18 +502,12 @@ export default {
                 .then(res => {
                     this.submitClass = "btn btn-success";
                     if (res.success) {
-                        this.alert.isError = true;
-                        this.alert.message = "Update new record successfully.";
-                        this.alert.className =
-                            "alert alert-custom alert-light-success fade show mb-5";
+                        this.handleSuccess();
                         setTimeout(() => {
                             this.$router.push("/nhan-vien");
                         }, 500);
                     } else {
-                        this.alert.isError = true;
-                        this.alert.message = "Fail to insert new Record.";
-                        this.alert.className =
-                            "alert alert-custom alert-light-danger fade show mb-5";
+                        this.handleError("Thêm nhân viên thất bại.")
                     }
                 })
                 .catch(err => console.log(err));
@@ -528,16 +525,18 @@ export default {
             return isvalid;
         },
         handleError(message) {
-            this.submitClass = "btn btn-success";
+            this.this.submitClass = "btn btn-success";
             this.alert.isError = true;
             this.alert.className =
                 "alert alert-custom alert-light-primary fade show mb-5";
             this.alert.message = message;
+            this.icon_class_name = "flaticon2-cross";
         },
         handleSuccess() {
+            this.alert.icon_class_name = "fas fa-check";
             this.alert.className =
                 "alert alert-custom alert-light-success fade show mb-5";
-            this.alert.message = "Insert record successfully .";
+            this.alert.message = "Cập nhật nhân viên thành công .";
         },
         resetAlert() {
             this.alert.isError = false;

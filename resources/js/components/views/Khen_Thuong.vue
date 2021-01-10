@@ -201,7 +201,7 @@ export default {
     methods: {
         handleRemove(item) {
             Swal.fire({
-                title: `Xác nhận xóa hạn mục : ${item.name}`,
+                title: `Xác nhận xóa hạn mục : \n ${item.name}`,
                 text: "",
                 icon: "warning",
                 showCancelButton: true,

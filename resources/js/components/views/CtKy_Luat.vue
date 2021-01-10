@@ -6,7 +6,7 @@
             <div class="card-header border-0 py-5 px-0">
                 <h3 class="card-title align-items-start flex-column">
                     <span class="card-label font-weight-bolder text-dark"
-                        >Chi tiết kỹ luật</span
+                        >Chi tiết kỷ luật</span
                     >
                 </h3>
             </div>
@@ -26,7 +26,7 @@
                                 <th style="min-width: 200px">Nguyên nhân</th>
                                 <th style="min-width: 200px">Hình thức</th>
                                 <th style="min-width: 200px">
-                                    Ngày kỹ luật
+                                    Ngày Kỷ luật
                                 </th>
                                 <th
                                     class="pr-0 text-right"

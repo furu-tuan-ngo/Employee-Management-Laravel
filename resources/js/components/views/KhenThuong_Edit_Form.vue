@@ -1,91 +1,76 @@
 <template>
     <div class="container">
-        <div
-            class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap p-0 mb-5"
-        >
-            <!--begin::Info-->
-            <div class="d-flex align-items-center p-0">
-                <!--begin::Page Heading-->
-                <div class="d-flex align-items-baseline flex-wrap mr-5">
-                    <!--begin::Page Title-->
-                    <h2
-                        class="d-flex align-items-center text-dark font-weight-bold my-1"
-                    >
-                        Sửa Thông Tin Khen Thưởng
-                    </h2>
-                    <!--end::Page Title-->
-                </div>
-                <!--end::Page Heading-->
-            </div>
-            <!--end::Info-->
-            <!--begin::Toolbar-->
-            <div class="d-flex align-items-center flex-wrap"></div>
-            <!--end::Toolbar-->
-        </div>
-
-        <div v-if="alert.isError" v-bind:class="alert.className" role="alert">
-            <div class="alert-icon"><i class="flaticon-warning"></i></div>
-            <div class="alert-text">{{ alert.message }}</div>
-        </div>
         <div class="row">
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-6">
-                        <!--begin::Group-->
-                        <div class="form-group row fv-plugins-icon-container">
-                            <label
-                                class="col-xl-3 col-lg-3 col-form-label text-right"
-                                >Tên Hạn Mục</label
-                            >
-                            <div class="col-lg-9 col-xl-9">
-                                <input
-                                    v-model="record.name"
-                                    class="form-control form-control-solid form-control-lg"
-                                    type="text"
-                                />
-                                <div class="fv-plugins-message-container"></div>
-                            </div>
-                        </div>
-                        <!--end::Group-->
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div
+                    v-if="this.alert.isSuccess"
+                    v-bind:class="this.alert.className"
+                    role="alert"
+                >
+                    <div class="alert-icon">
+                        <i v-bind:class="alert.icon_class_name"></i>
+                    </div>
+                    <div class="alert-text">
+                        {{ this.alert.text }}
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6">
-                        <div
-                            class="d-flex align-items-center flex-wrap"
-                            style="margin-left:80px"
+                <h5 class="text-dark font-weight-bold mb-10">
+                    Cập Nhật Thông Tin Khen Thưởng :
+                </h5>
+                <!--begin::Group-->
+                <form>
+                    <div class="form-group row fv-plugins-icon-container">
+                        <label class="col-xl-3 col-lg-3 col-form-label"
+                            >Tên Hạn Mục :</label
                         >
-                            <!--begin::Button-->
-                            <button
-                                v-on:click="updateRecord"
-                                type="button"
-                                v-bind:class="submitClass"
-                            >
-                                sửa
-                            </button>
-                            <!--end::Button-->
+                        <div class="col-lg-9 col-xl-9">
+                            <input
+                                v-model="data.name"
+                                class="form-control form-control-solid form-control-lg"
+                                type="text"
+                                name="name"
+                                autocomplete="off"
+                            />
+                            <div class="fv-plugins-message-container"></div>
                         </div>
                     </div>
-                    <div class="col-6"></div>
+                </form>
+
+                <div class="row">
+                    <div class="col-10"></div>
+                    <div class="col-2">
+                        <button
+                            v-on:click="InsertRecord"
+                            type="button"
+                            class="btn btn-primary font-weight-bolder px-9 py-4"
+                        >
+                            Thêm
+                        </button>
+                    </div>
                 </div>
+
+                <!--end::Group-->
             </div>
+            <div class="col-3"></div>
         </div>
-        <!--end::Group-->
     </div>
 </template>
 
 <script>
+import CrudModel from "../models/crud-model";
 import KhenThuong from "../models/khenthuong";
 export default {
     data: function() {
         return {
-            submitClass: "btn btn-success",
-            record: {},
+            data: {
+                name: ""
+            },
             alert: {
-                isError: false,
-                className:
-                    "alert alert-custom alert-light-primary fade show mb-5",
-                message: "Fail to update new record ."
+                className: "",
+                isSuccess: false,
+                text: "",
+                icon_class_name: ""
             }
         };
     },
@@ -94,63 +79,54 @@ export default {
         khenThuong.get(this.$route.params.id).then(res => {
             if (res.success) {
                 this.record = res.data;
+                console.log(res);
+            }
+        });
+    },
+    created() {
+        const khenThuong = new KhenThuong();
+        khenThuong.get(this.$route.params.id).then(res => {
+            if (res.success) {
+                this.data = res.data;
             }
         });
     },
     methods: {
-        updateRecord() {
-            this.submitClass += "  spinner spinner-white spinner-right";
-            this.resetAlert();
-            if (!this.validateNull()) {
-                this.handleError("All fields must be completed.");
+        InsertRecord() {
+            this.alert.isSuccess = false;
+            if (this.data.name == "") {
+                this.handleError("Tên khen thưởng không được bỏ trống.");
                 return;
             }
 
-            let fields = { ...this.record };
+            const khenthuongModel = new CrudModel("khenthuong");
 
-            const khenthuongModel = new KhenThuong();
             khenthuongModel
-                .update(fields)
-                .then(res => {
-                    this.submitClass = "btn btn-success";
-                    if (res.success) {
-                        this.alert.isError = true;
-                        this.alert.message = "Update new record successfully.";
-                        this.alert.className =
-                            "alert alert-custom alert-light-success fade show mb-5";
-                    } else {
-                        this.alert.isError = true;
-                        this.alert.message = "Fail to insert new Record.";
-                        this.alert.className =
-                            "alert alert-custom alert-light-danger fade show mb-5";
-                    }
+                .update({
+                    id: this.$route.params.id,
+                    name: this.data.name
                 })
-                .catch(err => console.log(err));
-        },
-
-        validateNull() {
-            let isvalid = true;
-
-            for (let item in this.record) {
-                if (this.record[item] == "") {
-                    isvalid = false;
-                }
-            }
-            return isvalid;
+                .then(res => {
+                    this.alert.className =
+                        "alert alert-custom alert-light-success fade show mb-5";
+                    this.alert.isSuccess = true;
+                    this.alert.text = `Cập nhật thành công .`;
+                    this.alert.icon_class_name = "fas fa-check";
+                    setTimeout(() => {
+                        this.$router.push("/khen-thuong");
+                    }, 500);
+                })
+                .catch(err => {
+                    console.log(err);
+                    this.handleError("Cập nhật thất bại.");
+                });
         },
         handleError(message) {
-            this.alert.isError = true;
             this.alert.className =
-                "alert alert-custom alert-light-primary fade show mb-5";
-            this.alert.message = message;
-        },
-        handleSuccess() {
-            this.alert.className =
-                "alert alert-custom alert-light-success fade show mb-5";
-            this.alert.message = "Insert record successfully .";
-        },
-        resetAlert() {
-            this.alert.isError = false;
+                "alert alert-custom alert-light-danger fade show mb-5";
+            this.alert.isSuccess = true;
+            this.alert.text = message;
+            this.alert.icon_class_name = "flaticon2-cross";
         }
     }
 };

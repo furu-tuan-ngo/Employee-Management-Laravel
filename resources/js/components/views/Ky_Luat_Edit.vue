@@ -16,18 +16,17 @@
                     </div>
                 </div>
                 <h5 class="text-dark font-weight-bold mb-10">
-                    Cập nhật Dân Tộc :
+                    Thêm Mới Kỷ Luật :
                 </h5>
                 <!--begin::Group-->
                 <form>
                     <div class="form-group row fv-plugins-icon-container">
                         <label class="col-xl-3 col-lg-3 col-form-label"
-                            >Tên Dân Tộc :</label
+                            >Tên kỷ luật :</label
                         >
                         <div class="col-lg-9 col-xl-9">
                             <input
                                 v-model="data.name"
-                                placeholder="nhập tên dân tộc"
                                 class="form-control form-control-solid form-control-lg"
                                 type="text"
                                 name="name"
@@ -63,9 +62,7 @@ import CrudModel from "../models/crud-model";
 export default {
     data: function() {
         return {
-            data: {
-                name: ""
-            },
+            data: {},
             alert: {
                 className: "",
                 isSuccess: false,
@@ -75,12 +72,10 @@ export default {
         };
     },
     created() {
-        const danTocModel = new CrudModel("dantoc");
-        danTocModel.getOne(this.$route.params.id).then(res => {
+        const kyLuatModel = new CrudModel('kyluat');
+        kyLuatModel.getOne(this.$route.params.id).then(res => {
             if (res.success) {
                 this.data = res.data;
-            } else {
-                console.error(res.message);
             }
         });
     },
@@ -88,28 +83,30 @@ export default {
         InsertRecord() {
             this.alert.isSuccess = false;
             if (this.data.name == "") {
-                this.handleError("Tên dân tộc không được bỏ trống.");
+                this.handleError("Tên kỷ luật không được bỏ trống.");
                 return;
             }
 
-            const danTocModel = new CrudModel("dantoc");
+            const kyluatModel = new CrudModel("kyluat");
 
-            danTocModel
+            kyluatModel
                 .update({
-                    id: this.$route.params.id,
+                    id: this.data.id,
                     name: this.data.name
                 })
                 .then(res => {
                     this.alert.className =
                         "alert alert-custom alert-light-success fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `Cập nhật thành công.`;
                     this.alert.icon_class_name = "fas fa-check";
-                    this.$router.push("/dan-toc");
+                    this.alert.text = `Cập nhật kỷ luật thành công.`;
+                    setTimeout(() => {
+                        this.$router.push("/ky-luat");
+                    }, 500);
                 })
                 .catch(err => {
                     console.log(err);
-                    this.handleError("Cập nhật dân tộc thất bại.");
+                    this.handleError("Cập nhật kỷ luật thất bại");
                 });
         },
         handleError(message) {

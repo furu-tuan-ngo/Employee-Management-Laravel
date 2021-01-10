@@ -9,7 +9,7 @@
                     role="alert"
                 >
                     <div class="alert-icon">
-                        <i class="flaticon-warning"></i>
+                        <i v-bind:class="alert.icon_class_name"></i>
                     </div>
                     <div class="alert-text">
                         {{ this.alert.text }}
@@ -69,7 +69,8 @@ export default {
             alert: {
                 className: "",
                 isSuccess: false,
-                text: ""
+                text: "",
+                icon_class_name: ""
             }
         };
     },
@@ -93,13 +94,19 @@ export default {
                     name: this.data.name
                 })
                 .then(res => {
-                    this.alert.className =
-                        "alert alert-custom alert-light-success fade show mb-5";
-                    this.alert.isSuccess = true;
-                    this.alert.text = `Cập nhật thành công.`;
-                    setTimeout(() => {
-                        this.$router.push("/ton-giao");
-                    }, 500);
+                    if (res.success) {
+                        this.alert.className =
+                            "alert alert-custom alert-light-success fade show mb-5";
+                        this.alert.isSuccess = true;
+                        this.alert.text = `Cập nhật thành công.`;
+                        icon_class_name = "fas fa-check";
+                        setTimeout(() => {
+                            this.$router.push("/ton-giao");
+                        }, 500);
+                    } else {
+                        console.error(res.message);
+                        this.handleError("Cập nhật tôn giáo thất bại.");
+                    }
                 })
                 .catch(err => {
                     console.log(err);
@@ -107,7 +114,15 @@ export default {
                         "alert alert-custom alert-light-danger fade show mb-5";
                     this.alert.isSuccess = true;
                     this.alert.text = `Cập nhật Thất bại `;
+                    icon_class_name = "flaticon2-cross";
                 });
+        },
+        handleError(message) {
+            this.alert.className =
+                "alert alert-custom alert-light-danger fade show mb-5";
+            this.alert.isSuccess = true;
+            this.alert.text = message;
+            this.alert.icon_class_name = "flaticon2-cross";
         }
     }
 };

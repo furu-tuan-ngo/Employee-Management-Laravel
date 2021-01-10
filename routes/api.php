@@ -94,4 +94,7 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('kyluat/remove/{id}', "KyLuatController@delete");
     Route::post('kyluat/update', "KyLuatController@update");
     Route::post('kyluats', "KyLuatController@save");
+
+    Route::post('ct-ky-luat', "KyLuatController@saveChitiet");
+    Route::post('ct-khen-thuong', "KhenThuongController@saveChitiet");
 });

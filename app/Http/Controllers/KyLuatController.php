@@ -88,4 +88,19 @@ class KyLuatController extends Controller
         }
         return $this->_authorize();
     }
+
+    public function saveChiTiet(Request $request)
+    {
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                return $this->_getDataResponse($this->kyLuatService->saveChiTiet(collect($request))); // Return Id of new
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
+    }
 }

@@ -23,8 +23,14 @@
             <!--end::Toolbar-->
         </div>
 
-        <div v-if="this.alert.isError" v-bind:class="this.alert.className" role="alert">
-            <div class="alert-icon"><i class="flaticon-warning"></i></div>
+        <div
+            v-if="this.alert.isError"
+            v-bind:class="this.alert.className"
+            role="alert"
+        >
+            <div class="alert-icon">
+                <i v-bind:class="alert.icon_class_name"></i>
+            </div>
             <div class="alert-text">{{ this.alert.message }}</div>
         </div>
         <div class="row">
@@ -434,7 +440,7 @@ const defaultRecord = {
 export default {
     data: function() {
         return {
-            submitClass : "btn btn-success",
+            submitClass: "btn btn-success",
             record: {},
             data: {
                 phong_ban: [],
@@ -467,6 +473,7 @@ export default {
     methods: {
         insertRecord() {
             this.submitClass += "  spinner spinner-white spinner-right";
+
             this.resetAlert();
             if (!this.validateNull()) {
                 this.handleError("All fields must be completed.");
@@ -517,8 +524,10 @@ export default {
             this.alert.className =
                 "alert alert-custom alert-light-primary fade show mb-5";
             this.alert.message = message;
+            this.alert.icon_class_name = "fas fa-check";
         },
         handleSuccess() {
+            this.alert.icon_class_name = "flaticon2-cross";
             this.alert.className =
                 "alert alert-custom alert-light-success fade show mb-5";
             this.alert.message = "Insert record successfully .";

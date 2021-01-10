@@ -9,7 +9,7 @@
                     role="alert"
                 >
                     <div class="alert-icon">
-                        <i class="flaticon-warning"></i>
+                        <i v-bind:class="alert.icon_class_name"></i>
                     </div>
                     <div class="alert-text">
                         {{ this.alert.message }}
@@ -215,7 +215,8 @@ export default {
             alert: {
                 className: "",
                 isError: false,
-                message: ""
+                message: "",
+                icon_class_name: ""
             },
             phong_ban: [],
             nhan_vien: [],
@@ -275,6 +276,7 @@ export default {
             this.alert.className =
                 "alert alert-custom alert-light-primary fade show mb-5";
             this.alert.message = message;
+            this.alert.icon_class_name = "flaticon2-cross";
         },
         resetAlert() {
             this.alert.isError = false;
@@ -284,6 +286,7 @@ export default {
             this.alert.className =
                 "alert alert-custom alert-light-success fade show mb-5";
             this.alert.message = "Thêm bảng lương thành công .";
+            this.alert.icon_class_name = "fas fa-check"
             setTimeout(() => {
                 this.$router.push("/bang-luong");
             }, 500);

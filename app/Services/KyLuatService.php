@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Repositories\CtKyLuatRepository;
 use App\Repositories\KyLuatRepository;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -9,10 +10,11 @@ use Illuminate\Support\Facades\DB;
 class KyLuatService
 {
     protected $kyLuatRepository;
-
-    function __construct(KyLuatRepository $kyLuatRepository)
+    protected $ctKyLuatRepository;
+    function __construct(KyLuatRepository $kyLuatRepository, CtKyLuatRepository $ctKyLuatRepository)
     {
         $this->kyLuatRepository = $kyLuatRepository;
+        $this->ctKyLuatRepository = $ctKyLuatRepository;
     }
 
     public function getAll()
@@ -44,5 +46,14 @@ class KyLuatService
         return DB::table('ky_luat')->insertGetId(
             $record->all()
         );
+    }
+
+    public function saveChiTiet($record)
+    {
+        $record['ngay_kl'] = Carbon::parse($record['ngay_kl'])->format('Y-m-d h:i:s');
+        $id = $this->ctKyLuatRepository->insert(collect($record));
+        if ($id != null) {
+            return $this->ctKyLuatRepository->getOneWithKyLuat($id);
+        }
     }
 }

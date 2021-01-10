@@ -128,6 +128,11 @@ const routes = [
         component: () => import("./components/views/KyLuat_Add_Form.vue")
     },
     {
+        path: "/ky-luat/sua/:id",
+        name: "kyluat-sua",
+        component: () => import("./components/views/Ky_Luat_Edit.vue")
+    },
+    {
         path: "/ky-luat/detail/:id",
         name: "detail_kyluat",
         component: () => import("./components/views/CtKy_Luat.vue")

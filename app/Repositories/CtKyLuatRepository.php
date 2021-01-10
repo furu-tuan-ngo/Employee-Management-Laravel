@@ -10,4 +10,9 @@ class CtKyLuatRepository extends BaseRepository
     {
         $this->model = $ctKyLuat;
     }
+
+    public function getOneWithKyLuat($id)
+    {
+        return $this->model->with('ky_luat')->find($id);
+    }
 }

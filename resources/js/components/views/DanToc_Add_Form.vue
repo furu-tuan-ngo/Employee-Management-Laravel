@@ -9,7 +9,7 @@
                     role="alert"
                 >
                     <div class="alert-icon">
-                        <i class="flaticon-warning"></i>
+                        <i v-bind:class="alert.icon_class_name"></i>
                     </div>
                     <div class="alert-text">
                         {{ this.alert.text }}
@@ -75,6 +75,12 @@ export default {
     },
     methods: {
         InsertRecord() {
+            this.alert.isSuccess = false;
+            if (this.data.name == "") {
+                this.handleError("Tên dân tộc không được rỗng.");
+                return;
+            }
+
             const danTocModel = new CrudModel("dantoc");
 
             danTocModel
@@ -92,11 +98,15 @@ export default {
                 })
                 .catch(err => {
                     console.log(err);
-                    this.alert.className =
-                        "alert alert-custom alert-light-danger fade show mb-5";
-                    this.alert.isSuccess = true;
-                    this.alert.text = `Thêm ${this.data.name} Thất bại `;
+                    this.handleError("Thêm dân tộc thất bại.");
                 });
+        },
+        handleError(message) {
+            this.alert.className =
+                "alert alert-custom alert-light-danger fade show mb-5";
+            this.alert.isSuccess = true;
+            this.alert.text = message;
+            this.alert.icon_class_name = "flaticon2-cross";
         }
     }
 };
