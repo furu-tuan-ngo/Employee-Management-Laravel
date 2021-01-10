@@ -982,7 +982,7 @@ export default {
         },
         handleRemoveKyLuat(kl) {
             Swal.fire({
-                title: `Xác nhận xóa : \n ${kl.name}`,
+                title: `Xác nhận xóa : \n ${kl.ky_luat.name}`,
                 text: "",
                 icon: "warning",
                 showCancelButton: true,
