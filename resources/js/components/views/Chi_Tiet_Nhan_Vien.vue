@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mt-10">
         <div class="card card-custom gutter-b">
             <div class="card-header border-0 pt-5">
                 <div>

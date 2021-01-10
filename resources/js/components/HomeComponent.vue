@@ -58,7 +58,7 @@
             </div>
             <!--end::Toolbar-->
         </div>
-        <div class="d-flex flex-column flex-root">
+        <div class="d-flex flex-column flex-root pb-0">
             <!--begin::Page-->
             <div class="d-flex flex-row flex-column-fluid page">
                 <!--begin::Aside-->
@@ -83,7 +83,11 @@
                             <!--begin::Menu Nav-->
                             <ul class="menu-nav">
                                 <li class="menu-item">
-                                    <a class="menu-link">
+                                    <a
+                                        class="menu-link"
+                                        to="/"
+                                        v-on:click="changeView({ home: true })"
+                                    >
                                         <span class="svg-icon menu-icon">
                                             <dash-board-icon />
                                         </span>
@@ -219,7 +223,7 @@
                     </div>
                     <!--end::Header-->
                     <div
-                        class="content d-flex flex-column flex-column-fluid"
+                        class="content d-flex flex-column flex-column-fluid py-0"
                         id="kt_content"
                     >
                         <router-view></router-view>
@@ -294,7 +298,11 @@ export default {
             document
                 .getElementsByTagName("BODY")[0]
                 .removeAttribute("data-offcanvas-aside");
-            router.push({ name: item.name });
+            if (!item.home) {
+                router.push({ name: item.name });
+            } else {
+                router.push("/");
+            }
         },
         handleLogout() {
             localStorage.removeItem("access-token");

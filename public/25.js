@@ -260,7 +260,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container mt-10" }, [
     _c("div", { staticClass: "card card-custom" }, [
       _c("div", { staticClass: "card-header border-0 py-5" }, [
         _vm._m(0),

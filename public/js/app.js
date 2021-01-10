@@ -2324,6 +2324,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2378,9 +2382,14 @@ __webpack_require__.r(__webpack_exports__);
       document.getElementById("kt_aside").classList.remove("aside-on");
       document.getElementsByClassName("aside-overlay")[0].remove();
       document.getElementsByTagName("BODY")[0].removeAttribute("data-offcanvas-aside");
-      _routers__WEBPACK_IMPORTED_MODULE_3__["default"].push({
-        name: item.name
-      });
+
+      if (!item.home) {
+        _routers__WEBPACK_IMPORTED_MODULE_3__["default"].push({
+          name: item.name
+        });
+      } else {
+        _routers__WEBPACK_IMPORTED_MODULE_3__["default"].push("/");
+      }
     },
     handleLogout: function handleLogout() {
       localStorage.removeItem("access-token");
@@ -20493,7 +20502,7 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "d-flex flex-column flex-root" }, [
+    _c("div", { staticClass: "d-flex flex-column flex-root pb-0" }, [
       _c("div", { staticClass: "d-flex flex-row flex-column-fluid page" }, [
         _c(
           "div",
@@ -20528,18 +20537,30 @@ var render = function() {
                       { staticClass: "menu-nav" },
                       [
                         _c("li", { staticClass: "menu-item" }, [
-                          _c("a", { staticClass: "menu-link" }, [
-                            _c(
-                              "span",
-                              { staticClass: "svg-icon menu-icon" },
-                              [_c("dash-board-icon")],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "menu-text" }, [
-                              _vm._v("Trang Chủ")
-                            ])
-                          ])
+                          _c(
+                            "a",
+                            {
+                              staticClass: "menu-link",
+                              attrs: { to: "/" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.changeView({ home: true })
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "span",
+                                { staticClass: "svg-icon menu-icon" },
+                                [_c("dash-board-icon")],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "menu-text" }, [
+                                _vm._v("Trang Chủ")
+                              ])
+                            ]
+                          )
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.pages, function(item) {
@@ -20739,7 +20760,8 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "content d-flex flex-column flex-column-fluid",
+                staticClass:
+                  "content d-flex flex-column flex-column-fluid py-0",
                 attrs: { id: "kt_content" }
               },
               [_c("router-view")],
@@ -36981,6 +37003,12 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var routes = [{
+  path: "/",
+  name: "home",
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/views/View_Home.vue */ "./resources/js/components/views/View_Home.vue"));
+  }
+}, {
   path: "/nhan-vien",
   name: "nhanvien",
   component: function component() {

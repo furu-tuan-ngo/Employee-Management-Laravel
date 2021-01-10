@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mt-10">
         <!--begin::Advance Table Widget 1-->
         <div class="card card-custom">
             <!--begin::Header-->

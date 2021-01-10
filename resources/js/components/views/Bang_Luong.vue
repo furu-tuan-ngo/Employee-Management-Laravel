@@ -1,5 +1,5 @@
 <template>
-    <div class="card card-custom container">
+    <div class="card card-custom container mt-10">
         <div class="card-header py-3">
             <div class="card-title">
                 <span class="card-icon">
