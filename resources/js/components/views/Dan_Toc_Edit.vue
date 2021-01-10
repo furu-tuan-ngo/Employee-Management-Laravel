@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <h5 class="text-dark font-weight-bold mb-10">
-                    Thêm Mới Dân Tộc :
+                    Cập nhật Dân Tộc :
                 </h5>
                 <!--begin::Group-->
                 <form>
@@ -46,7 +46,7 @@
                             type="button"
                             class="btn btn-primary font-weight-bolder px-9 py-4"
                         >
-                            Thêm
+                            Sửa
                         </button>
                     </div>
                 </div>
@@ -73,29 +73,38 @@ export default {
             }
         };
     },
+    created() {
+        const danTocModel = new CrudModel("dantoc");
+        danTocModel.getOne(this.$route.params.id).then(res => {
+            if (res.success) {
+                this.data = res.data;
+            } else {
+                console.error(res.message);
+            }
+        });
+    },
     methods: {
         InsertRecord() {
             const danTocModel = new CrudModel("dantoc");
 
             danTocModel
-                .insert({
+                .update({
+                    id: this.$route.params.id,
                     name: this.data.name
                 })
                 .then(res => {
                     this.alert.className =
                         "alert alert-custom alert-light-success fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `${res.data.name} đã được thêm thành công vào bảng dân tộc.`;
-                    setTimeout(() => {
-                        this.$router.push("/dan-toc");
-                    }, 500);
+                    this.alert.text = `Cập nhật thành công.`;
+                    this.$router.push('/dan-toc')
                 })
                 .catch(err => {
                     console.log(err);
                     this.alert.className =
                         "alert alert-custom alert-light-danger fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `Thêm ${this.data.name} Thất bại `;
+                    this.alert.text = `Cập nhật Thất bại `;
                 });
         }
     }

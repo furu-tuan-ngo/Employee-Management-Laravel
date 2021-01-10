@@ -36,19 +36,40 @@ Route::middleware('auth:api')->group(function () {
 
     // Bang Luong Api
     Route::get('bangluongs', "BangLuongController@index");
+    Route::get('bang-luong-lookup-values', 'BangLuongController@getLookupValues');
+    Route::post('bangluong/add', "BangLuongController@save");
+    Route::post('bangluong/update/', "BangLuongController@update");
+    Route::delete('bangluong/remove/{id}', "BangLuongController@delete");
+    Route::get('bangluong/{id}', "BangLuongController@getOne");
+
 
     // Ton Giao
     Route::get('tongiaos', "TonGiaoController@index");
     Route::post('tongiaos', "TonGiaoController@save");
+    Route::get('tongiao/{id}', "TonGiaoController@getOne");
+    Route::delete('tongiao/remove/{id}', "TonGiaoController@delete");
+    Route::post('tongiao/update/', "TonGiaoController@update");
+
     // Phong Ban
     Route::get('phongbans', "PhongBanController@index");
     Route::post('phongbans', "PhongBanController@save");
+    Route::get('phongban/{id}', "PhongBanController@getOne");
+    Route::delete('phongban/remove/{id}', "PhongBanController@delete");
+    Route::post('phongban/update/', "PhongBanController@update");
+
     //Chuc vu
     Route::get('chucvus', 'ChucVuController@index');
     Route::post('chucvus', "ChucVuController@save");
+    Route::get('chucvu/{id}', "ChucVuController@getOne");
+    Route::delete('chucvu/remove/{id}', "ChucVuController@delete");
+    Route::post('chucvu/update/', "ChucVuController@update");
+
     //Dan toc
     Route::get('dantocs', "DanTocController@index");
     Route::post('dantocs', "DanTocController@save");
+    Route::get('dantoc/{id}', "DanTocController@getOne");
+    Route::delete('dantoc/remove/{id}', "DanTocController@delete");
+    Route::post('dantoc/update/', "DanTocController@update");
 
     /**
      *  Hop Dong api

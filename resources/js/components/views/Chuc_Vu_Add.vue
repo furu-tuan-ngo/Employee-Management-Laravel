@@ -16,18 +16,33 @@
                     </div>
                 </div>
                 <h5 class="text-dark font-weight-bold mb-10">
-                    Thêm Mới Dân Tộc :
+                    Thêm Mới Chức Vụ :
                 </h5>
                 <!--begin::Group-->
                 <form>
                     <div class="form-group row fv-plugins-icon-container">
                         <label class="col-xl-3 col-lg-3 col-form-label"
-                            >Tên Dân Tộc :</label
+                            >Tên Chức Vụ</label
                         >
                         <div class="col-lg-9 col-xl-9">
                             <input
                                 v-model="data.name"
-                                placeholder="nhập tên dân tộc"
+                                class="form-control form-control-solid form-control-lg"
+                                type="text"
+                                name="name"
+                                autocomplete="off"
+                            />
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row fv-plugins-icon-container">
+                        <label class="col-xl-3 col-lg-3 col-form-label"
+                            >Lương Cơ Bản</label
+                        >
+                        <div class="col-lg-9 col-xl-9">
+                            <input
+                                v-model="data.luong_co_ban"
+                                placeholder=""
                                 class="form-control form-control-solid form-control-lg"
                                 type="text"
                                 name="name"
@@ -64,7 +79,8 @@ export default {
     data: function() {
         return {
             data: {
-                name: ""
+                name: "",
+                luong_co: ""
             },
             alert: {
                 className: "",
@@ -75,19 +91,21 @@ export default {
     },
     methods: {
         InsertRecord() {
-            const danTocModel = new CrudModel("dantoc");
+            const chucvuModel = new CrudModel("chucvu");
 
-            danTocModel
+            chucvuModel
                 .insert({
-                    name: this.data.name
+                    name: this.data.name,
+                    luong_co_ban: this.data.luong_co_ban
                 })
                 .then(res => {
                     this.alert.className =
                         "alert alert-custom alert-light-success fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `${res.data.name} đã được thêm thành công vào bảng dân tộc.`;
+                    this.alert.text = `${res.data.name} đã được thêm thành công.`;
+                    this.data.name = "";
                     setTimeout(() => {
-                        this.$router.push("/dan-toc");
+                        this.$router.push("/chuc-vu");
                     }, 500);
                 })
                 .catch(err => {

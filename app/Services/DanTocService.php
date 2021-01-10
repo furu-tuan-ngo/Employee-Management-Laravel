@@ -13,7 +13,8 @@ class DanTocService
         $this->danTocRepository = $danTocRepository;
     }
 
-    public function getAll (){
+    public function getAll()
+    {
         return $this->danTocRepository->all();
     }
 
@@ -24,5 +25,20 @@ class DanTocService
             throw new \Exception("Fail to insert record");
         }
         return $record->put('id', $id);
+    }
+
+    public function delete($id)
+    {
+        return $this->danTocRepository->delete($id);
+    }
+
+    public function getOne($id)
+    {
+        return $this->danTocRepository->find($id);
+    }
+
+    public function update($record)
+    {
+        return $this->danTocRepository->update(collect($record), $record->id);
     }
 }

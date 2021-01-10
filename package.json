@@ -1,6 +1,5 @@
 {
     "private": true,
-
     "scripts": {
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -21,6 +20,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "qs": "^6.9.4",
         "sweetalert2": "^10.13.0",
         "vue": "^2.6.12",
         "vue-router": "^3.4.9"

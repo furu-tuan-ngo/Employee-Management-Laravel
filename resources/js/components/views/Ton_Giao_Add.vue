@@ -16,18 +16,18 @@
                     </div>
                 </div>
                 <h5 class="text-dark font-weight-bold mb-10">
-                    Thêm Mới Dân Tộc :
+                    Thêm Mới Tôn Giáo :
                 </h5>
                 <!--begin::Group-->
                 <form>
                     <div class="form-group row fv-plugins-icon-container">
                         <label class="col-xl-3 col-lg-3 col-form-label"
-                            >Tên Dân Tộc :</label
+                            >Tên Tôn Giáo :</label
                         >
                         <div class="col-lg-9 col-xl-9">
                             <input
                                 v-model="data.name"
-                                placeholder="nhập tên dân tộc"
+                                placeholder="nhập tên tôn giáo"
                                 class="form-control form-control-solid form-control-lg"
                                 type="text"
                                 name="name"
@@ -75,9 +75,9 @@ export default {
     },
     methods: {
         InsertRecord() {
-            const danTocModel = new CrudModel("dantoc");
+            const tongiaoModel = new CrudModel("tongiao");
 
-            danTocModel
+            tongiaoModel
                 .insert({
                     name: this.data.name
                 })
@@ -85,9 +85,9 @@ export default {
                     this.alert.className =
                         "alert alert-custom alert-light-success fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `${res.data.name} đã được thêm thành công vào bảng dân tộc.`;
+                    this.alert.text = `${res.data.name} đã được thêm thành công.`;
                     setTimeout(() => {
-                        this.$router.push("/dan-toc");
+                        this.$router.push("/ton-giao");
                     }, 500);
                 })
                 .catch(err => {

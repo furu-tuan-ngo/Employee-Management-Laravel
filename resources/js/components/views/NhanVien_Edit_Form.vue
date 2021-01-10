@@ -58,11 +58,11 @@
                             <div class="col-lg-9 col-xl-9">
                                 <select
                                     v-model="record.gioi_tinh"
-                                    class="form-control"
+                                    class="form-control form-control-solid form-control-lg"
                                 >
                                     <option value="">Chọn giới tính</option>
-                                    <option value="Nam">Nam</option>
-                                    <option value="Nu">Nữ</option>
+                                    <option value="nam">Nam</option>
+                                    <option value="nu">Nữ</option>
                                 </select>
                                 <div class="fv-plugins-message-container"></div>
                             </div>
@@ -398,6 +398,7 @@
                                 v-on:click="updateRecord"
                                 type="button"
                                 v-bind:class="submitClass"
+                                :disabled="disableBtn"
                             >
                                 sửa
                             </button>
@@ -430,7 +431,9 @@ export default {
                 className:
                     "alert alert-custom alert-light-primary fade show mb-5",
                 message: "Fail to update new record ."
-            }
+            },
+
+            disableBtn: true
         };
     },
     created() {
@@ -442,6 +445,14 @@ export default {
                 delete res.data.phong_ban;
                 delete res.data.dan_toc;
                 delete res.data.chuc_vu;
+                delete res.data.created_at;
+                delete res.data.ct_khen_thuong;
+                delete res.data.ct_ky_luat;
+                delete res.data.ky_luat;
+                delete res.data.khen_thuong;
+                delete res.data.ngoai_ngu;
+                delete res.data.trinh_do;
+                delete res.data.updated_at;
                 res.data.ngay_sinh = res.data.ngay_sinh
                     .split(" ")[0]
                     .split("-")
@@ -461,6 +472,7 @@ export default {
             .then(res => {
                 if (res.success) {
                     this.data = res.data;
+                    this.disableBtn = false;
                 }
             })
             .catch(error => {
@@ -491,6 +503,9 @@ export default {
                         this.alert.message = "Update new record successfully.";
                         this.alert.className =
                             "alert alert-custom alert-light-success fade show mb-5";
+                        setTimeout(() => {
+                            this.$router.push("/nhan-vien");
+                        }, 500);
                     } else {
                         this.alert.isError = true;
                         this.alert.message = "Fail to insert new Record.";
@@ -506,12 +521,14 @@ export default {
 
             for (let item in this.record) {
                 if (this.record[item] == "") {
+                    console.log(item, this.record[item]);
                     isvalid = false;
                 }
             }
             return isvalid;
         },
         handleError(message) {
+            this.submitClass = "btn btn-success";
             this.alert.isError = true;
             this.alert.className =
                 "alert alert-custom alert-light-primary fade show mb-5";
@@ -530,7 +547,7 @@ export default {
             return new Date(
                 strArr[2],
                 Number.parseInt(strArr[1]) - 1,
-                strArr[0]
+                Number.parseInt(strArr[0]) + 1
             );
         }
     }

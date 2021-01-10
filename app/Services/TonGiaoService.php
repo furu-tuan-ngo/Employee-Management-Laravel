@@ -26,4 +26,19 @@ class TonGiaoService
         }
         return $record->put('id', $id);
     }
+
+    public function delete($id)
+    {
+        return $this->tonGiaoRepository->delete($id);
+    }
+
+    public function getOne($id)
+    {
+        return $this->tonGiaoRepository->find($id);
+    }
+
+    public function update($record)
+    {
+        return $this->tonGiaoRepository->update(collect($record), $record->id);
+    }
 }

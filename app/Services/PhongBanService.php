@@ -13,7 +13,8 @@ class PhongBanService
         $this->phongBanRepository = $phongBanRepository;
     }
 
-    public function getAll (){
+    public function getAll()
+    {
         return $this->phongBanRepository->all();
     }
 
@@ -24,5 +25,20 @@ class PhongBanService
             throw new \Exception("Fail to insert record");
         }
         return $record->put('id', $id);
+    }
+
+    public function delete($id)
+    {
+        return $this->phongBanRepository->delete($id);
+    }
+
+    public function getOne($id)
+    {
+        return $this->phongBanRepository->find($id);
+    }
+
+    public function update($record)
+    {
+        return $this->phongBanRepository->update(collect($record), $record->id);
     }
 }

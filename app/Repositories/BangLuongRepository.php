@@ -11,8 +11,13 @@ class BangLuongRepository extends BaseRepository
         $this->model = $bangLuong;
     }
 
-    public function getBangLuongsContainNhanVien()
+    public function getBangLuongsContainNhanVien($filter)
     {
-        return $this->model->with('nhan_vien')->latest()->get();
+        return $this->model->with('nhan_vien', 'phong_ban')->where(
+            [
+                ['nam', '=', $filter->year],
+                ['thang', '=', $filter->month]
+            ]
+        )->latest()->get();
     }
 }

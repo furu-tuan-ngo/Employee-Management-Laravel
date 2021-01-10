@@ -16,18 +16,48 @@
                     </div>
                 </div>
                 <h5 class="text-dark font-weight-bold mb-10">
-                    Thêm Mới Dân Tộc :
+                    Thêm Mới Phòng Ban :
                 </h5>
                 <!--begin::Group-->
                 <form>
                     <div class="form-group row fv-plugins-icon-container">
                         <label class="col-xl-3 col-lg-3 col-form-label"
-                            >Tên Dân Tộc :</label
+                            >Tên phòng ban :</label
                         >
                         <div class="col-lg-9 col-xl-9">
                             <input
                                 v-model="data.name"
-                                placeholder="nhập tên dân tộc"
+                                class="form-control form-control-solid form-control-lg"
+                                type="text"
+                                name="name"
+                                autocomplete="off"
+                            />
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row fv-plugins-icon-container">
+                        <label class="col-xl-3 col-lg-3 col-form-label"
+                            >Điện Thoại :</label
+                        >
+                        <div class="col-lg-9 col-xl-9">
+                            <input
+                                v-model="data.dien_thoai"
+                                placeholder=""
+                                class="form-control form-control-solid form-control-lg"
+                                type="text"
+                                name="name"
+                                autocomplete="off"
+                            />
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row fv-plugins-icon-container">
+                        <label class="col-xl-3 col-lg-3 col-form-label"
+                            >Fax :</label
+                        >
+                        <div class="col-lg-9 col-xl-9">
+                            <input
+                                v-model="data.fax"
                                 class="form-control form-control-solid form-control-lg"
                                 type="text"
                                 name="name"
@@ -64,7 +94,9 @@ export default {
     data: function() {
         return {
             data: {
-                name: ""
+                name: "",
+                dien_thoai: "",
+                fax: ""
             },
             alert: {
                 className: "",
@@ -75,19 +107,21 @@ export default {
     },
     methods: {
         InsertRecord() {
-            const danTocModel = new CrudModel("dantoc");
+            const phongbanModel = new CrudModel("phongban");
 
-            danTocModel
+            phongbanModel
                 .insert({
-                    name: this.data.name
+                    name: this.data.name,
+                    dien_thoai: this.data.dien_thoai,
+                    fax: this.data.fax
                 })
                 .then(res => {
                     this.alert.className =
                         "alert alert-custom alert-light-success fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `${res.data.name} đã được thêm thành công vào bảng dân tộc.`;
+                    this.alert.text = `${res.data.name} đã được thêm thành công.`;
                     setTimeout(() => {
-                        this.$router.push("/dan-toc");
+                        this.$router.push("/phong-ban");
                     }, 500);
                 })
                 .catch(err => {

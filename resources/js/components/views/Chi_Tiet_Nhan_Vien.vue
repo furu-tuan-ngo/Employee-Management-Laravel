@@ -539,6 +539,8 @@ export default {
 
         nhanvienModel.get(this.$route.params.id).then(res => {
             if (res.success) {
+                res.data.ngay_sinh = res.data.ngay_sinh.split(" ")[0];
+                res.data.ngay_vao_lam = res.data.ngay_vao_lam.split("T")[0];
                 this.data = res.data;
                 for (let item in res.data) {
                     if (

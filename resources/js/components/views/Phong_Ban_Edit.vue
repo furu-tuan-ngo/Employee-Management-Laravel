@@ -16,18 +16,47 @@
                     </div>
                 </div>
                 <h5 class="text-dark font-weight-bold mb-10">
-                    Thêm Mới Dân Tộc :
+                    Cập nhật Phòng Ban :
                 </h5>
                 <!--begin::Group-->
                 <form>
                     <div class="form-group row fv-plugins-icon-container">
                         <label class="col-xl-3 col-lg-3 col-form-label"
-                            >Tên Dân Tộc :</label
-                        >
+                            >Tên Phòng Ban
+                        </label>
                         <div class="col-lg-9 col-xl-9">
                             <input
                                 v-model="data.name"
-                                placeholder="nhập tên dân tộc"
+                                class="form-control form-control-solid form-control-lg"
+                                type="text"
+                                name="name"
+                                autocomplete="off"
+                            />
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row fv-plugins-icon-container">
+                        <label class="col-xl-3 col-lg-3 col-form-label"
+                            >Điện Thoại
+                        </label>
+                        <div class="col-lg-9 col-xl-9">
+                            <input
+                                v-model="data.dien_thoai"
+                                class="form-control form-control-solid form-control-lg"
+                                type="text"
+                                name="name"
+                                autocomplete="off"
+                            />
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row fv-plugins-icon-container">
+                        <label class="col-xl-3 col-lg-3 col-form-label"
+                            >Fax
+                        </label>
+                        <div class="col-lg-9 col-xl-9">
+                            <input
+                                v-model="data.fax"
                                 class="form-control form-control-solid form-control-lg"
                                 type="text"
                                 name="name"
@@ -46,7 +75,7 @@
                             type="button"
                             class="btn btn-primary font-weight-bolder px-9 py-4"
                         >
-                            Thêm
+                            Sửa
                         </button>
                     </div>
                 </div>
@@ -73,21 +102,34 @@ export default {
             }
         };
     },
+    created() {
+        const phongbanModel = new CrudModel("phongban");
+        phongbanModel.getOne(this.$route.params.id).then(res => {
+            if (res.success) {
+                this.data = res.data;
+            } else {
+                console.error(res.message);
+            }
+        });
+    },
     methods: {
         InsertRecord() {
-            const danTocModel = new CrudModel("dantoc");
+            const phongbanModel = new CrudModel("phongban");
 
-            danTocModel
-                .insert({
-                    name: this.data.name
+            phongbanModel
+                .update({
+                    id: this.$route.params.id,
+                    name: this.data.name,
+                    dien_thoai: this.data.dien_thoai,
+                    fax: this.data.fax
                 })
                 .then(res => {
                     this.alert.className =
                         "alert alert-custom alert-light-success fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `${res.data.name} đã được thêm thành công vào bảng dân tộc.`;
+                    this.alert.text = `Cập nhật thành công.`;
                     setTimeout(() => {
-                        this.$router.push("/dan-toc");
+                        this.$router.push("/phong-ban");
                     }, 500);
                 })
                 .catch(err => {
@@ -95,7 +137,7 @@ export default {
                     this.alert.className =
                         "alert alert-custom alert-light-danger fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `Thêm ${this.data.name} Thất bại `;
+                    this.alert.text = `Cập nhật Thất bại `;
                 });
         }
     }

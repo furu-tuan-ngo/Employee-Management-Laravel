@@ -40,6 +40,8 @@
     </div>
 
 
+    <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
+
     <script>
         var KTAppSettings = {
             "breakpoints": {
@@ -117,6 +119,8 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
     <!--end::Page Scripts-->
+
+    <script src="assets/js/pages/crud/ktdatatable/advanced/row-details.js"></script>
 </body>
 
 

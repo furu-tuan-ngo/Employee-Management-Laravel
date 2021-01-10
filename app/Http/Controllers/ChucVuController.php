@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Services\ChucVuService;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 
 class ChucVuController extends Controller
 {
     protected $chucVuService;
-
-    function __construct(ChucVuService $chucVuService)
+    protected $userService;
+    function __construct(ChucVuService $chucVuService, UserService $userService)
     {
         $this->chucVuService = $chucVuService;
+        $this->userService = $userService;
     }
 
     public function index()
@@ -33,5 +35,55 @@ class ChucVuController extends Controller
         } catch (\Exception $e) {
             return $this->_getMessageResponse($e->getMessage());
         }
+    }
+
+    public function delete(Request $request, $id)
+    {
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                $result = $this->chucVuService->delete($id); // Return Id of new
+                return $this->_getDataResponse($result);
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
+    }
+
+    public function getOne(Request $request, $id)
+    {
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                $result = $this->chucVuService->getOne($id); // Return Id of new
+                return $this->_getDataResponse($result);
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
+    }
+    public function update(Request $request)
+    {
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                $result = $this->chucVuService->update($request); // Return Id of new
+                return $this->_getDataResponse($result);
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
     }
 }

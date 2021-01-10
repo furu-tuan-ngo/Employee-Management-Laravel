@@ -16,18 +16,32 @@
                     </div>
                 </div>
                 <h5 class="text-dark font-weight-bold mb-10">
-                    Thêm Mới Dân Tộc :
+                    Cập nhật Chức Vụ :
                 </h5>
                 <!--begin::Group-->
                 <form>
                     <div class="form-group row fv-plugins-icon-container">
                         <label class="col-xl-3 col-lg-3 col-form-label"
-                            >Tên Dân Tộc :</label
-                        >
+                            >Tên Chức Vụ
+                        </label>
                         <div class="col-lg-9 col-xl-9">
                             <input
                                 v-model="data.name"
-                                placeholder="nhập tên dân tộc"
+                                class="form-control form-control-solid form-control-lg"
+                                type="text"
+                                name="name"
+                                autocomplete="off"
+                            />
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row fv-plugins-icon-container">
+                        <label class="col-xl-3 col-lg-3 col-form-label"
+                            >Lương Cơ Bản
+                        </label>
+                        <div class="col-lg-9 col-xl-9">
+                            <input
+                                v-model="data.luong_co_ban"
                                 class="form-control form-control-solid form-control-lg"
                                 type="text"
                                 name="name"
@@ -46,7 +60,7 @@
                             type="button"
                             class="btn btn-primary font-weight-bolder px-9 py-4"
                         >
-                            Thêm
+                            Sửa
                         </button>
                     </div>
                 </div>
@@ -73,21 +87,33 @@ export default {
             }
         };
     },
+    created() {
+        const chucvuModel = new CrudModel("chucvu");
+        chucvuModel.getOne(this.$route.params.id).then(res => {
+            if (res.success) {
+                this.data = res.data;
+            } else {
+                console.error(res.message);
+            }
+        });
+    },
     methods: {
         InsertRecord() {
-            const danTocModel = new CrudModel("dantoc");
+            const chucvuModel = new CrudModel("chucvu");
 
-            danTocModel
-                .insert({
-                    name: this.data.name
+            chucvuModel
+                .update({
+                    id: this.$route.params.id,
+                    name: this.data.name,
+                    luong_co_ban: this.data.luong_co_ban
                 })
                 .then(res => {
                     this.alert.className =
                         "alert alert-custom alert-light-success fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `${res.data.name} đã được thêm thành công vào bảng dân tộc.`;
+                    this.alert.text = `Cập nhật thành công.`;
                     setTimeout(() => {
-                        this.$router.push("/dan-toc");
+                        this.$router.push("/chuc-vu");
                     }, 500);
                 })
                 .catch(err => {
@@ -95,7 +121,7 @@ export default {
                     this.alert.className =
                         "alert alert-custom alert-light-danger fade show mb-5";
                     this.alert.isSuccess = true;
-                    this.alert.text = `Thêm ${this.data.name} Thất bại `;
+                    this.alert.text = `Cập nhật Thất bại `;
                 });
         }
     }

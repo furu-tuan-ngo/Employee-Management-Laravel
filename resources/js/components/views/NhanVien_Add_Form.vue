@@ -23,9 +23,9 @@
             <!--end::Toolbar-->
         </div>
 
-        <div v-if="alert.isError" v-bind:class="alert.className" role="alert">
+        <div v-if="this.alert.isError" v-bind:class="this.alert.className" role="alert">
             <div class="alert-icon"><i class="flaticon-warning"></i></div>
-            <div class="alert-text">{{ alert.message }}</div>
+            <div class="alert-text">{{ this.alert.message }}</div>
         </div>
         <div class="row">
             <div class="col-12">
@@ -58,7 +58,7 @@
                             <div class="col-lg-9 col-xl-9">
                                 <select
                                     v-model="record.gioi_tinh"
-                                    class="form-control"
+                                    class="form-control form-control-solid form-control-lg"
                                 >
                                     <option value="">Chọn giới tính</option>
                                     <option value="nam">Nam</option>
@@ -531,7 +531,7 @@ export default {
             return new Date(
                 strArr[2],
                 Number.parseInt(strArr[1]) - 1,
-                strArr[0]
+                Number.parseInt(strArr[0]) + 1
             );
         }
     }
