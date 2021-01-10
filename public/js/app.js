@@ -37006,169 +37006,169 @@ var routes = [{
   path: "/",
   name: "home",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/views/View_Home.vue */ "./resources/js/components/views/View_Home.vue"));
+    return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ./components/views/View_Home.vue */ "./resources/js/components/views/View_Home.vue"));
   }
 }, {
   path: "/nhan-vien",
   name: "nhanvien",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(1), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien.vue */ "./resources/js/components/views/NhanVien.vue"));
   }
 }, {
   path: "/chuc-vu",
   name: "chucvu",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(1), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./components/views/ChucVu.vue */ "./resources/js/components/views/ChucVu.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./components/views/ChucVu.vue */ "./resources/js/components/views/ChucVu.vue"));
   }
 }, {
   path: "/chuc-vu/them",
   name: "chucvu-them",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./components/views/Chuc_Vu_Add.vue */ "./resources/js/components/views/Chuc_Vu_Add.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./components/views/Chuc_Vu_Add.vue */ "./resources/js/components/views/Chuc_Vu_Add.vue"));
   }
 }, {
   path: "/chuc-vu/sua/:id",
   name: "chucvu-sua",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./components/views/Chuc_Vu_Edit.vue */ "./resources/js/components/views/Chuc_Vu_Edit.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./components/views/Chuc_Vu_Edit.vue */ "./resources/js/components/views/Chuc_Vu_Edit.vue"));
   }
 }, {
   path: "/phong-ban",
   name: "phongban",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(1), __webpack_require__.e(22)]).then(__webpack_require__.bind(null, /*! ./components/views/PhongBan.vue */ "./resources/js/components/views/PhongBan.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(23)]).then(__webpack_require__.bind(null, /*! ./components/views/PhongBan.vue */ "./resources/js/components/views/PhongBan.vue"));
   }
 }, {
   path: "/phong-ban/them",
   name: "phongban-them",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(23)]).then(__webpack_require__.bind(null, /*! ./components/views/Phong_Ban_Add.vue */ "./resources/js/components/views/Phong_Ban_Add.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(24)]).then(__webpack_require__.bind(null, /*! ./components/views/Phong_Ban_Add.vue */ "./resources/js/components/views/Phong_Ban_Add.vue"));
   }
 }, {
   path: "/phong-ban/sua/:id",
   name: "phongban-sua",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(24)]).then(__webpack_require__.bind(null, /*! ./components/views/Phong_Ban_Edit.vue */ "./resources/js/components/views/Phong_Ban_Edit.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(25)]).then(__webpack_require__.bind(null, /*! ./components/views/Phong_Ban_Edit.vue */ "./resources/js/components/views/Phong_Ban_Edit.vue"));
   }
 }, {
   path: "/dan-toc",
   name: "dantoc",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(1), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./components/views/DanToc.vue */ "./resources/js/components/views/DanToc.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./components/views/DanToc.vue */ "./resources/js/components/views/DanToc.vue"));
   }
 }, {
   path: "/ton-giao",
   name: "tongiao",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(1), __webpack_require__.e(25)]).then(__webpack_require__.bind(null, /*! ./components/views/TonGiao.vue */ "./resources/js/components/views/TonGiao.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(26)]).then(__webpack_require__.bind(null, /*! ./components/views/TonGiao.vue */ "./resources/js/components/views/TonGiao.vue"));
   }
 }, {
   path: "/ton-giao/them",
   name: "tongiao-them",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(26)]).then(__webpack_require__.bind(null, /*! ./components/views/Ton_Giao_Add.vue */ "./resources/js/components/views/Ton_Giao_Add.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(27)]).then(__webpack_require__.bind(null, /*! ./components/views/Ton_Giao_Add.vue */ "./resources/js/components/views/Ton_Giao_Add.vue"));
   }
 }, {
   path: "/ton-giao/sua/:id",
   name: "tongiao-sua",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(27)]).then(__webpack_require__.bind(null, /*! ./components/views/Ton_Giao_Edit.vue */ "./resources/js/components/views/Ton_Giao_Edit.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(28)]).then(__webpack_require__.bind(null, /*! ./components/views/Ton_Giao_Edit.vue */ "./resources/js/components/views/Ton_Giao_Edit.vue"));
   }
 }, {
   path: "/dan-toc/them",
   name: "them_dantoc",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(16)]).then(__webpack_require__.bind(null, /*! ./components/views/DanToc_Add_Form.vue */ "./resources/js/components/views/DanToc_Add_Form.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(16)]).then(__webpack_require__.bind(null, /*! ./components/views/DanToc_Add_Form.vue */ "./resources/js/components/views/DanToc_Add_Form.vue"));
   }
 }, {
   path: "/nhan-vien/them",
   name: "them_nhanvien",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Add_Form.vue */ "./resources/js/components/views/NhanVien_Add_Form.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Add_Form.vue */ "./resources/js/components/views/NhanVien_Add_Form.vue"));
   }
 }, {
   path: "/nhan-vien/:id",
   name: "nhanvien_chitiet",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./components/views/Chi_Tiet_Nhan_Vien.vue */ "./resources/js/components/views/Chi_Tiet_Nhan_Vien.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./components/views/Chi_Tiet_Nhan_Vien.vue */ "./resources/js/components/views/Chi_Tiet_Nhan_Vien.vue"));
   }
 }, {
   path: "/nhan-vien/sua/:id",
   name: "sua_nhanvien",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Edit_Form.vue */ "./resources/js/components/views/NhanVien_Edit_Form.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./components/views/NhanVien_Edit_Form.vue */ "./resources/js/components/views/NhanVien_Edit_Form.vue"));
   }
 }, {
   path: "/khen-thuong",
   name: "khenthuong",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ./components/views/Khen_Thuong.vue */ "./resources/js/components/views/Khen_Thuong.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ./components/views/Khen_Thuong.vue */ "./resources/js/components/views/Khen_Thuong.vue"));
   }
 }, {
   path: "/ky-luat",
   name: "kyluat",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(21)]).then(__webpack_require__.bind(null, /*! ./components/views/Ky_Luat.vue */ "./resources/js/components/views/Ky_Luat.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(21)]).then(__webpack_require__.bind(null, /*! ./components/views/Ky_Luat.vue */ "./resources/js/components/views/Ky_Luat.vue"));
   }
 }, {
   path: "/bang-luong",
   name: "bangluong",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./components/views/Bang_Luong.vue */ "./resources/js/components/views/Bang_Luong.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./components/views/Bang_Luong.vue */ "./resources/js/components/views/Bang_Luong.vue"));
   }
 }, {
   path: "/bang-luong/them",
   name: "bangluong-them",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./components/views/Bang_Luong_Them.vue */ "./resources/js/components/views/Bang_Luong_Them.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./components/views/Bang_Luong_Them.vue */ "./resources/js/components/views/Bang_Luong_Them.vue"));
   }
 }, {
   path: "/bang-luong/sua/:id",
   name: "bangluong-sua",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./components/views/Bang_Luong_Edit.vue */ "./resources/js/components/views/Bang_Luong_Edit.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./components/views/Bang_Luong_Edit.vue */ "./resources/js/components/views/Bang_Luong_Edit.vue"));
   }
 }, {
   path: "/dan-toc/sua/:id",
   name: "dantoc-sua",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(17)]).then(__webpack_require__.bind(null, /*! ./components/views/Dan_Toc_Edit.vue */ "./resources/js/components/views/Dan_Toc_Edit.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(17)]).then(__webpack_require__.bind(null, /*! ./components/views/Dan_Toc_Edit.vue */ "./resources/js/components/views/Dan_Toc_Edit.vue"));
   }
 }, {
   path: "/khen-thuong/them",
   name: "them_khenthuong",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(18)]).then(__webpack_require__.bind(null, /*! ./components/views/KhenThuong_Add_Form.vue */ "./resources/js/components/views/KhenThuong_Add_Form.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(18)]).then(__webpack_require__.bind(null, /*! ./components/views/KhenThuong_Add_Form.vue */ "./resources/js/components/views/KhenThuong_Add_Form.vue"));
   }
 }, {
   path: "/khen-thuong/detail/:id",
   name: "detail_khenthuong",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./components/views/CtKhen_Thuong.vue */ "./resources/js/components/views/CtKhen_Thuong.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./components/views/CtKhen_Thuong.vue */ "./resources/js/components/views/CtKhen_Thuong.vue"));
   }
 }, {
   path: "/ky-luat/them",
   name: "them_kyluat",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(20)]).then(__webpack_require__.bind(null, /*! ./components/views/KyLuat_Add_Form.vue */ "./resources/js/components/views/KyLuat_Add_Form.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(20)]).then(__webpack_require__.bind(null, /*! ./components/views/KyLuat_Add_Form.vue */ "./resources/js/components/views/KyLuat_Add_Form.vue"));
   }
 }, {
   path: "/ky-luat/sua/:id",
   name: "kyluat-sua",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(28)]).then(__webpack_require__.bind(null, /*! ./components/views/Ky_Luat_Edit.vue */ "./resources/js/components/views/Ky_Luat_Edit.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(22)]).then(__webpack_require__.bind(null, /*! ./components/views/Ky_Luat_Edit.vue */ "./resources/js/components/views/Ky_Luat_Edit.vue"));
   }
 }, {
   path: "/ky-luat/detail/:id",
   name: "detail_kyluat",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./components/views/CtKy_Luat.vue */ "./resources/js/components/views/CtKy_Luat.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./components/views/CtKy_Luat.vue */ "./resources/js/components/views/CtKy_Luat.vue"));
   }
 }, {
   path: "/khen-thuong/sua/:id",
   name: "sua_khenthuong",
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(29), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./components/views/KhenThuong_Edit_Form.vue */ "./resources/js/components/views/KhenThuong_Edit_Form.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./components/views/KhenThuong_Edit_Form.vue */ "./resources/js/components/views/KhenThuong_Edit_Form.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

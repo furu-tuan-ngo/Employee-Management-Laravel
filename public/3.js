@@ -1,8 +1,8 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Bang_Luong_Them.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/Bang_Luong_Them.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=script&lang=js& ***!
   \********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -245,13 +245,22 @@ var defaultRecord = {
   created: function created() {
     var _this = this;
 
+    var bangLuongModel = new _models_bangluong__WEBPACK_IMPORTED_MODULE_1__["default"]();
+    bangLuongModel.getOne(this.$route.params.id).then(function (res) {
+      if (res.success) {
+        delete res.data.created_at;
+        delete res.data.updated_at;
+        _this.data = res.data;
+      } else {
+        console.error(res.message);
+      }
+    });
     var defaultYear = Number.parseInt(new Date().getFullYear());
     var startYear = 2015;
     var endYear = defaultYear + 5;
     this.years = Array(endYear - startYear).fill().map(function (_, idx) {
       return startYear + idx;
     });
-    var bangLuongModel = new _models_bangluong__WEBPACK_IMPORTED_MODULE_1__["default"]();
     bangLuongModel.getLookupValues().then(function (res) {
       if (res.success) {
         _this.nhan_vien = res.data.nhan_vien;
@@ -275,12 +284,8 @@ var defaultRecord = {
       }
 
       var bangLuongModel = new _models_bangluong__WEBPACK_IMPORTED_MODULE_1__["default"]();
-      bangLuongModel.insertRecord(this.data).then(function (res) {
+      bangLuongModel.update(this.data).then(function (res) {
         _this2.handleSuccess();
-
-        setTimeout(function () {
-          _this2.$router.push("/bang-luong");
-        }, 500);
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -295,20 +300,24 @@ var defaultRecord = {
       this.alert.isError = false;
     },
     handleSuccess: function handleSuccess() {
-      this.alert.icon_class_name = "fas fa-check";
-      this.data = _objectSpread({}, defaultRecord);
+      var _this3 = this;
+
       this.alert.isError = true;
       this.alert.className = "alert alert-custom alert-light-success fade show mb-5";
       this.alert.message = "Thêm bảng lương thành công .";
+      this.alert.icon_class_name = "fas fa-check";
+      setTimeout(function () {
+        _this3.$router.push("/bang-luong");
+      }, 500);
     }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Bang_Luong_Them.vue?vue&type=template&id=b416ca72&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=template&id=793fd896&":
 /*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/Bang_Luong_Them.vue?vue&type=template&id=b416ca72& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=template&id=793fd896& ***!
   \************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -347,7 +356,7 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _c("h5", { staticClass: "text-dark font-weight-bold mb-10" }, [
-          _vm._v("\n                Thêm Mới Bảng Lương :\n            ")
+          _vm._v("\n                Cập Nhật Bảng Lương :\n            ")
         ]),
         _vm._v(" "),
         _c("form", [
@@ -775,7 +784,7 @@ var render = function() {
                 attrs: { type: "button" },
                 on: { click: _vm.InsertRecord }
               },
-              [_vm._v("\n                        Thêm\n                    ")]
+              [_vm._v("\n                        Sửa\n                    ")]
             )
           ])
         ])
@@ -998,17 +1007,17 @@ var CrudModel = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/components/views/Bang_Luong_Them.vue":
+/***/ "./resources/js/components/views/Bang_Luong_Edit.vue":
 /*!***********************************************************!*\
-  !*** ./resources/js/components/views/Bang_Luong_Them.vue ***!
+  !*** ./resources/js/components/views/Bang_Luong_Edit.vue ***!
   \***********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Bang_Luong_Them_vue_vue_type_template_id_b416ca72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bang_Luong_Them.vue?vue&type=template&id=b416ca72& */ "./resources/js/components/views/Bang_Luong_Them.vue?vue&type=template&id=b416ca72&");
-/* harmony import */ var _Bang_Luong_Them_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bang_Luong_Them.vue?vue&type=script&lang=js& */ "./resources/js/components/views/Bang_Luong_Them.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Bang_Luong_Edit_vue_vue_type_template_id_793fd896___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bang_Luong_Edit.vue?vue&type=template&id=793fd896& */ "./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=template&id=793fd896&");
+/* harmony import */ var _Bang_Luong_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bang_Luong_Edit.vue?vue&type=script&lang=js& */ "./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1018,9 +1027,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Bang_Luong_Them_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Bang_Luong_Them_vue_vue_type_template_id_b416ca72___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Bang_Luong_Them_vue_vue_type_template_id_b416ca72___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Bang_Luong_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Bang_Luong_Edit_vue_vue_type_template_id_793fd896___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Bang_Luong_Edit_vue_vue_type_template_id_793fd896___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1030,38 +1039,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/views/Bang_Luong_Them.vue"
+component.options.__file = "resources/js/components/views/Bang_Luong_Edit.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/views/Bang_Luong_Them.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=script&lang=js&":
 /*!************************************************************************************!*\
-  !*** ./resources/js/components/views/Bang_Luong_Them.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=script&lang=js& ***!
   \************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Them_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bang_Luong_Them.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Bang_Luong_Them.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Them_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bang_Luong_Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/views/Bang_Luong_Them.vue?vue&type=template&id=b416ca72&":
+/***/ "./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=template&id=793fd896&":
 /*!******************************************************************************************!*\
-  !*** ./resources/js/components/views/Bang_Luong_Them.vue?vue&type=template&id=b416ca72& ***!
+  !*** ./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=template&id=793fd896& ***!
   \******************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Them_vue_vue_type_template_id_b416ca72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bang_Luong_Them.vue?vue&type=template&id=b416ca72& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Bang_Luong_Them.vue?vue&type=template&id=b416ca72&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Them_vue_vue_type_template_id_b416ca72___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Edit_vue_vue_type_template_id_793fd896___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bang_Luong_Edit.vue?vue&type=template&id=793fd896& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Bang_Luong_Edit.vue?vue&type=template&id=793fd896&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Edit_vue_vue_type_template_id_793fd896___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Them_vue_vue_type_template_id_b416ca72___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bang_Luong_Edit_vue_vue_type_template_id_793fd896___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
