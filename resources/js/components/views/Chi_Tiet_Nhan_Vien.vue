@@ -352,10 +352,16 @@
                                         >
                                             <!--begin::Navigation-->
                                             <ul class="navi navi-hover">
-                                                <!-- <li class="navi-item">
+                                                <li class="navi-item">
                                                     <a
-                                                        href="#"
+                                                        href="javascript:;"
                                                         class="navi-link"
+                                                        title="Delete"
+                                                        v-on:click="
+                                                            handleRemoveKhenThuong(
+                                                                kt
+                                                            )
+                                                        "
                                                     >
                                                         <span class="navi-text">
                                                             <span
@@ -364,7 +370,7 @@
                                                             >
                                                         </span>
                                                     </a>
-                                                </li> -->
+                                                </li>
                                             </ul>
                                             <!--end::Navigation-->
                                         </div>
@@ -476,8 +482,14 @@
                                             <ul class="navi navi-hover">
                                                 <li class="navi-item">
                                                     <a
-                                                        href="#"
+                                                        href="javascript:;"
                                                         class="navi-link"
+                                                        title="Delete"
+                                                        v-on:click="
+                                                            handleRemoveKyLuat(
+                                                                kl
+                                                            )
+                                                        "
                                                     >
                                                         <span class="navi-text">
                                                             <span
@@ -737,6 +749,8 @@
 <script>
 import CrudModel from "../models/crud-model";
 import ChiTiet from "../models/chi_tiet";
+import KhenThuong from "../models/khenthuong";
+import KyLuat from "../models/kyluat";
 export default {
     data: function() {
         return {
@@ -934,6 +948,64 @@ export default {
                 "alert alert-custom alert-light-success fade show mb-5";
             this.alert.iconClassname = "fas fa-check";
             this.alert.isShowAlert = true;
+        },
+        handleRemoveKhenThuong(kt) {
+            Swal.fire({
+                title: `Xác nhận xóa : \n ${kt.khen_thuong.name}`,
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Xóa",
+                cancelButtonText: "Hủy",
+                showLoaderOnConfirm: true,
+                allowOutsideClick: false,
+                preConfirm: () => {
+                    const khenthuongModel = new KhenThuong();
+                    return khenthuongModel.deleteCtKt(kt.id).then(res => res);
+                }
+            }).then(result => {
+                if (result.value) {
+                    if (result.value.success) {
+                        this.data = this.data.filter(rec => rec.id != kt.id);
+                        Swal.fire(
+                            "XÓA THÀNH CÔNG",
+                            `${kt.khen_thuong.name} đã được xóa.`,
+                            "success"
+                        );
+                    } else {
+                        Swal.fire("Đã có lỗi khi gửi", "", "error");
+                    }
+                }
+            });
+        },
+        handleRemoveKyLuat(kl) {
+            Swal.fire({
+                title: `Xác nhận xóa : \n ${kl.name}`,
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Xóa",
+                cancelButtonText: "Hủy",
+                showLoaderOnConfirm: true,
+                allowOutsideClick: false,
+                preConfirm: () => {
+                    const kyluatModel = new KyLuat();
+                    return kyluatModel.deleteCtKl(kl.id).then(res => res);
+                }
+            }).then(result => {
+                if (result.value) {
+                    if (result.value.success) {
+                        this.data = this.data.filter(rec => rec.id != kl.id);
+                        Swal.fire(
+                            "XÓA THÀNH CÔNG",
+                            `${kl.name} đã được xóa.`,
+                            "success"
+                        );
+                    } else {
+                        Swal.fire("Đã có lỗi khi gửi", "", "error");
+                    }
+                }
+            });
         }
     }
 };

@@ -4,7 +4,7 @@ import qs from "qs";
 class CrudModel {
     constructor(modelName) {
         this.modelName = modelName;
-        this.baseUrl = "http://employee-management-v4.herokuapp.com/api/";
+        this.baseUrl = "http://127.0.0.1:8000/api/";
         this.accessToken = localStorage.getItem("access-token");
     }
 

@@ -11,6 +11,13 @@ class KhenThuong extends CrudModel {
             .then(res => res.data)
             .catch(err => ({ success: false, message: err }));
     }
+
+    deleteCtKt(id) {
+        return this.api
+            .delete(`nhanvien/khenthuong/${id}`)
+            .then(res => res.data)
+            .catch(err => ({ success: false, message: err }));
+    }
 }
 
 export default KhenThuong;

@@ -11,6 +11,13 @@ class KyLuat extends CrudModel {
             .then(res => res.data)
             .catch(err => ({ success: false, message: err }));
     }
+
+    deleteCtKl(id) {
+        return this.api
+            .delete(`nhanvien/kyluat/${id}`)
+            .then(res => res.data)
+            .catch(err => ({ success: false, message: err }));
+    }
 }
 
 export default KyLuat;
