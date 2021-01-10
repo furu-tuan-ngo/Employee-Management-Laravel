@@ -189,6 +189,18 @@ export default {
             .getAll()
             .then(res => {
                 if (res.success) {
+                    res.data.forEach(element => {
+                        element.created_at = element.created_at
+                            .split("T")[0]
+                            .split("-")
+                            .reverse()
+                            .join("/");
+                        element.updated_at = element.updated_at
+                            .split("T")[0]
+                            .split("-")
+                            .reverse()
+                            .join("/");
+                    });
                     this.loading = false;
                     this.data = res.data;
                 }

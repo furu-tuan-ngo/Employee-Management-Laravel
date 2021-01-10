@@ -202,6 +202,10 @@ __webpack_require__.r(__webpack_exports__);
     var khenThuongModel = new _models_crud_model__WEBPACK_IMPORTED_MODULE_1__["default"]("khenthuong");
     khenThuongModel.getAll().then(function (res) {
       if (res.success) {
+        res.data.forEach(function (element) {
+          element.created_at = element.created_at.split("T")[0].split("-").reverse().join("/");
+          element.updated_at = element.updated_at.split("T")[0].split("-").reverse().join("/");
+        });
         _this.loading = false;
         _this.data = res.data;
       }
