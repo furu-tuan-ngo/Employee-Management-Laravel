@@ -37074,13 +37074,13 @@ var routes = [{
   path: "/khen-thuong",
   name: "khenthuong",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./components/views/Khen_Thuong.vue */ "./resources/js/components/views/Khen_Thuong.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(23), __webpack_require__.e(24)]).then(__webpack_require__.bind(null, /*! ./components/views/Khen_Thuong.vue */ "./resources/js/components/views/Khen_Thuong.vue"));
   }
 }, {
   path: "/ky-luat",
   name: "kyluat",
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./components/views/Ky_Luat.vue */ "./resources/js/components/views/Ky_Luat.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(23), __webpack_require__.e(26)]).then(__webpack_require__.bind(null, /*! ./components/views/Ky_Luat.vue */ "./resources/js/components/views/Ky_Luat.vue"));
   }
 }, {
   path: "/bang-luong",
@@ -37105,6 +37105,30 @@ var routes = [{
   name: "dantoc-sua",
   component: function component() {
     return Promise.all(/*! import() */[__webpack_require__.e(23), __webpack_require__.e(16)]).then(__webpack_require__.bind(null, /*! ./components/views/Dan_Toc_Edit.vue */ "./resources/js/components/views/Dan_Toc_Edit.vue"));
+  }
+}, {
+  path: "/khen-thuong/them",
+  name: "them_khenthuong",
+  component: function component() {
+    return Promise.all(/*! import() */[__webpack_require__.e(23), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./components/views/KhenThuong_Add_Form.vue */ "./resources/js/components/views/KhenThuong_Add_Form.vue"));
+  }
+}, {
+  path: "/khen-thuong/detail/:id",
+  name: "detail_khenthuong",
+  component: function component() {
+    return Promise.all(/*! import() */[__webpack_require__.e(23), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./components/views/CtKhen_Thuong.vue */ "./resources/js/components/views/CtKhen_Thuong.vue"));
+  }
+}, {
+  path: "/ky-luat/them",
+  name: "them_kyluat",
+  component: function component() {
+    return Promise.all(/*! import() */[__webpack_require__.e(23), __webpack_require__.e(25)]).then(__webpack_require__.bind(null, /*! ./components/views/KyLuat_Add_Form.vue */ "./resources/js/components/views/KyLuat_Add_Form.vue"));
+  }
+}, {
+  path: "/ky-luat/detail/:id",
+  name: "detail_kyluat",
+  component: function component() {
+    return Promise.all(/*! import() */[__webpack_require__.e(23), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./components/views/CtKy_Luat.vue */ "./resources/js/components/views/CtKy_Luat.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
