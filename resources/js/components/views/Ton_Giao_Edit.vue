@@ -99,7 +99,7 @@ export default {
                             "alert alert-custom alert-light-success fade show mb-5";
                         this.alert.isSuccess = true;
                         this.alert.text = `Cập nhật thành công.`;
-                        icon_class_name = "fas fa-check";
+                        this.alert.icon_class_name = "fas fa-check";
                         setTimeout(() => {
                             this.$router.push("/ton-giao");
                         }, 500);
