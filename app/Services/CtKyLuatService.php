@@ -21,4 +21,9 @@ class CtKyLuatService
         }
         return $record->put('id', $id);
     }
+
+    public function delete($id)
+    {
+        return $this->ctKyLuatRepository->delete($id);
+    }
 }

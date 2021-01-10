@@ -32,6 +32,8 @@ Route::middleware('auth:api')->group(function () {
     Route::post("nhanvien/update", "NhanVienController@update");
     Route::delete("nhanvien/remove/{id}", 'NhanVienController@delete');
     Route::get("nhanvien/{id}", "NhanVienController@detail");
+    Route::delete('nhanvien/khenthuong/{id}', 'NhanVienController@deleteKhenThuong');
+    Route::delete('nhanvien/kyluat/{id}', 'NhanVienController@deleteKyLuat');
 
 
     // Bang Luong Api

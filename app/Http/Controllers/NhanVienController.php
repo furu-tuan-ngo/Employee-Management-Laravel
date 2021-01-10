@@ -196,4 +196,38 @@ class NhanVienController extends Controller
         }
         return $this->_authorize();
     }
+
+    public function deleteKhenThuong(Request $request, $id)
+    {
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                $result = $this->ctKhenThuongService->delete($id); // Return Id of new
+                return $this->_getDataResponse($result);
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
+    }
+
+    public function deleteKyLuat(Request $request, $id)
+    {
+        if ($this->userService->hasRole($request->user()->id, 'admin')) {
+            try {
+                // Ignore validate request
+                $result = $this->ctKyLuatService->delete($id); // Return Id of new
+                return $this->_getDataResponse($result);
+            } catch (\Exception $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage()
+                ]);
+            }
+        }
+        return $this->_authorize();
+    }
 }

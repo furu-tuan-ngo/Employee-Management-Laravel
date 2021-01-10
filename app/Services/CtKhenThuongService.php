@@ -26,4 +26,9 @@ class CtKhenThuongService
     {
         return $this->ctKhenThuongRepository->all();
     }
+
+    public function delete($id)
+    {
+        return $this->ctKhenThuongRepository->delete($id);
+    }
 }
