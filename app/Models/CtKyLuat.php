@@ -12,4 +12,8 @@ class CtKyLuat extends Model
     {
         return $this->belongsTo('App\Models\KhenThuong', 'ma_ky_luat', 'id');
     }
+    public function nhanvien()
+    {
+        return $this->belongsTo('App\Models\NhanVien', 'ma_nhan_vien', 'id');
+    }
 }

@@ -111,6 +111,26 @@ const routes = [
         path: "/dan-toc/sua/:id",
         name: "dantoc-sua",
         component: () => import("./components/views/Dan_Toc_Edit.vue")
+    },
+    {
+        path: "/khen-thuong/them",
+        name: "them_khenthuong",
+        component: () => import("./components/views/KhenThuong_Add_Form.vue")
+    },
+    {
+        path: "/khen-thuong/detail/:id",
+        name: "detail_khenthuong",
+        component: () => import("./components/views/CtKhen_Thuong.vue")
+    },
+    {
+        path: "/ky-luat/them",
+        name: "them_kyluat",
+        component: () => import("./components/views/KyLuat_Add_Form.vue")
+    },
+    {
+        path: "/ky-luat/detail/:id",
+        name: "detail_kyluat",
+        component: () => import("./components/views/CtKy_Luat.vue")
     }
 ];
 
