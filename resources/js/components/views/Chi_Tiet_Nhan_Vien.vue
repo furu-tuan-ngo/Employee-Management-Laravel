@@ -966,7 +966,9 @@ export default {
             }).then(result => {
                 if (result.value) {
                     if (result.value.success) {
-                        this.data = this.data.filter(rec => rec.id != kt.id);
+                        this.data.ct_khen_thuong = this.data.ct_khen_thuong.filter(
+                            rec => rec.id != kt.id
+                        );
                         Swal.fire(
                             "XÓA THÀNH CÔNG",
                             `${kt.khen_thuong.name} đã được xóa.`,
@@ -995,7 +997,9 @@ export default {
             }).then(result => {
                 if (result.value) {
                     if (result.value.success) {
-                        this.data = this.data.filter(rec => rec.id != kl.id);
+                        this.data.ct_ky_luat = this.data.ct_ky_luat.filter(
+                            rec => rec.id != kl.id
+                        );
                         Swal.fire(
                             "XÓA THÀNH CÔNG",
                             `${kl.name} đã được xóa.`,
