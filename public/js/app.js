@@ -37130,6 +37130,12 @@ var routes = [{
   component: function component() {
     return Promise.all(/*! import() */[__webpack_require__.e(23), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./components/views/CtKy_Luat.vue */ "./resources/js/components/views/CtKy_Luat.vue"));
   }
+}, {
+  path: "/khen-thuong/sua/:id",
+  name: "sua_khenthuong",
+  component: function component() {
+    return Promise.all(/*! import() */[__webpack_require__.e(23), __webpack_require__.e(27)]).then(__webpack_require__.bind(null, /*! ./components/views/KhenThuong_Edit_Form.vue */ "./resources/js/components/views/KhenThuong_Edit_Form.vue"));
+  }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes

@@ -131,6 +131,11 @@ const routes = [
         path: "/ky-luat/detail/:id",
         name: "detail_kyluat",
         component: () => import("./components/views/CtKy_Luat.vue")
+    },
+    {
+        path: "/khen-thuong/sua/:id",
+        name: "sua_khenthuong",
+        component: () => import("./components/views/KhenThuong_Edit_Form.vue")
     }
 ];
 

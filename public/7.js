@@ -1,9 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[7],{
 
+<<<<<<< HEAD
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************/
+=======
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -70,6 +77,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -84,6 +92,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+=======
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -98,6 +108,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+<<<<<<< HEAD
   created: function created() {
     var _this = this;
 
@@ -131,6 +142,25 @@ __webpack_require__.r(__webpack_exports__);
         _this2.alert.className = "alert alert-custom alert-light-danger fade show mb-5";
         _this2.alert.isSuccess = true;
         _this2.alert.text = "C\u1EADp nh\u1EADt Th\u1EA5t b\u1EA1i ";
+=======
+  methods: {
+    InsertRecord: function InsertRecord() {
+      var _this = this;
+
+      var danTocModel = new _models_crud_model__WEBPACK_IMPORTED_MODULE_0__["default"]("dantoc");
+      danTocModel.insert({
+        name: this.data.name
+      }).then(function (res) {
+        _this.alert.className = "alert alert-custom alert-light-success fade show mb-5";
+        _this.alert.isSuccess = true;
+        _this.alert.text = "".concat(res.data.name, " \u0111\xE3 \u0111\u01B0\u1EE3c th\xEAm th\xE0nh c\xF4ng v\xE0o b\u1EA3ng d\xE2n t\u1ED9c.");
+        _this.data.name = "";
+      })["catch"](function (err) {
+        console.log(err);
+        _this.alert.className = "alert alert-custom alert-light-danger fade show mb-5";
+        _this.alert.isSuccess = true;
+        _this.alert.text = "Th\xEAm ".concat(_this.data.name, " Th\u1EA5t b\u1EA1i ");
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
       });
     }
   }
@@ -138,10 +168,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=template&id=d53f7dac&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=template&id=d53f7dac& ***!
   \*********************************************************************************************************************************************************************************************************************/
+=======
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4& ***!
+  \************************************************************************************************************************************************************************************************************************/
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -177,7 +214,11 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _c("h5", { staticClass: "text-dark font-weight-bold mb-10" }, [
+<<<<<<< HEAD
           _vm._v("\n                Cập nhật Chức Vụ :\n            ")
+=======
+          _vm._v("\n                Thêm Mới Dân Tộc :\n            ")
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
         ]),
         _vm._v(" "),
         _c("form", [
@@ -186,7 +227,11 @@ var render = function() {
             { staticClass: "form-group row fv-plugins-icon-container" },
             [
               _c("label", { staticClass: "col-xl-3 col-lg-3 col-form-label" }, [
+<<<<<<< HEAD
                 _vm._v("Tên Chức Vụ\n                    ")
+=======
+                _vm._v("Tên Dân Tộc :")
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-lg-9 col-xl-9" }, [
@@ -201,7 +246,16 @@ var render = function() {
                   ],
                   staticClass:
                     "form-control form-control-solid form-control-lg",
+<<<<<<< HEAD
                   attrs: { type: "text", name: "name", autocomplete: "off" },
+=======
+                  attrs: {
+                    placeholder: "nhập tên dân tộc",
+                    type: "text",
+                    name: "name",
+                    autocomplete: "off"
+                  },
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
                   domProps: { value: _vm.data.name },
                   on: {
                     input: function($event) {
@@ -216,6 +270,7 @@ var render = function() {
                 _c("div", { staticClass: "fv-plugins-message-container" })
               ])
             ]
+<<<<<<< HEAD
           ),
           _vm._v(" "),
           _c(
@@ -253,6 +308,8 @@ var render = function() {
                 _c("div", { staticClass: "fv-plugins-message-container" })
               ])
             ]
+=======
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
           )
         ]),
         _vm._v(" "),
@@ -267,7 +324,11 @@ var render = function() {
                 attrs: { type: "button" },
                 on: { click: _vm.InsertRecord }
               },
+<<<<<<< HEAD
               [_vm._v("\n                        Sửa\n                    ")]
+=======
+              [_vm._v("\n                        Thêm\n                    ")]
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
             )
           ])
         ])
@@ -421,17 +482,29 @@ var CrudModel = /*#__PURE__*/function () {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/components/views/Chuc_Vu_Edit.vue":
 /*!********************************************************!*\
   !*** ./resources/js/components/views/Chuc_Vu_Edit.vue ***!
   \********************************************************/
+=======
+/***/ "./resources/js/components/views/DanToc_Add_Form.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/views/DanToc_Add_Form.vue ***!
+  \***********************************************************/
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _Chuc_Vu_Edit_vue_vue_type_template_id_d53f7dac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Chuc_Vu_Edit.vue?vue&type=template&id=d53f7dac& */ "./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=template&id=d53f7dac&");
 /* harmony import */ var _Chuc_Vu_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Chuc_Vu_Edit.vue?vue&type=script&lang=js& */ "./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=script&lang=js&");
+=======
+/* harmony import */ var _DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DanToc_Add_Form.vue?vue&type=template&id=916b84a4& */ "./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4&");
+/* harmony import */ var _DanToc_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DanToc_Add_Form.vue?vue&type=script&lang=js& */ "./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js&");
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -441,9 +514,15 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+<<<<<<< HEAD
   _Chuc_Vu_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Chuc_Vu_Edit_vue_vue_type_template_id_d53f7dac___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Chuc_Vu_Edit_vue_vue_type_template_id_d53f7dac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+=======
+  _DanToc_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
   false,
   null,
   null,
@@ -453,20 +532,32 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
+<<<<<<< HEAD
 component.options.__file = "resources/js/components/views/Chuc_Vu_Edit.vue"
+=======
+component.options.__file = "resources/js/components/views/DanToc_Add_Form.vue"
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************/
+=======
+/***/ "./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Chuc_Vu_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Chuc_Vu_Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Chuc_Vu_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
@@ -476,15 +567,33 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=template&id=d53f7dac& ***!
   \***************************************************************************************/
+=======
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DanToc_Add_Form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4& ***!
+  \******************************************************************************************/
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Chuc_Vu_Edit_vue_vue_type_template_id_d53f7dac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Chuc_Vu_Edit.vue?vue&type=template&id=d53f7dac& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/Chuc_Vu_Edit.vue?vue&type=template&id=d53f7dac&");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Chuc_Vu_Edit_vue_vue_type_template_id_d53f7dac___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Chuc_Vu_Edit_vue_vue_type_template_id_d53f7dac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+=======
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DanToc_Add_Form.vue?vue&type=template&id=916b84a4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+>>>>>>> 70f680a551ae3d0412f7b39d4d9179ab221feb9a
 
 
 

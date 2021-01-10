@@ -89,7 +89,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var khenthuongModel = new _models_crud_model__WEBPACK_IMPORTED_MODULE_0__["default"]("khenthuong");
-      khenthuongModel.InsertRecord({
+      khenthuongModel.insert({
         name: this.data.name
       }).then(function (res) {
         _this.alert.className = "alert alert-custom alert-light-success fade show mb-5";

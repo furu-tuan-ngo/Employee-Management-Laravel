@@ -78,7 +78,7 @@ export default {
             const khenthuongModel = new CrudModel("khenthuong");
 
             khenthuongModel
-                .InsertRecord({
+                .insert({
                     name: this.data.name
                 })
                 .then(res => {
