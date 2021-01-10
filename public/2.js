@@ -1697,6 +1697,54 @@ var NhanVien = /*#__PURE__*/function (_CrudModel) {
         };
       });
     }
+  }, {
+    key: "setKhenThuong",
+    value: function setKhenThuong(param) {
+      return this.api.post("nhanvien/khenthuong", param).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
+  }, {
+    key: "setKyLuat",
+    value: function setKyLuat(param) {
+      return this.api.post("nhanvien/kyluat", param).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
+  }, {
+    key: "setNgoaiNgu",
+    value: function setNgoaiNgu(param) {
+      return this.api.post("nhanvien/ngoaingu", param).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
+  }, {
+    key: "setTrinhDo",
+    value: function setTrinhDo(param) {
+      return this.api.post("nhanvien/trinhdo", param).then(function (res) {
+        return res.data;
+      })["catch"](function (err) {
+        return {
+          success: false,
+          message: err
+        };
+      });
+    }
   }]);
 
   return NhanVien;

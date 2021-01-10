@@ -1,15 +1,27 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/CtKy_Luat.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/CtKy_Luat.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _models_crud_model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/crud-model */ "./resources/js/components/models/crud-model.js");
+/* harmony import */ var _LoadingComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../LoadingComponent.vue */ "./resources/js/components/LoadingComponent.vue");
+/* harmony import */ var _models_crud_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/crud-model */ "./resources/js/components/models/crud-model.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -71,47 +83,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    LoadingComponent: _LoadingComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
+      loading: true,
       data: {
-        name: ""
-      },
-      alert: {
-        className: "",
-        isSuccess: false,
-        text: ""
+        ct_ky_luat: []
       }
     };
   },
-  methods: {
-    InsertRecord: function InsertRecord() {
-      var _this = this;
+  created: function created() {
+    var _this = this;
 
-      var danTocModel = new _models_crud_model__WEBPACK_IMPORTED_MODULE_0__["default"]("dantoc");
-      danTocModel.insert({
-        name: this.data.name
-      }).then(function (res) {
-        _this.alert.className = "alert alert-custom alert-light-success fade show mb-5";
-        _this.alert.isSuccess = true;
-        _this.alert.text = "".concat(res.data.name, " \u0111\xE3 \u0111\u01B0\u1EE3c th\xEAm th\xE0nh c\xF4ng v\xE0o b\u1EA3ng d\xE2n t\u1ED9c.");
-        _this.data.name = "";
-      })["catch"](function (err) {
-        console.log(err);
-        _this.alert.className = "alert alert-custom alert-light-danger fade show mb-5";
-        _this.alert.isSuccess = true;
-        _this.alert.text = "Th\xEAm ".concat(_this.data.name, " Th\u1EA5t b\u1EA1i ");
-      });
-    }
+    var kyLuatModel = new _models_crud_model__WEBPACK_IMPORTED_MODULE_1__["default"]("kyluat");
+    kyLuatModel.get(this.$router.currentRoute.params.id).then(function (res) {
+      if (res.success) {
+        _this.data = res.data;
+        _this.loading = false;
+      }
+    })["catch"](function (error) {
+      console.log(error);
+    });
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4&":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4& ***!
-  \************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/CtKy_Luat.vue?vue&type=template&id=084356a0&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/CtKy_Luat.vue?vue&type=template&id=084356a0& ***!
+  \******************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -124,95 +129,88 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-3" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-6" }, [
-        this.alert.isSuccess
-          ? _c(
-              "div",
-              { class: this.alert.className, attrs: { role: "alert" } },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c("div", { staticClass: "alert-text" }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(this.alert.text) +
-                      "\n                "
-                  )
-                ])
-              ]
-            )
-          : _vm._e(),
+    _c(
+      "div",
+      {
+        staticClass:
+          "card card-custom card-stretch gutter-b card-shadowless p-0"
+      },
+      [
+        _vm._m(0),
         _vm._v(" "),
-        _c("h5", { staticClass: "text-dark font-weight-bold mb-10" }, [
-          _vm._v("\n                Thêm Mới Dân Tộc :\n            ")
-        ]),
-        _vm._v(" "),
-        _c("form", [
-          _c(
-            "div",
-            { staticClass: "form-group row fv-plugins-icon-container" },
-            [
-              _c("label", { staticClass: "col-xl-3 col-lg-3 col-form-label" }, [
-                _vm._v("Tên Dân Tộc :")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-9 col-xl-9" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.data.name,
-                      expression: "data.name"
-                    }
-                  ],
-                  staticClass:
-                    "form-control form-control-solid form-control-lg",
-                  attrs: {
-                    placeholder: "nhập tên dân tộc",
-                    type: "text",
-                    name: "name",
-                    autocomplete: "off"
-                  },
-                  domProps: { value: _vm.data.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.data, "name", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "fv-plugins-message-container" })
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-10" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-2" }, [
+        _c("div", { staticClass: "card-body py-0 p-0" }, [
+          _c("div", { staticClass: "table-responsive" }, [
             _c(
-              "button",
+              "table",
               {
-                staticClass: "btn btn-primary font-weight-bolder px-9 py-4",
-                attrs: { type: "button" },
-                on: { click: _vm.InsertRecord }
+                staticClass: "table table-head-custom table-vertical-center",
+                attrs: { id: "kt_advance_table_widget_1" }
               },
-              [_vm._v("\n                        Thêm\n                    ")]
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  [
+                    this.loading
+                      ? _c(
+                          "div",
+                          { staticClass: "loading-container" },
+                          [_c("loading-component")],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm._l(_vm.data.ct_ky_luat, function(item) {
+                      return _c("tr", { key: item.id }, [
+                        _c("td", { staticClass: "pr-0" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg",
+                              attrs: { href: "#" }
+                            },
+                            [_vm._v(_vm._s(item.nhanvien.ho_ten))]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(item.nguyen_nhan) +
+                              "\n                            "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(item.hinh_thuc) +
+                              "\n                            "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(item.ngay_kl) +
+                              "\n                            "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "pl-0 text-right" })
+                      ])
+                    })
+                  ],
+                  2
+                )
+              ]
             )
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-3" })
-    ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -220,8 +218,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "alert-icon" }, [
-      _c("i", { staticClass: "flaticon-warning" })
+    return _c("div", { staticClass: "card-header border-0 py-5 px-0" }, [
+      _c("h3", { staticClass: "card-title align-items-start flex-column" }, [
+        _c("span", { staticClass: "card-label font-weight-bolder text-dark" }, [
+          _vm._v("Chi tiết kỹ luật")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "text-left" }, [
+        _c("th", { staticStyle: { "min-width": "200px" } }, [
+          _vm._v("Tên Nhân Viên")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticStyle: { "min-width": "200px" } }, [
+          _vm._v("Nguyên nhân")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticStyle: { "min-width": "200px" } }, [
+          _vm._v("Hình thức")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticStyle: { "min-width": "200px" } }, [
+          _vm._v(
+            "\n                                Ngày kỹ luật\n                            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", {
+          staticClass: "pr-0 text-right",
+          staticStyle: { "min-width": "150px" }
+        })
+      ])
     ])
   }
 ]
@@ -338,17 +371,17 @@ var CrudModel = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/components/views/DanToc_Add_Form.vue":
-/*!***********************************************************!*\
-  !*** ./resources/js/components/views/DanToc_Add_Form.vue ***!
-  \***********************************************************/
+/***/ "./resources/js/components/views/CtKy_Luat.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/views/CtKy_Luat.vue ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DanToc_Add_Form.vue?vue&type=template&id=916b84a4& */ "./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4&");
-/* harmony import */ var _DanToc_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DanToc_Add_Form.vue?vue&type=script&lang=js& */ "./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js&");
+/* harmony import */ var _CtKy_Luat_vue_vue_type_template_id_084356a0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CtKy_Luat.vue?vue&type=template&id=084356a0& */ "./resources/js/components/views/CtKy_Luat.vue?vue&type=template&id=084356a0&");
+/* harmony import */ var _CtKy_Luat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CtKy_Luat.vue?vue&type=script&lang=js& */ "./resources/js/components/views/CtKy_Luat.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -358,9 +391,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _DanToc_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _CtKy_Luat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CtKy_Luat_vue_vue_type_template_id_084356a0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CtKy_Luat_vue_vue_type_template_id_084356a0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -370,38 +403,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/views/DanToc_Add_Form.vue"
+component.options.__file = "resources/js/components/views/CtKy_Luat.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************/
+/***/ "./resources/js/components/views/CtKy_Luat.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/views/CtKy_Luat.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DanToc_Add_Form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CtKy_Luat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CtKy_Luat.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/CtKy_Luat.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CtKy_Luat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4& ***!
-  \******************************************************************************************/
+/***/ "./resources/js/components/views/CtKy_Luat.vue?vue&type=template&id=084356a0&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/views/CtKy_Luat.vue?vue&type=template&id=084356a0& ***!
+  \************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DanToc_Add_Form.vue?vue&type=template&id=916b84a4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/DanToc_Add_Form.vue?vue&type=template&id=916b84a4&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CtKy_Luat_vue_vue_type_template_id_084356a0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CtKy_Luat.vue?vue&type=template&id=084356a0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/CtKy_Luat.vue?vue&type=template&id=084356a0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CtKy_Luat_vue_vue_type_template_id_084356a0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DanToc_Add_Form_vue_vue_type_template_id_916b84a4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CtKy_Luat_vue_vue_type_template_id_084356a0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

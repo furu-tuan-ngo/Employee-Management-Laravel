@@ -78,7 +78,7 @@ export default {
             const kyluatModel = new CrudModel("kyluat");
 
             kyluatModel
-                .InsertRecord({
+                .insert({
                     name: this.data.name
                 })
                 .then(res => {

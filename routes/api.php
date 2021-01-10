@@ -63,7 +63,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('khenthuong/{id}', "KhenThuongController@detail");
     Route::delete('khenthuong/remove/{id}', "KhenThuongController@delete");
     Route::post('khenthuong/update', "KhenThuongController@update");
-    Route::post('khenthuong/add', "KhenThuongController@save");
+    Route::post('khenthuongs', "KhenThuongController@save");
 
     /**
      * Ky Luat api
@@ -72,5 +72,5 @@ Route::middleware('auth:api')->group(function () {
     Route::get('kyluat/{id}', "KyLuatController@detail");
     Route::delete('kyluat/remove/{id}', "KyLuatController@delete");
     Route::post('kyluat/update', "KyLuatController@update");
-    Route::post('kyluat/add', "KyLuatController@save");
+    Route::post('kyluats', "KyLuatController@save");
 });
