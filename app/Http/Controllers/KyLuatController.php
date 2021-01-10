@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CtKyLuat;
 use Illuminate\Http\Request;
 use App\Services\KyLuatService;
-use App\Services\CtKyluatService;
+use App\Services\CtKyLuatService;
 use App\Services\UserService;
 use KyLuat;
 
