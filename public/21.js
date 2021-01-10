@@ -505,7 +505,7 @@ var staticRenderFns = [
       { staticClass: "card-title align-items-start flex-column" },
       [
         _c("span", { staticClass: "card-label font-weight-bolder text-dark" }, [
-          _vm._v("Danh Sách Hạn Mục Kỹ Luật")
+          _vm._v("Danh Sách Kỷ Luật")
         ])
       ]
     )
