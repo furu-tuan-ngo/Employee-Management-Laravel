@@ -1379,7 +1379,7 @@ var render = function() {
                           _c(
                             "span",
                             { staticClass: "text-success font-weight-bold" },
-                            [_vm._v(_vm._s(kt.ngay_qd))]
+                            [_vm._v(_vm._s(kt.ngay_qd.split(" ")[0]))]
                           )
                         ]),
                         _vm._v(" "),
@@ -1518,7 +1518,7 @@ var render = function() {
                           _c(
                             "span",
                             { staticClass: "text-primary font-weight-bold" },
-                            [_vm._v(_vm._s(kl.ngay_kl))]
+                            [_vm._v(_vm._s(kl.ngay_kl.split(" ")[0]))]
                           )
                         ]),
                         _vm._v(" "),

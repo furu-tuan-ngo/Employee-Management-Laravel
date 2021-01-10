@@ -316,7 +316,7 @@
                             </div>
                             <div class="timeline-label">
                                 <span class="text-success font-weight-bold">{{
-                                    kt.ngay_qd
+                                    kt.ngay_qd.split(" ")[0]
                                 }}</span>
                             </div>
                             <div class="timeline-content">
@@ -438,7 +438,7 @@
                             </div>
                             <div class="timeline-label">
                                 <span class="text-primary font-weight-bold">{{
-                                    kl.ngay_kl
+                                    kl.ngay_kl.split(" ")[0]
                                 }}</span>
                             </div>
                             <div class="timeline-content">
