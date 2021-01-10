@@ -1002,7 +1002,7 @@ export default {
                         );
                         Swal.fire(
                             "XÓA THÀNH CÔNG",
-                            `${kl.name} đã được xóa.`,
+                            `${kl.ky_luat.name} đã được xóa.`,
                             "success"
                         );
                     } else {
